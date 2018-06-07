@@ -69,7 +69,7 @@ DATABASES = {
 
 
 3. chihayafuru/urls.py 
-```
+``` python
 from django.contrib import admin
 from django.urls import include, path
 
@@ -80,7 +80,7 @@ urlpatterns = [
 ```
 
 4. poems/views.py 
-```
+``` python
 from django.shortcuts import render
 
 # Create your views here.
@@ -90,7 +90,7 @@ def index(request):
 ```
 
 5. poems/urls.py 
-``` 
+``` python
 from django.urls import path 
 from . import views 
 
@@ -105,7 +105,7 @@ python manage.py runserver
 
 
 7. poems/models.py 
-``` 
+``` python
 from django.db import models
 
 # Create your models here.
@@ -131,7 +131,7 @@ Poem.objects.all().delete()
 
 9. seeds.py 
 Create a script to populate database from 3 files 
-```
+``` python
 # fundamentals 
 
 keys = ['a','b','c']
@@ -148,4 +148,26 @@ with open(file,'r') as csvfile:
     csvfile.close()
 ```
 
-10. 
+10. poems/views.py
+``` python  
+from django.shortcuts import render
+from .models import Poem 
+
+# Create your views here.
+def index(request):
+    poems_list = Poem.objects.order_by('numeral')
+    context = { 'poems': poems_list }
+    return render(request, 'poems/index.html', context)
+```
+
+11. settings.py 
+STATIC_DIR = os.path.join(BASE_DIR, 'static')
+STATICFILES_DIRS = [STATIC_DIR]
+
+
+12. templates/poems/index.html 
+Create an ordered list of tables with all versions of the poems
+
+
+13. static/poems/css/styles.css 
+Add table styles 

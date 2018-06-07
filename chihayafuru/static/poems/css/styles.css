@@ -1,0 +1,16 @@
+table,td,tr{
+	border-collapse: collapse;
+	line-height: 1.5;
+}
+
+table{
+	margin-left: 2.2em;
+}
+th,td{
+	padding: 0 1em;
+	text-align: left;
+}
+
+ol{
+	margin: 3.5em auto 0.9em;
+}

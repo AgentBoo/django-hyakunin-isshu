@@ -1,11 +1,11 @@
 # ignore lab book
-# lab-book.md
+# /lab-book.md
 
 # ignore poems scraper outputs   
-poems/jap.csv
-poems/rom.csv
-poems/eng.csv
-poems/frame_1.txt 
-poems/frame_2.txt 
-poems/frame_3.txt 
-poems/frame_4.txt  
+/poems/jap.csv
+/poems/rom.csv
+/poems/eng.csv
+/poems/frame_1.txt 
+/poems/frame_2.txt 
+/poems/frame_3.txt 
+/poems/frame_4.txt  

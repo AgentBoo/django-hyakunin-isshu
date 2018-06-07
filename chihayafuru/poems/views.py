@@ -1,6 +1,8 @@
 from django.shortcuts import render
+from .models import Poem 
 
 # Create your views here.
 def index(request):
-	context = { 'poems': 'Hello world' }
+	poems_list = Poem.objects.order_by('numeral')
+	context = { 'poems': poems_list }
 	return render(request, 'poems/index.html', context)

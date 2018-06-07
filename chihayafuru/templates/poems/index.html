@@ -1,10 +1,46 @@
 <!DOCTYPE html>
+{% load static %}
 <html lang="en">
 <head>
 	<meta charset="UTF-8">
 	<title> Ogura Hyakunin Isshu </title>
+	<link rel='stylesheet' type='text/css' href='{% static 'poems/css/styles.css'%}'/>
 </head>
 <body>
-	{{ poems }}
+	{% if poems %}
+		{% for poem in poems %}
+		<ol> {{poem.numeral}}. {{ poem.rom.author }} ({{ poem.jap.author}}) </ol>
+			<table>
+				<tr>
+					<td> {{poem.jap.line_1}} </td>
+					<td> {{poem.rom.line_1}} </td>
+					<td> {{poem.eng.line_1}} </td>
+				</tr>
+				<tr>
+					<td> {{poem.jap.line_2}} </td>
+					<td> {{poem.rom.line_2}} </td>
+					<td> {{poem.eng.line_2}} </td>
+				</tr>
+				<tr>
+					<td> {{poem.jap.line_3}} </td>
+					<td> {{poem.rom.line_3}} </td>
+					<td> {{poem.eng.line_3}} </td>
+				</tr>
+				<tr>
+					<td> {{poem.jap.line_4}} </td>
+					<td> {{poem.rom.line_4}} </td>
+					<td> {{poem.eng.line_4}} </td>
+				</tr>
+				<tr>
+					<td> {{poem.jap.line_5}} </td>
+					<td> {{poem.rom.line_5}} </td>
+					<td> {{poem.eng.line_5}} </td>
+				</tr>
+			</table>
+		</ol>
+		{% endfor %}
+	{% else %}
+		<p> Something went wrong </p>
+	{% endif %}
 </body>
 </html>
