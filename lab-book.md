@@ -171,3 +171,39 @@ Create an ordered list of tables with all versions of the poems
 
 13. static/poems/css/styles.css 
 Add table styles 
+
+
+<!-- -------------------------------------------------------------------------------------- -->
+
+1. cli 
+mv chihayafuru ./old 
+
+django-admin startproject chihayafuru . && cd chihayafuru 
+django-admin startapp poems
+
+pip install djangorestframework
+pip install django-filter 
+
+http://www.django-rest-framework.org/
+
+2. chihayafuru/settings.py 
+```python
+INSTALLED_APPS = [
+    'django.contrib.admin',
+    'django.contrib.auth',
+    'django.contrib.contenttypes',
+    'django.contrib.sessions',
+    'django.contrib.messages',
+    'django.contrib.staticfiles',
+    'rest_framework'
+]
+
+REST_FRAMEWORK = {
+    # Use Django's standard `django.contrib.auth` permissions,
+    # or allow read-only access for unauthenticated users.
+    'DEFAULT_PERMISSION_CLASSES': [
+        'django.contrib.auth',
+        'rest_framework.permissions.DjangoModelPermissionsOrAnonReadOnly',
+    ]
+}
+``` 

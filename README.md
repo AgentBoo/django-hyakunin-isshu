@@ -1,3 +1,3 @@
 # django-hyakunin-isshu
 
-This is a practice site centered around Ogura Hyakunin Isshu poems. I was initially going to use Django to build a more complete website, but decided to go with Rails instead.  
+This site is centered around Ogura Hyakunin Isshu poems. Django and Django REST framework are used on the backend, React is used on the frontend.
