@@ -6,7 +6,8 @@ import csv
 Save iframe contents to individual txt files. This is important because the original
 html documents are not well formatted. Different available html parsers were not able
 to deal with the mistakes, so changes will have to be made to the content manually to get
-correct results using BeautifulSoup
+correct results using BeautifulSoup.
+Use chihayaenv environment.
 '''
 
 # extract iframes from the site

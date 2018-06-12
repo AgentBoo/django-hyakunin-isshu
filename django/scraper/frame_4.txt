@@ -1,13 +1,13 @@
 <html>
 <head><title>Ogura Hyakunin Isshu</title></head>
-<body background=/japanese/hyakunin/images/backg1.gif
+<body background=/japanese/hyakunin/images/backg1.gif 
 text=#000000 link="#000080" vlink="#800000">
 
 <center>
 <hr width=30% size=4>
 <a
 href="/etcbin/hyakuframe2www?act=queryform&specfile=/web/data/japanese/hyakunin/frames/index/hyaku1eng.o2w">Search</a>
-<hr width=50% size=4>
+<hr width=50% size=4> 
 <br></center>
 <lg><a name="eng1"> </a>
 <center><h3><a
@@ -41,7 +41,7 @@ target="euc">Japanese -></a>
 <center><h3><a
 href="/japanese/hyakunin/images/onna2.jpg">2</a></h3></center>
 
-
+ 
 
 <br><center>Empress Jito</center>
 
@@ -58,7 +58,7 @@ href="/japanese/hyakunin/images/onna2.jpg">2</a></h3></center>
 <center><hr width=30% size=4><a
 href="/etcbin/hyakuframe2www?act=queryform&specfile=/web/data/japanese/hyakunin/frames/index/hyaku1eng.o2w"><font color="000080">Search</font></a>
 <br><br>
- |
+ | 
 <a href="/japanese/hyakunin/frames/index/hyaku2rom.html#rom2"
 target="rom"><- Romaji</a>
  |
@@ -87,7 +87,7 @@ href="/japanese/hyakunin/images/onna3.jpg">3</a></h3></center>
 <center><hr width=30% size=4><a
 href="/etcbin/hyakuframe2www?act=queryform&specfile=/web/data/japanese/hyakunin/frames/index/hyaku1eng.o2w"><font color="000080">Search</font></a>
 <br><br>
- |
+ |  
 <a href="/japanese/hyakunin/frames/index/hyaku2rom.html#rom3"
 target="rom"><- Romaji</a>
  |
@@ -114,7 +114,7 @@ href="/japanese/hyakunin/images/onna4.jpg">4</a></h3></center>
 <center><hr width=30% size=4><a
 href="/etcbin/hyakuframe2www?act=queryform&specfile=/web/data/japanese/hyakunin/frames/index/hyaku1eng.o2w"><font color="000080">Search</font></a>
 <br><br>
- |
+ |  
 <a href="/japanese/hyakunin/frames/index/hyaku2rom.html#rom4"
 target="rom"><- Romaji</a>
  |
@@ -129,7 +129,7 @@ target="euc">Japanese -></a>
 <center><h3><a
 href="/japanese/hyakunin/images/onna5.jpg">5</a></h3></center>
 
-
+ 
 
 
 
@@ -150,7 +150,7 @@ href="/japanese/hyakunin/images/onna5.jpg">5</a></h3></center>
 <center><hr width=30% size=4><a
 href="/etcbin/hyakuframe2www?act=queryform&specfile=/web/data/japanese/hyakunin/frames/index/hyaku1eng.o2w"><font color="000080">Search</font></a>
 <br><br>
- |
+ |  
 <a href="/japanese/hyakunin/frames/index/hyaku2rom.html#rom5"
 target="rom"><- Romaji</a>
  |
@@ -165,7 +165,7 @@ target="euc">Japanese -></a>
 <center><h3><a
 href="/japanese/hyakunin/images/onna6.jpg">6</a></h3></center>
 
-
+ 
 
 
 
@@ -185,7 +185,7 @@ href="/japanese/hyakunin/images/onna6.jpg">6</a></h3></center>
 <center><hr width=30% size=4><a
 href="/etcbin/hyakuframe2www?act=queryform&specfile=/web/data/japanese/hyakunin/frames/index/hyaku1eng.o2w"><font color="000080">Search</font></a>
 <br><br>
- |
+ |  
 <a href="/japanese/hyakunin/frames/index/hyaku2rom.html#rom6"
 target="rom"><- Romaji</a>
  |
@@ -202,7 +202,7 @@ target="euc">Japanese -></a>
 <center><h3><a
 href="/japanese/hyakunin/images/onna7.jpg">7</a></h3></center>
 
-
+ 
 
 
 
@@ -223,7 +223,7 @@ href="/japanese/hyakunin/images/onna7.jpg">7</a></h3></center>
 <center><hr width=30% size=4><a
 href="/etcbin/hyakuframe2www?act=queryform&specfile=/web/data/japanese/hyakunin/frames/index/hyaku1eng.o2w"><font color="000080">Search</font></a>
 <br><br>
- |
+ |  
 <a href="/japanese/hyakunin/frames/index/hyaku2rom.html#rom7"
 target="rom"><- Romaji</a>
  |
@@ -238,7 +238,7 @@ target="euc">Japanese -></a>
 <center><h3><a
 href="/japanese/hyakunin/images/onna8.jpg">8</a></h3></center>
 
-
+ 
 
 
 
@@ -258,8 +258,8 @@ href="/japanese/hyakunin/images/onna8.jpg">8</a></h3></center>
 <br>
 <center><hr width=30% size=4><a
 href="/etcbin/hyakuframe2www?act=queryform&specfile=/web/data/japanese/hyakunin/frames/index/hyaku1eng.o2w"><font color="000080">Search</font></a>
-<br><br> |
-
+<br><br> | 
+ 
 <a href="/japanese/hyakunin/frames/index/hyaku2rom.html#rom8"
 target="rom"><- Romaji</a>
  |
@@ -274,7 +274,7 @@ target="euc">Japanese -></a>
 <center><h3><a
 href="/japanese/hyakunin/images/onna9.jpg">9</a></h3></center>
 
-
+ 
 
 
 
@@ -295,8 +295,8 @@ href="/japanese/hyakunin/images/onna9.jpg">9</a></h3></center>
 <center><hr width=30% size=4><a
 href="/etcbin/hyakuframe2www?act=queryform&specfile=/web/data/japanese/hyakunin/frames/index/hyaku1eng.o2w"><font color="000080">Search</font></a>
 <br><br>
- |
-
+ | 
+ 
 <a href="/japanese/hyakunin/frames/index/hyaku2rom.html#rom9"
 target="rom"><- Romaji</a>
  |
@@ -311,7 +311,7 @@ target="euc">Japanese -></a>
 <center><h3><a
 href="/japanese/hyakunin/images/onna10.jpg">10</a></h3></center>
 
-
+ 
 
 
 
@@ -332,8 +332,8 @@ href="/japanese/hyakunin/images/onna10.jpg">10</a></h3></center>
 <center><hr width=30% size=4><a
 href="/etcbin/hyakuframe2www?act=queryform&specfile=/web/data/japanese/hyakunin/frames/index/hyaku1eng.o2w"><font color="000080">Search</font></a>
 <br><br>
- |
-
+ | 
+ 
 <a href="/japanese/hyakunin/frames/index/hyaku2rom.html#rom10"
 target="rom"><- Romaji</a>
  |
@@ -348,7 +348,7 @@ target="euc">Japanese -></a>
 <center><h3><a
 href="/japanese/hyakunin/images/onna11.jpg">11</a></h3></center>
 
-
+ 
 
 
 
@@ -370,8 +370,8 @@ href="/japanese/hyakunin/images/onna11.jpg">11</a></h3></center>
 <center><hr width=30% size=4><a
 href="/etcbin/hyakuframe2www?act=queryform&specfile=/web/data/japanese/hyakunin/frames/index/hyaku1eng.o2w"><font color="000080">Search</font></a>
 <br><br>
- |
-
+ | 
+ 
 <a href="/japanese/hyakunin/frames/index/hyaku2rom.html#rom11"
 target="rom"><- Romaji</a>
  |
@@ -386,7 +386,7 @@ target="euc">Japanese -></a>
 <center><h3><a
 href="/japanese/hyakunin/images/onna12.jpg">12</a></h3></center>
 
-
+ 
 
 
 
@@ -408,8 +408,8 @@ href="/japanese/hyakunin/images/onna12.jpg">12</a></h3></center>
 <center><hr width=30% size=4><a
 href="/etcbin/hyakuframe2www?act=queryform&specfile=/web/data/japanese/hyakunin/frames/index/hyaku1eng.o2w"><font color="000080">Search</font></a>
 <br><br>
- |
-
+ | 
+ 
 <a href="/japanese/hyakunin/frames/index/hyaku2rom.html#rom12"
 target="rom"><- Romaji</a>
  |
@@ -424,7 +424,7 @@ target="euc">Japanese -></a>
 <center><h3><a
 href="/japanese/hyakunin/images/onna13.jpg">13</a></h3></center>
 
-
+ 
 
 
 
@@ -433,20 +433,20 @@ href="/japanese/hyakunin/images/onna13.jpg">13</a></h3></center>
 
 <br><center>Emperor Yozei </center>
 
-
+ 
 <br>From Tsukuba's peak
 <br>Falling waters have become
 <br>Mina's still, full flow:
 <br>
 
 <br>So my love has grown to be
-<br>Like the river's quiet deeps.
+<br>Like the river's quiet deeps. 
 <br>
 <center><hr width=30% size=4><a
 href="/etcbin/hyakuframe2www?act=queryform&specfile=/web/data/japanese/hyakunin/frames/index/hyaku1eng.o2w"><font color="000080">Search</font></a>
 <br><br>
- |
-
+ | 
+ 
 <a href="/japanese/hyakunin/frames/index/hyaku2rom.html#rom13"
 target="rom"><- Romaji</a>
  |
@@ -461,7 +461,7 @@ target="euc">Japanese -></a>
 <center><h3><a
 href="/japanese/hyakunin/images/onna14.jpg">14</a></h3></center>
 
-
+ 
 
 
 
@@ -483,8 +483,8 @@ href="/japanese/hyakunin/images/onna14.jpg">14</a></h3></center>
 <center><hr width=30% size=4><a
 href="/etcbin/hyakuframe2www?act=queryform&specfile=/web/data/japanese/hyakunin/frames/index/hyaku1eng.o2w"><font color="000080">Search</font></a>
 <br><br>
- |
-
+ | 
+ 
 <a href="/japanese/hyakunin/frames/index/hyaku2rom.html#rom14"
 target="rom"><- Romaji</a>
  |
@@ -498,7 +498,7 @@ target="euc">Japanese -></a>
 <center><h3><a
 href="/japanese/hyakunin/images/onna15.jpg">15</a></h3></center>
 
-
+ 
 
 
 
@@ -520,8 +520,8 @@ href="/japanese/hyakunin/images/onna15.jpg">15</a></h3></center>
 <center><hr width=30% size=4><a
 href="/etcbin/hyakuframe2www?act=queryform&specfile=/web/data/japanese/hyakunin/frames/index/hyaku1eng.o2w"><font color="000080">Search</font></a>
 <br><br>
- |
-
+ | 
+ 
 <a href="/japanese/hyakunin/frames/index/hyaku2rom.html#rom15"
 target="rom"><- Romaji</a>
  |
@@ -536,7 +536,7 @@ target="euc">Japanese -></a>
 <center><h3><a
 href="/japanese/hyakunin/images/onna16.jpg">16</a></h3></center>
 
-
+ 
 
 
 
@@ -560,14 +560,14 @@ href="/japanese/hyakunin/images/onna16.jpg">16</a></h3></center>
 <center><hr width=30% size=4><a
 href="/etcbin/hyakuframe2www?act=queryform&specfile=/web/data/japanese/hyakunin/frames/index/hyaku1eng.o2w"><font color="000080">Search</font></a>
 <br><br>
- |
-
+ | 
+ 
 <a href="/japanese/hyakunin/frames/index/hyaku2rom.html#rom16"
 target="rom"><- Romaji</a>
  |
 <a href="/japanese/hyakunin/frames/index/hyaku3euc.html#euc16"
 target="euc">Japanese -></a>
- |
+ | 
  </center>
 
 
@@ -576,7 +576,7 @@ target="euc">Japanese -></a>
 <center><h3><a
 href="/japanese/hyakunin/images/onna17.jpg">17</a></h3></center>
 
-
+ 
 
 
 
@@ -597,8 +597,8 @@ href="/japanese/hyakunin/images/onna17.jpg">17</a></h3></center>
 <br>
 <center><hr width=30% size=4><a
 href="/etcbin/hyakuframe2www?act=queryform&specfile=/web/data/japanese/hyakunin/frames/index/hyaku1eng.o2w"><font color="000080">Search</font></a>
-<br><br> |
-
+<br><br> | 
+ 
 <a href="/japanese/hyakunin/frames/index/hyaku2rom.html#rom17"
 target="rom"><- Romaji</a>
  |
@@ -613,7 +613,7 @@ target="euc">Japanese -></a>
 <center><h3><a
 href="/japanese/hyakunin/images/onna18.jpg">18</a></h3></center>
 
-
+ 
 
 
 
@@ -635,8 +635,8 @@ href="/japanese/hyakunin/images/onna18.jpg">18</a></h3></center>
 <center><hr width=30% size=4><a
 href="/etcbin/hyakuframe2www?act=queryform&specfile=/web/data/japanese/hyakunin/frames/index/hyaku1eng.o2w"><font color="000080">Search</font></a>
 <br><br>
- |
-
+ | 
+ 
 <a href="/japanese/hyakunin/frames/index/hyaku2rom.html#rom18"
 target="rom"><- Romaji</a>
  |
@@ -651,7 +651,7 @@ target="euc">Japanese -></a>
 <center><h3><a
 href="/japanese/hyakunin/images/onna19.jpg">19</a></h3></center>
 
-
+ 
 
 
 
@@ -673,14 +673,14 @@ href="/japanese/hyakunin/images/onna19.jpg">19</a></h3></center>
 <br>
 <center><hr width=30% size=4><a
 href="/etcbin/hyakuframe2www?act=queryform&specfile=/web/data/japanese/hyakunin/frames/index/hyaku1eng.o2w"><font color="000080">Search</font></a>
-<br><br> |
-
+<br><br> | 
+ 
 <a href="/japanese/hyakunin/frames/index/hyaku2rom.html#rom19"
 target="rom"><- Romaji</a>
  |
 <a href="/japanese/hyakunin/frames/index/hyaku3euc.html#euc19"
 target="euc">Japanese -></a>
- |
+ | 
  </center>
 
 
@@ -689,7 +689,7 @@ target="euc">Japanese -></a>
 <center><h3><a
 href="/japanese/hyakunin/images/onna20.jpg">20</a></h3></center>
 
-
+ 
 
 
 
@@ -712,14 +712,14 @@ href="/japanese/hyakunin/images/onna20.jpg">20</a></h3></center>
 <center><hr width=30% size=4><a
 href="/etcbin/hyakuframe2www?act=queryform&specfile=/web/data/japanese/hyakunin/frames/index/hyaku1eng.o2w"><font color="000080">Search</font></a>
 <br><br>
- |
-
+ | 
+ 
 <a href="/japanese/hyakunin/frames/index/hyaku2rom.html#rom20"
 target="rom"><- Romaji</a>
  |
 <a href="/japanese/hyakunin/frames/index/hyaku3euc.html#euc20"
 target="euc">Japanese -></a>
- |
+ | 
  </center>
 
 
@@ -728,7 +728,7 @@ target="euc">Japanese -></a>
 <center><h3><a
 href="/japanese/hyakunin/images/onna21.jpg">21</a></h3></center>
 
-
+ 
 
 
 
@@ -750,14 +750,14 @@ href="/japanese/hyakunin/images/onna21.jpg">21</a></h3></center>
 <center><hr width=30% size=4><a
 href="/etcbin/hyakuframe2www?act=queryform&specfile=/web/data/japanese/hyakunin/frames/index/hyaku1eng.o2w"><font color="000080">Search</font></a>
 <br><br>
- |
-
+ | 
+ 
 <a href="/japanese/hyakunin/frames/index/hyaku2rom.html#rom21"
 target="rom"><- Romaji</a>
  |
 <a href="/japanese/hyakunin/frames/index/hyaku3euc.html#euc21"
 target="euc">Japanese -></a>
- |
+ | 
  </center>
 
 
@@ -766,7 +766,7 @@ target="euc">Japanese -></a>
 <center><h3><a
 href="/japanese/hyakunin/images/onna22.jpg">22</a></h3></center>
 
-
+ 
 
 
 
@@ -789,10 +789,10 @@ href="/japanese/hyakunin/images/onna22.jpg">22</a></h3></center>
 <center><hr width=30% size=4><a
 href="/etcbin/hyakuframe2www?act=queryform&specfile=/web/data/japanese/hyakunin/frames/index/hyaku1eng.o2w"><font color="000080">Search</font></a>
 <br><br>
- |
+ | 
 <a href="/japanese/hyakunin/frames/index/hyaku2rom.html#rom22"
 target="rom"><- Romaji</a>
- |
+ | 
 <a href="/japanese/hyakunin/frames/index/hyaku3euc.html#euc22"
 target="euc">Japanese -></a>
  |
@@ -804,7 +804,7 @@ target="euc">Japanese -></a>
 <center><h3><a
 href="/japanese/hyakunin/images/onna23.jpg">23</a></h3></center>
 
-
+ 
 
 
 
@@ -841,7 +841,7 @@ target="euc">Japanese -></a>
 <center><h3><a
 href="/japanese/hyakunin/images/onna24.jpg">24</a></h3></center>
 
-
+ 
 
 
 
@@ -877,7 +877,7 @@ target="euc">Japanese -></a>
 <center><h3><a
 href="/japanese/hyakunin/images/onna25.jpg">25</a></h3></center>
 
-
+ 
 
 
 <br><center>Fujiwara no Sadakata</center>
@@ -894,8 +894,8 @@ href="/japanese/hyakunin/images/onna25.jpg">25</a></h3></center>
 <center><hr width=30% size=4><a
 href="/etcbin/hyakuframe2www?act=queryform&specfile=/web/data/japanese/hyakunin/frames/index/hyaku1eng.o2w"><font color="000080">Search</font></a>
 <br><br>
- |
-
+ | 
+ 
 <a href="/japanese/hyakunin/frames/index/hyaku2rom.html#rom25"
 target="rom"><- Romaji</a>
  |
@@ -912,7 +912,7 @@ a.edu/japanese/hyakunin/images/onna26.jpg">26</a></h3></center>
 
 <br><center>Fujiwara no Tadahira</center>
 
-
+  
 <br>If the maple leaves
 <br>On Ogura mountain
 <br>Could only have hearts,
@@ -940,7 +940,7 @@ target="euc">Japanese -></a>
 <center><h3><a
 href="/japanese/hyakunin/images/onna27.jpg">27</a></h3></center>
 
-
+ 
 
 
 
@@ -966,18 +966,18 @@ href="/etcbin/hyakuframe2www?act=queryform&specfile=/web/data/japanese/hyakunin/
 
 <a href="/japanese/hyakunin/frames/index/hyaku2rom.html#rom27"
 target="rom"><- Romaji</a>
- |
+ | 
 <a href="/japanese/hyakunin/frames/index/hyaku3euc.html#euc27"
 target="euc">Japanese -></a>
- |
+ | 
  </center>
 
 
-<hr width=50% size=4> </lg><lg><a names="eng28"> </a>
+<hr width=50% size=4></lg><lg> <a names="eng28"> </a>
 <center><h3><a
 href="/japanese/hyakunin/images/onna28.jpg">28</a></h3></center>
 
-
+ 
 
 
 
@@ -999,8 +999,8 @@ href="/japanese/hyakunin/images/onna28.jpg">28</a></h3></center>
 <center><hr width=30% size=4><a
 href="/etcbin/hyakuframe2www?act=queryform&specfile=/web/data/japanese/hyakunin/frames/index/hyaku1eng.o2w"><font color="000080">Search</font></a>
 <br><br>
- |
-
+ | 
+ 
 <a href="/japanese/hyakunin/frames/index/hyaku2rom.html#rom28"
 target="rom"><- Romaji</a>
  |
@@ -1015,7 +1015,7 @@ target="euc">Japanese -></a>
 <center><h3><a
 href="/japanese/hyakunin/images/onna29.jpg">29</a></h3></center>
 
-
+ 
 
 
 
@@ -1037,8 +1037,8 @@ href="/japanese/hyakunin/images/onna29.jpg">29</a></h3></center>
 <center><hr width=30% size=4><a
 href="/etcbin/hyakuframe2www?act=queryform&specfile=/web/data/japanese/hyakunin/frames/index/hyaku1eng.o2w"><font color="000080">Search</font></a>
 <br><br>
- |
-
+ | 
+ 
 <a href="/japanese/hyakunin/frames/index/hyaku2rom.html#rom29"
 target="rom"><- Romaji</a>
  |
@@ -1052,7 +1052,7 @@ target="euc">Japanese -></a>
 <center><h3><a
 href="/japanese/hyakunin/images/onna30.jpg">30</a></h3></center>
 
-
+ 
 
 
 
@@ -1074,8 +1074,8 @@ href="/japanese/hyakunin/images/onna30.jpg">30</a></h3></center>
 <center><hr width=30% size=4><a
 href="/etcbin/hyakuframe2www?act=queryform&specfile=/web/data/japanese/hyakunin/frames/index/hyaku1eng.o2w"><font color="000080">Search</font></a>
 <br><br>
- |
-
+ | 
+ 
 <a href="/japanese/hyakunin/frames/index/hyaku2rom.html#rom30"
 target="rom"><- Romaji</a>
  |
@@ -1090,7 +1090,7 @@ target="euc">Japanese -></a>
 <center><h3><a
 href="/japanese/hyakunin/images/onna31.jpg">31</a></h3></center>
 
-
+ 
 
 
 
@@ -1112,8 +1112,8 @@ href="/japanese/hyakunin/images/onna31.jpg">31</a></h3></center>
 <center><hr width=30% size=4><a
 href="/etcbin/hyakuframe2www?act=queryform&specfile=/web/data/japanese/hyakunin/frames/index/hyaku1eng.o2w"><font color="000080">Search</font></a>
 <br><br>
- |
-
+ | 
+ 
 <a href="/japanese/hyakunin/frames/index/hyaku2rom.html#rom31"
 target="rom"><- Romaji</a>
  |
@@ -1128,7 +1128,7 @@ target="euc">Japanese -></a>
 <center><h3><a
 href="/japanese/hyakunin/images/onna32.jpg">32</a></h3></center>
 
-
+ 
 
 
 
@@ -1150,8 +1150,8 @@ href="/japanese/hyakunin/images/onna32.jpg">32</a></h3></center>
 <center><hr width=30% size=4><a
 href="/etcbin/hyakuframe2www?act=queryform&specfile=/web/data/japanese/hyakunin/frames/index/hyaku1eng.o2w"><font color="000080">Search</font></a>
 <br><br>
- |
-
+ | 
+ 
 <a href="/japanese/hyakunin/frames/index/hyaku2rom.html#rom32"
 target="rom"><- Romaji</a>
  |
@@ -1166,7 +1166,7 @@ target="euc">Japanese -></a>
 <center><h3><a
 href="/japanese/hyakunin/images/onna33.jpg">33</a></h3></center>
 
-
+ 
 
 
 
@@ -1188,8 +1188,8 @@ href="/japanese/hyakunin/images/onna33.jpg">33</a></h3></center>
 <center><hr width=30% size=4><a
 href="/etcbin/hyakuframe2www?act=queryform&specfile=/web/data/japanese/hyakunin/frames/index/hyaku1eng.o2w"><font color="000080">Search</font></a>
 <br><br>
- |
-
+ | 
+ 
 <a href="/japanese/hyakunin/frames/index/hyaku2rom.html#rom33"
 target="rom"><- Romaji</a>
  |
@@ -1204,7 +1204,7 @@ target="euc">Japanese -></a>
 <center><h3><a
 href="/japanese/hyakunin/images/onna34.jpg">34</a></h3></center>
 
-
+ 
 
 
 
@@ -1226,8 +1226,8 @@ href="/japanese/hyakunin/images/onna34.jpg">34</a></h3></center>
 <center><hr width=30% size=4><a
 href="/etcbin/hyakuframe2www?act=queryform&specfile=/web/data/japanese/hyakunin/frames/index/hyaku1eng.o2w"><font color="000080">Search</font></a>
 <br><br>
- |
-
+ | 
+ 
 <a href="/japanese/hyakunin/frames/index/hyaku2rom.html#rom34"
 target="rom"><- Romaji</a>
  |
@@ -1242,7 +1242,7 @@ target="euc">Japanese -></a>
 <center><h3><a
 href="/japanese/hyakunin/images/onna35.jpg">35</a></h3></center>
 
-
+ 
 
 
 
@@ -1264,8 +1264,8 @@ href="/japanese/hyakunin/images/onna35.jpg">35</a></h3></center>
 <center><hr width=30% size=4><a
 href="/etcbin/hyakuframe2www?act=queryform&specfile=/web/data/japanese/hyakunin/frames/index/hyaku1eng.o2w"><font color="000080">Search</font></a>
 <br><br>
- |
-
+ | 
+ 
 <a href="/japanese/hyakunin/frames/index/hyaku2rom.html#rom35"
 target="rom"><- Romaji</a>
  |
@@ -1308,7 +1308,7 @@ target="euc">Japanese -></a>
 <center><h3><a
 href="/japanese/hyakunin/images/onna37.jpg">37</a></h3></center>
 
-
+ 
 
 
 
@@ -1330,7 +1330,7 @@ href="/japanese/hyakunin/images/onna37.jpg">37</a></h3></center>
 <center><hr width=30% size=4><a
 href="/etcbin/hyakuframe2www?act=queryform&specfile=/web/data/japanese/hyakunin/frames/index/hyaku1eng.o2w"><font color="000080">Search</font></a>
 <br><br>
- |
+ | 
 <a href="/japanese/hyakunin/frames/index/hyaku2rom.html#rom37"
 target="rom"><- Romaji</a>
  |
@@ -1345,7 +1345,7 @@ target="euc">Japanese -></a>
 <center><h3><a
 href="/japanese/hyakunin/images/onna38.jpg">38</a></h3></center>
 
-
+ 
 
 
 
@@ -1367,8 +1367,8 @@ href="/japanese/hyakunin/images/onna38.jpg">38</a></h3></center>
 <center><hr width=30% size=4><a
 href="/etcbin/hyakuframe2www?act=queryform&specfile=/web/data/japanese/hyakunin/frames/index/hyaku1eng.o2w"><font color="000080">Search</font></a>
 <br><br>
- |
-
+ | 
+ 
 <a href="/japanese/hyakunin/frames/index/hyaku2rom.html#rom38"
 target="rom"><- Romaji</a>
  |
@@ -1383,7 +1383,7 @@ target="euc">Japanese -></a>
 <center><h3><a
 href="/japanese/hyakunin/images/onna39.jpg">39</a></h3></center>
 
-
+ 
 
 
 
@@ -1405,8 +1405,8 @@ href="/japanese/hyakunin/images/onna39.jpg">39</a></h3></center>
 <center><hr width=30% size=4><a
 href="/etcbin/hyakuframe2www?act=queryform&specfile=/web/data/japanese/hyakunin/frames/index/hyaku1eng.o2w"><font color="000080">Search</font></a>
 <br><br>
- |
-
+ | 
+ 
 <a href="/japanese/hyakunin/frames/index/hyaku2rom.html#rom39"
 target="rom"><- Romaji</a>
  |
@@ -1421,7 +1421,7 @@ target="euc">Japanese -></a>
 <center><h3><a
 href="/japanese/hyakunin/images/onna40.jpg">40</a></h3></center>
 
-
+ 
 
 
 
@@ -1443,8 +1443,8 @@ href="/japanese/hyakunin/images/onna40.jpg">40</a></h3></center>
 <center><hr width=30% size=4><a
 href="/etcbin/hyakuframe2www?act=queryform&specfile=/web/data/japanese/hyakunin/frames/index/hyaku1eng.o2w"><font color="000080">Search</font></a>
 <br><br>
- |
-
+ | 
+ 
 <a href="/japanese/hyakunin/frames/index/hyaku2rom.html#rom40"
 target="rom"><- Romaji</a>
  |
@@ -1459,7 +1459,7 @@ target="euc">Japanese -></a>
 <center><h3><a
 href="/japanese/hyakunin/images/onna41.jpg">41</a></h3></center>
 
-
+ 
 
 
 
@@ -1480,8 +1480,8 @@ href="/japanese/hyakunin/images/onna41.jpg">41</a></h3></center>
 <center><hr width=30% size=4><a
 href="/etcbin/hyakuframe2www?act=queryform&specfile=/web/data/japanese/hyakunin/frames/index/hyaku1eng.o2w"><font color="000080">Search</font></a>
 <br><br>
- |
-
+ | 
+ 
 <a href="/japanese/hyakunin/frames/index/hyaku2rom.html#rom41"
 target="rom"><- Romaji</a>
  |
@@ -1496,7 +1496,7 @@ target="euc">Japanese -></a>
 <center><h3><a
 href="/japanese/hyakunin/images/onna42.jpg">42</a></h3></center>
 
-
+ 
 
 
 
@@ -1518,8 +1518,8 @@ href="/japanese/hyakunin/images/onna42.jpg">42</a></h3></center>
 <center><hr width=30% size=4><a
 href="/etcbin/hyakuframe2www?act=queryform&specfile=/web/data/japanese/hyakunin/frames/index/hyaku1eng.o2w"><font color="000080">Search</font></a>
 <br><br>
- |
-
+ | 
+ 
 <a href="/japanese/hyakunin/frames/index/hyaku2rom.html#rom42"
 target="rom"><- Romaji</a>
  |
@@ -1534,7 +1534,7 @@ target="euc">Japanese -></a>
 <center><h3><a
 href="/japanese/hyakunin/images/onna43.jpg">43</a></h3></center>
 
-
+ 
 
 
 
@@ -1556,8 +1556,8 @@ href="/japanese/hyakunin/images/onna43.jpg">43</a></h3></center>
 <center><hr width=30% size=4><a
 href="/etcbin/hyakuframe2www?act=queryform&specfile=/web/data/japanese/hyakunin/frames/index/hyaku1eng.o2w"><font color="000080">Search</font></a>
 <br><br>
- |
-
+ | 
+ 
 <a href="/japanese/hyakunin/frames/index/hyaku2rom.html#rom43"
 target="rom"><- Romaji</a>
  |
@@ -1573,7 +1573,7 @@ target="euc">Japanese -></a>
 <center><h3><a
 href="/japanese/hyakunin/images/onna44.jpg">44</a></h3></center>
 
-
+ 
 
 
 
@@ -1636,7 +1636,7 @@ target="euc">Japanese -></a>
 <center><h3><a
 href="/japanese/hyakunin/images/onna46.jpg">46</a></h3></center>
 
-
+ 
 
 
 
@@ -1659,7 +1659,7 @@ href="/japanese/hyakunin/images/onna46.jpg">46</a></h3></center>
 <center><hr width=30% size=4><a
 href="/etcbin/hyakuframe2www?act=queryform&specfile=/web/data/japanese/hyakunin/frames/index/hyaku1eng.o2w"><font color="000080">Search</font></a>
 <br><br>
- |
+ |  
 <a href="/japanese/hyakunin/frames/index/hyaku2rom.html#rom46"
 target="rom"><- Romaji</a>
  |
@@ -1674,7 +1674,7 @@ target="euc">Japanese -></a>
 <center><h3><a
 href="/japanese/hyakunin/images/onna47.jpg">47</a></h3></center>
 
-
+ 
 
 
 
@@ -1696,8 +1696,8 @@ href="/japanese/hyakunin/images/onna47.jpg">47</a></h3></center>
 <center><hr width=30% size=4><a
 href="/etcbin/hyakuframe2www?act=queryform&specfile=/web/data/japanese/hyakunin/frames/index/hyaku1eng.o2w"><font color="000080">Search</font></a>
 <br><br>
- |
-
+ | 
+ 
 <a href="/japanese/hyakunin/frames/index/hyaku2rom.html#rom47"
 target="rom"><- Romaji</a>
  |
@@ -1712,7 +1712,7 @@ target="euc">Japanese -></a>
 <center><h3><a
 href="/japanese/hyakunin/images/onna48.jpg">48</a></h3></center>
 
-
+ 
 
 
 
@@ -1734,7 +1734,7 @@ href="/japanese/hyakunin/images/onna48.jpg">48</a></h3></center>
 <center><hr width=30% size=4><a
 href="/etcbin/hyakuframe2www?act=queryform&specfile=/web/data/japanese/hyakunin/frames/index/hyaku1eng.o2w"><font color="000080">Search</font></a>
 <br><br>
- |
+ | 
 <a href="/japanese/hyakunin/frames/index/hyaku2rom.html#rom48"
 target="rom"><- Romaji</a>
  |
@@ -1747,7 +1747,7 @@ target="euc">Japanese -></a>
 <center><h3><a
 href="/japanese/hyakunin/images/onna49.jpg">49</a></h3></center>
 
-
+ 
 
 
 
@@ -1757,7 +1757,7 @@ href="/japanese/hyakunin/images/onna49.jpg">49</a></h3></center>
 
 <br><center> Onakatomi no Yoshinobu</center>
 
-
+  
 <br>Like the guard's fires
 <br>Kept at the imperial gateway--
 <br>Burning through the night,
@@ -1769,8 +1769,8 @@ href="/japanese/hyakunin/images/onna49.jpg">49</a></h3></center>
 <center><hr width=30% size=4><a
 href="/etcbin/hyakuframe2www?act=queryform&specfile=/web/data/japanese/hyakunin/frames/index/hyaku1eng.o2w"><font color="000080">Search</font></a>
 <br><br>
- |
-
+ | 
+ 
 <a href="/japanese/hyakunin/frames/index/hyaku2rom.html#rom49"
 target="rom"><- Romaji</a>
  |
@@ -1785,7 +1785,7 @@ target="euc">Japanese -></a>
 <center><h3><a
 href="/japanese/hyakunin/images/onna50.jpg">50</a></h3></center>
 
-
+ 
 
 
 
@@ -1807,8 +1807,8 @@ href="/japanese/hyakunin/images/onna50.jpg">50</a></h3></center>
 <center><hr width=30% size=4><a
 href="/etcbin/hyakuframe2www?act=queryform&specfile=/web/data/japanese/hyakunin/frames/index/hyaku1eng.o2w"><font color="000080">Search</font></a>
 <br><br>
- |
-
+ | 
+ 
 <a href="/japanese/hyakunin/frames/index/hyaku2rom.html#rom50"
 target="rom"><- Romaji</a>
  |
@@ -1837,10 +1837,10 @@ href="/japanese/hyakunin/images/onna51.jpg">51</a></h3></center>
 <center><hr width=30% size=4><a
 href="/etcbin/hyakuframe2www?act=queryform&specfile=/web/data/japanese/hyakunin/frames/index/hyaku1eng.o2w"><font color="000080">Search</font></a>
 <br><br>
- |
+ | 
 <a href="/japanese/hyakunin/frames/index/hyaku2rom.html#rom51"
 target="rom"><- Romaji</a>
- |
+ | 
 <a href="/japanese/hyakunin/frames/index/hyaku3euc.html#euc51"
 target="euc">Japanese -></a>
 
@@ -1852,7 +1852,7 @@ target="euc">Japanese -></a>
 <center><h3><a
 href="/japanese/hyakunin/images/onna52.jpg">52</a></h3></center>
 
-
+ 
 
 
 
@@ -1873,8 +1873,8 @@ href="/japanese/hyakunin/images/onna52.jpg">52</a></h3></center>
 <center><hr width=30% size=4><a
 href="/etcbin/hyakuframe2www?act=queryform&specfile=/web/data/japanese/hyakunin/frames/index/hyaku1eng.o2w"><font color="000080">Search</font></a>
 <br><br>
- |
-
+ | 
+ 
 <a href="/japanese/hyakunin/frames/index/hyaku2rom.html#rom52"
 target="rom"><- Romaji</a>
  |
@@ -1889,7 +1889,7 @@ target="euc">Japanese -></a>
 <center><h3><a
 href="/japanese/hyakunin/images/onna53.jpg">53</a></h3></center>
 
-
+ 
 
 
 
@@ -1899,7 +1899,7 @@ href="/japanese/hyakunin/images/onna53.jpg">53</a></h3></center>
 
 <br><center>The Mother of Michitsuna</center>
 
-
+  
 <br>Lying all alone,
 <br>Through the hours of the night,
 <br>Till the daylight comes:
@@ -1911,7 +1911,7 @@ href="/japanese/hyakunin/images/onna53.jpg">53</a></h3></center>
 <center><hr width=30% size=4><a
 href="/etcbin/hyakuframe2www?act=queryform&specfile=/web/data/japanese/hyakunin/frames/index/hyaku1eng.o2w"><font color="000080">Search</font></a>
 <br><br>
- |
+ |  
 <a href="/japanese/hyakunin/frames/index/hyaku2rom.html#rom53"
 target="rom"><- Romaji</a>
  |
@@ -1925,7 +1925,7 @@ target="euc">Japanese -></a>
 <center><h3><a
 href="/japanese/hyakunin/images/onna54.jpg">54</a></h3></center>
 
-
+ 
 
 
 
@@ -1935,7 +1935,7 @@ href="/japanese/hyakunin/images/onna54.jpg">54</a></h3></center>
 
 <br><center>The Mother of Gido Sanshi</center>
 
-
+ 
 <br>If remembering me
 <br>Will for him in future years
 <br>Be too difficult,
@@ -1947,8 +1947,8 @@ href="/japanese/hyakunin/images/onna54.jpg">54</a></h3></center>
 <center><hr width=30% size=4><a
 href="/etcbin/hyakuframe2www?act=queryform&specfile=/web/data/japanese/hyakunin/frames/index/hyaku1eng.o2w"><font color="000080">Search</font></a>
 <br><br>
- |
-
+ | 
+ 
 <a href="/japanese/hyakunin/frames/index/hyaku2rom.html#rom54"
 target="rom"><- Romaji</a>
  |
@@ -1963,7 +1963,7 @@ target="euc">Japanese -></a>
 <center><h3><a
 href="/japanese/hyakunin/images/onna55.jpg">55</a></h3></center>
 
-
+ 
 
 
 
@@ -1985,8 +1985,8 @@ href="/japanese/hyakunin/images/onna55.jpg">55</a></h3></center>
 <center><hr width=30% size=4><a
 href="/etcbin/hyakuframe2www?act=queryform&specfile=/web/data/japanese/hyakunin/frames/index/hyaku1eng.o2w"><font color="000080">Search</font></a>
 <br><br>
- |
-
+ | 
+ 
 <a href="/japanese/hyakunin/frames/index/hyaku2rom.html#rom55"
 target="rom"><- Romaji</a>
  |
@@ -2001,7 +2001,7 @@ target="euc">Japanese -></a>
 <center><h3><a
 href="/japanese/hyakunin/images/onna56.jpg">56</a></h3></center>
 
-
+ 
 
 
 
@@ -2023,8 +2023,8 @@ href="/japanese/hyakunin/images/onna56.jpg">56</a></h3></center>
 <center><hr width=30% size=4><a
 href="/etcbin/hyakuframe2www?act=queryform&specfile=/web/data/japanese/hyakunin/frames/index/hyaku1eng.o2w"><font color="000080">Search</font></a>
 <br><br>
- |
-
+ | 
+ 
 <a href="/japanese/hyakunin/frames/index/hyaku2rom.html#rom56"
 target="rom"><- Romaji</a>
  |
@@ -2039,7 +2039,7 @@ target="euc">Japanese -></a>
 <center><h3><a
 href="/japanese/hyakunin/images/onna57.jpg">57</a></h3></center>
 
-
+ 
 
 
 
@@ -2061,8 +2061,8 @@ href="/japanese/hyakunin/images/onna57.jpg">57</a></h3></center>
 <center><hr width=30% size=4><a
 href="/etcbin/hyakuframe2www?act=queryform&specfile=/web/data/japanese/hyakunin/frames/index/hyaku1eng.o2w"><font color="000080">Search</font></a>
 <br><br>
- |
-
+ | 
+ 
 <a href="/japanese/hyakunin/frames/index/hyaku2rom.html#rom57"
 target="rom"><- Romaji</a>
  |
@@ -2077,7 +2077,7 @@ target="euc">Japanese -></a>
 <center><h3><a
 href="/japanese/hyakunin/images/onna58.jpg">58</a></h3></center>
 
-
+ 
 
 
 
@@ -2087,7 +2087,7 @@ href="/japanese/hyakunin/images/onna58.jpg">58</a></h3></center>
 
 <br><center>Daini no Sanmi, Lady Kataiko</center>
 
-
+ 
 <br>As Mount Arima
 <br>Sends its rustling winds across
 <br>Ina's bamboo plains,
@@ -2099,8 +2099,8 @@ href="/japanese/hyakunin/images/onna58.jpg">58</a></h3></center>
 <center><hr width=30% size=4><a
 href="/etcbin/hyakuframe2www?act=queryform&specfile=/web/data/japanese/hyakunin/frames/index/hyaku1eng.o2w"><font color="000080">Search</font></a>
 <br><br>
- |
-
+ | 
+ 
 <a href="/japanese/hyakunin/frames/index/hyaku2rom.html#rom58"
 target="rom"><- Romaji</a>
  |
@@ -2114,7 +2114,7 @@ target="euc">Japanese -></a>
 <center><h3><a
 href="/japanese/hyakunin/images/onna59.jpg">59</a></h3></center>
 
-
+ 
 
 
 
@@ -2136,8 +2136,8 @@ href="/japanese/hyakunin/images/onna59.jpg">59</a></h3></center>
 <center><hr width=30% size=4><a
 href="/etcbin/hyakuframe2www?act=queryform&specfile=/web/data/japanese/hyakunin/frames/index/hyaku1eng.o2w"><font color="000080">Search</font></a>
 <br><br>
- |
-
+ | 
+ 
 <a href="/japanese/hyakunin/frames/index/hyaku2rom.html#rom59"
 target="rom"><- Romaji</a>
  |
@@ -2152,7 +2152,7 @@ target="euc">Japanese -></a>
 <center><h3><a
 href="/japanese/hyakunin/images/onna60.jpg">60</a></h3></center>
 
-
+ 
 
 
 
@@ -2175,7 +2175,7 @@ href="/japanese/hyakunin/images/onna60.jpg">60</a></h3></center>
 <center><hr width=30% size=4><a
 href="/etcbin/hyakuframe2www?act=queryform&specfile=/web/data/japanese/hyakunin/frames/index/hyaku1eng.o2w"><font color="000080">Search</font></a>
 <br><br>
- |
+ | 
 <a href="/japanese/hyakunin/frames/index/hyaku2rom.html#rom60"
 target="rom"><- Romaji</a>
  | <a href="/japanese/hyakunin/frames/index/hyaku3euc.html#euc60"
@@ -2187,7 +2187,7 @@ target="euc">Japanese -></a>
 <center><h3><a
 href="/japanese/hyakunin/images/onna61.jpg">61</a></h3></center>
 
-
+ 
 
 
 <br><center>Lady Ise no Osuke</center>
@@ -2205,7 +2205,7 @@ href="/japanese/hyakunin/images/onna61.jpg">61</a></h3></center>
 <center><hr width=30% size=4><a
 href="/etcbin/hyakuframe2www?act=queryform&specfile=/web/data/japanese/hyakunin/frames/index/hyaku1eng.o2w"><font color="000080">Search</font></a>
 <br><br>
- |
+ | 
 <a href="/japanese/hyakunin/frames/index/hyaku2rom.html#rom61"
 target="rom"><- Romaji</a>
  |
@@ -2251,7 +2251,7 @@ target="euc">Japanese -></a>
 <center><h3><a
 href="/japanese/hyakunin/images/onna63.jpg">63</a></h3></center>
 
-
+ 
 
 
 
@@ -2261,7 +2261,7 @@ href="/japanese/hyakunin/images/onna63.jpg">63</a></h3></center>
 
 <br><center>Fujiwara no Michimasa</center>
 
-
+  
 <br>Is there any way
 <br>Except by a messenger
 <br>To send these words to you?
@@ -2273,13 +2273,13 @@ href="/japanese/hyakunin/images/onna63.jpg">63</a></h3></center>
 <center><hr width=30% size=4><a
 href="/etcbin/hyakuframe2www?act=queryform&specfile=/web/data/japanese/hyakunin/frames/index/hyaku1eng.o2w"><font color="000080">Search</font></a>
 <br><br>
- |
+ | 
 <a href="/japanese/hyakunin/frames/index/hyaku2rom.html#rom63"
 target="rom"><- Romaji</a>
  |
 <a href="/japanese/hyakunin/frames/index/hyaku3euc.html#euc63"
 target="euc">Japanese -></a>
- |
+ | 
  </center>
 
 
@@ -2288,7 +2288,7 @@ target="euc">Japanese -></a>
 <center><h3><a
 href="/japanese/hyakunin/images/onna64.jpg">64</a></h3></center>
 
-
+ 
 
 
 
@@ -2309,8 +2309,8 @@ href="/japanese/hyakunin/images/onna64.jpg">64</a></h3></center>
 <center><hr width=30% size=4><a
 href="/etcbin/hyakuframe2www?act=queryform&specfile=/web/data/japanese/hyakunin/frames/index/hyaku1eng.o2w"><font color="000080">Search</font></a>
 <br><br>
- |
-
+ | 
+ 
 <a href="/japanese/hyakunin/frames/index/hyaku2rom.html#rom64"
 target="rom"><- Romaji</a>
  |
@@ -2325,7 +2325,7 @@ target="euc">Japanese -></a>
 <center><h3><a
 href="/japanese/hyakunin/images/onna65.jpg">65</a></h3></center>
 
-
+ 
 
 
 
@@ -2347,8 +2347,8 @@ href="/japanese/hyakunin/images/onna65.jpg">65</a></h3></center>
 <center><hr width=30% size=4><a
 href="/etcbin/hyakuframe2www?act=queryform&specfile=/web/data/japanese/hyakunin/frames/index/hyaku1eng.o2w"><font color="000080">Search</font></a>
 <br><br>
- |
-
+ | 
+ 
 <a href="/japanese/hyakunin/frames/index/hyaku2rom.html#rom65"
 target="rom"><- Romaji</a>
  |
@@ -2362,7 +2362,7 @@ target="euc">Japanese -></a>
 <center><h3><a
 href="/japanese/hyakunin/images/onna66.jpg">66</a></h3></center>
 
-
+ 
 
 
 
@@ -2372,7 +2372,7 @@ href="/japanese/hyakunin/images/onna66.jpg">66</a></h3></center>
 
 <br><center>Abbot Gyoson</center>
 
-
+ 
 <br>On a mountain slope,
 <br>Solitary, uncompanioned,
 <br>Stands a cherry tree.
@@ -2384,8 +2384,8 @@ href="/japanese/hyakunin/images/onna66.jpg">66</a></h3></center>
 <center><hr width=30% size=4><a
 href="/etcbin/hyakuframe2www?act=queryform&specfile=/web/data/japanese/hyakunin/frames/index/hyaku1eng.o2w"><font color="000080">Search</font></a>
 <br><br>
- |
-
+ | 
+ 
 <a href="/japanese/hyakunin/frames/index/hyaku2rom.html#rom66"
 target="rom"><- Romaji</a>
  |
@@ -2400,7 +2400,7 @@ target="euc">Japanese -></a>
 <center><h3><a
 href="/japanese/hyakunin/images/onna67.jpg">67</a></h3></center>
 
-
+ 
 
 
 
@@ -2422,8 +2422,8 @@ href="/japanese/hyakunin/images/onna67.jpg">67</a></h3></center>
 <center><hr width=30% size=4><a
 href="/etcbin/hyakuframe2www?act=queryform&specfile=/web/data/japanese/hyakunin/frames/index/hyaku1eng.o2w"><font color="000080">Search</font></a>
 <br><br>
- |
-
+ | 
+ 
 <a href="/japanese/hyakunin/frames/index/hyaku2rom.html#rom67"
 target="rom"><- Romaji</a>
  |
@@ -2438,7 +2438,7 @@ target="euc">Japanese -></a>
 <center><h3><a
 href="/japanese/hyakunin/images/onna68.jpg">68</a></h3></center>
 
-
+ 
 
 
 
@@ -2448,7 +2448,7 @@ href="/japanese/hyakunin/images/onna68.jpg">68</a></h3></center>
 
 <br><center>Emperor Sanjo</center>
 
-
+  
 <br>Though I do not want
 <br>To live on in this floating world,
 <br>If I remain here,
@@ -2460,8 +2460,8 @@ href="/japanese/hyakunin/images/onna68.jpg">68</a></h3></center>
 <center><hr width=30% size=4><a
 href="/etcbin/hyakuframe2www?act=queryform&specfile=/web/data/japanese/hyakunin/frames/index/hyaku1eng.o2w"><font color="000080">Search</font></a>
 <br><br>
- |
-
+ | 
+ 
 <a href="/japanese/hyakunin/frames/index/hyaku2rom.html#rom68"
 target="rom"><- Romaji</a>
  |
@@ -2476,7 +2476,7 @@ target="euc">Japanese -></a>
 <center><h3><a
 href="/japanese/hyakunin/images/onna69.jpg">69</a></h3></center>
 
-
+ 
 
 
 
@@ -2498,8 +2498,8 @@ href="/japanese/hyakunin/images/onna69.jpg">69</a></h3></center>
 <center><hr width=30% size=4><a
 href="/etcbin/hyakuframe2www?act=queryform&specfile=/web/data/japanese/hyakunin/frames/index/hyaku1eng.o2w"><font color="000080">Search</font></a>
 <br><br>
- |
-
+ | 
+ 
 <a href="/japanese/hyakunin/frames/index/hyaku2rom.html#rom69"
 target="rom"><- Romaji</a>
  |
@@ -2514,7 +2514,7 @@ target="euc">Japanese -></a>
 <center><h3><a
 href="/japanese/hyakunin/images/onna70.jpg">70</a></h3></center>
 
-
+ 
 
 
 
@@ -2536,8 +2536,8 @@ href="/japanese/hyakunin/images/onna70.jpg">70</a></h3></center>
 <center><hr width=30% size=4><a
 href="/etcbin/hyakuframe2www?act=queryform&specfile=/web/data/japanese/hyakunin/frames/index/hyaku1eng.o2w"><font color="000080">Search</font></a>
 <br><br>
- |
-
+ | 
+ 
 <a href="/japanese/hyakunin/frames/index/hyaku2rom.html#rom70"
 target="rom"><- Romaji</a>
  |
@@ -2552,7 +2552,7 @@ target="euc">Japanese -></a>
 <center><h3><a
 href="/japanese/hyakunin/images/onna71.jpg">71</a></h3></center>
 
-
+ 
 
 
 
@@ -2574,8 +2574,8 @@ href="/japanese/hyakunin/images/onna71.jpg">71</a></h3></center>
 <center><hr width=30% size=4><a
 href="/etcbin/hyakuframe2www?act=queryform&specfile=/web/data/japanese/hyakunin/frames/index/hyaku1eng.o2w"><font color="000080">Search</font></a>
 <br><br>
- |
-
+ | 
+ 
 <a href="/japanese/hyakunin/frames/index/hyaku2rom.html#rom71"
 target="rom"><- Romaji</a>
  |
@@ -2590,7 +2590,7 @@ target="euc">Japanese -></a>
 <center><h3><a
 href="/japanese/hyakunin/images/onna72.jpg">72</a></h3></center>
 
-
+ 
 
 
 
@@ -2600,7 +2600,7 @@ href="/japanese/hyakunin/images/onna72.jpg">72</a></h3></center>
 
 <br><center>Lady Kii</center>
 
-
+  
 <br>Famous are the waves
 <br>That break on Takashi beach
 <br>In noisy arrogance.
@@ -2612,7 +2612,7 @@ href="/japanese/hyakunin/images/onna72.jpg">72</a></h3></center>
 <center><hr width=30% size=4><a
 href="/etcbin/hyakuframe2www?act=queryform&specfile=/web/data/japanese/hyakunin/frames/index/hyaku1eng.o2w"><font color="000080">Search</font></a>
 <br><br>
- |
+ | 
 <a href="/japanese/hyakunin/frames/index/hyaku2rom.html#rom72"
 target="rom"><- Romaji</a>
  |
@@ -2626,7 +2626,7 @@ target="euc">Japanese -></a>
 <center><h3><a
 href="/japanese/hyakunin/images/onna73.jpg">73</a></h3></center>
 
-
+ 
 
 
 
@@ -2648,7 +2648,7 @@ href="/japanese/hyakunin/images/onna73.jpg">73</a></h3></center>
 <center><hr width=30% size=4><a
 href="/etcbin/hyakuframe2www?act=queryform&specfile=/web/data/japanese/hyakunin/frames/index/hyaku1eng.o2w"><font color="000080">Search</font></a>
 <br><br>
- |
+ |  
 <a href="/japanese/hyakunin/frames/index/hyaku2rom.html#rom73"
 target="rom"><- Romaji</a>
  |
@@ -2688,7 +2688,7 @@ target="euc">Japanese -></a>
 <center><h3><a
 href="/japanese/hyakunin/images/onna75.jpg">75</a></h3></center>
 
-
+ 
 
 
 <br><center>Fujiwara no Mototoshi</center>
@@ -2706,13 +2706,13 @@ href="/japanese/hyakunin/images/onna75.jpg">75</a></h3></center>
 <center><hr width=30% size=4><a
 href="/etcbin/hyakuframe2www?act=queryform&specfile=/web/data/japanese/hyakunin/frames/index/hyaku1eng.o2w"><font color="000080">Search</font></a>
 <br><br>
- |
+ |  
 <a href="/japanese/hyakunin/frames/index/hyaku2rom.html#rom75"
 target="rom"><- Romaji</a>
  |
 <a href="/japanese/hyakunin/frames/index/hyaku3euc.html#euc75"
 target="euc">Japanese -></a>
- |
+ | 
  </center>
 
 
@@ -2721,7 +2721,7 @@ target="euc">Japanese -></a>
 <center><h3><a
 href="/japanese/hyakunin/images/onna76.jpg">76</a></h3></center>
 
-
+ 
 <br><center>Fujiwara no Tadamichi</center>
 
 
@@ -2736,7 +2736,7 @@ href="/japanese/hyakunin/images/onna76.jpg">76</a></h3></center>
 <center><hr width=30% size=4><a
 href="/etcbin/hyakuframe2www?act=queryform&specfile=/web/data/japanese/hyakunin/frames/index/hyaku1eng.o2w"><font color="000080">Search</font></a>
 <br><br>
- |
+ |  
 <a href="/japanese/hyakunin/frames/index/hyaku2rom.html#rom76"
 target="rom"><- Romaji</a>
  |
@@ -2751,7 +2751,7 @@ target="euc">Japanese -></a>
 <center><h3><a
 href="/japanese/hyakunin/images/onna77.jpg">77</a></h3></center>
 
-
+ 
 
 
 
@@ -2761,7 +2761,7 @@ href="/japanese/hyakunin/images/onna77.jpg">77</a></h3></center>
 
 <br><center>Emperor Sutoku</center>
 
-
+  
 <br>Though a swift stream is
 <br>Divided by a boulder
 <br>In its headlong flow,
@@ -2773,7 +2773,7 @@ href="/japanese/hyakunin/images/onna77.jpg">77</a></h3></center>
 <center><hr width=30% size=4><a
 href="/etcbin/hyakuframe2www?act=queryform&specfile=/web/data/japanese/hyakunin/frames/index/hyaku1eng.o2w"><font color="000080">Search</font></a>
 <br><br>
- |
+ |  
 <a href="/japanese/hyakunin/frames/index/hyaku2rom.html#rom77"
 target="rom"><- Romaji</a>
  |
@@ -2788,7 +2788,7 @@ target="euc">Japanese -></a>
 <center><h3><a
 href="/japanese/hyakunin/images/onna78.jpg">78</a></h3></center>
 
-
+ 
 
 
 
@@ -2797,7 +2797,7 @@ href="/japanese/hyakunin/images/onna78.jpg">78</a></h3></center>
 
 
 <br><center>Minamoto no Kanemasa</center>
-
+  
 <br>Guard of Suma Gate,
 <br>From your sleep, how many nights
 <br>Have you awakened
@@ -2809,19 +2809,19 @@ href="/japanese/hyakunin/images/onna78.jpg">78</a></h3></center>
 <center><hr width=30% size=4><a
 href="/etcbin/hyakuframe2www?act=queryform&specfile=/web/data/japanese/hyakunin/frames/index/hyaku1eng.o2w"><font color="000080">Search</font></a>
 <br><br>
- |
+ | 
 <a href="/japanese/hyakunin/frames/index/hyaku2rom.html#rom78 |
 </center>" target="rom"><- Romaji</a>
- |
+ | 
 <a href="/japanese/hyakunin/frames/index/hyaku3euc.html#euc78 |
 </center>" target="euc">Japanese -></a>
- |
+ | 
 </center>
 <hr width=50% size=4> </lg><lg><a name="eng79"> </a>
 <center><h3><a
 href="/japanese/hyakunin/images/onna79.jpg">79</a></h3></center>
 
-
+ 
 
 
 
@@ -2842,8 +2842,8 @@ href="/japanese/hyakunin/images/onna79.jpg">79</a></h3></center>
 <center><hr width=30% size=4><a
 href="/etcbin/hyakuframe2www?act=queryform&specfile=/web/data/japanese/hyakunin/frames/index/hyaku1eng.o2w"><font color="000080">Search</font></a>
 <br><br>
- |
-
+ | 
+ 
 <a href="/japanese/hyakunin/frames/index/hyaku2rom.html#rom79"
 target="rom"><- Romaji</a>
  |
@@ -2858,7 +2858,7 @@ target="euc">Japanese -></a>
 <center><h3><a
 href="/japanese/hyakunin/images/onna80.jpg">80</a></h3></center>
 
-
+ 
 
 
 
@@ -2867,7 +2867,7 @@ href="/japanese/hyakunin/images/onna80.jpg">80</a></h3></center>
 
 <br><center>Lady Horikawa</center>
 
-
+  
 <br>Is it forever
 <br>That he hopes our love will last?
 <br>He did not answer.
@@ -2894,7 +2894,7 @@ target="euc">Japanese -></a>
 <center><h3><a
 href="/japanese/hyakunin/images/onna81.jpg">81</a></h3></center>
 
-
+ 
 
 
 
@@ -2919,7 +2919,7 @@ href="/etcbin/hyakuframe2www?act=queryform&specfile=/web/data/japanese/hyakunin/
  |
 <a href="/japanese/hyakunin/frames/index/hyaku2rom.html#rom81"
 target="rom"><- Romaji</a>
- |
+ | 
 <a href="/japanese/hyakunin/frames/index/hyaku3euc.html#euc81"
 target="euc">Japanese -></a>
  |
@@ -2931,7 +2931,7 @@ target="euc">Japanese -></a>
 <center><h3><a
 href="/japanese/hyakunin/images/onna82.jpg">82</a></h3></center>
 
-
+ 
 
 
 
@@ -2953,8 +2953,8 @@ href="/japanese/hyakunin/images/onna82.jpg">82</a></h3></center>
 <center><hr width=30% size=4><a
 href="/etcbin/hyakuframe2www?act=queryform&specfile=/web/data/japanese/hyakunin/frames/index/hyaku1eng.o2w"><font color="000080">Search</font></a>
 <br><br>
- |
-
+ | 
+ 
 <a href="/japanese/hyakunin/frames/index/hyaku2rom.html#rom82"
 target="rom"><- Romaji</a>
  |
@@ -2969,7 +2969,7 @@ target="euc">Japanese -></a>
 <center><h3><a
 href="/japanese/hyakunin/images/onna83.jpg">83</a></h3></center>
 
-
+ 
 
 
 
@@ -2991,8 +2991,8 @@ href="/japanese/hyakunin/images/onna83.jpg">83</a></h3></center>
 <center><hr width=30% size=4><a
 href="/etcbin/hyakuframe2www?act=queryform&specfile=/web/data/japanese/hyakunin/frames/index/hyaku1eng.o2w"><font color="000080">Search</font></a>
 <br><br>
- |
-
+ | 
+ 
 <a href="/japanese/hyakunin/frames/index/hyaku2rom.html#rom83"
 target="rom"><- Romaji</a>
  |
@@ -3007,7 +3007,7 @@ target="euc">Japanese -></a>
 <center><h3><a
 href="/japanese/hyakunin/images/onna84.jpg">84</a></h3></center>
 
-
+ 
 
 
 
@@ -3029,9 +3029,9 @@ href="/japanese/hyakunin/images/onna84.jpg">84</a></h3></center>
 <center><hr width=30% size=4><a
 href="/etcbin/hyakuframe2www?act=queryform&specfile=/web/data/japanese/hyakunin/frames/index/hyaku1eng.o2w"><font color="000080">Search</font></a>
 <br><br>
- |
+ | 
 <a href="/japanese/hyakunin/frames/index/hyaku2rom.html#rom84"
-target="rom"><- Romaji</a>
+target="rom"><- Romaji</a> 
  | <a href="/japanese/hyakunin/frames/index/hyaku3euc.html#euc84"
 target="euc">Japanese -></a>
  |
@@ -3057,7 +3057,7 @@ a.edu/japanese/hyakunin/images/onna85.jpg">85</a></h3></center>
 <center><hr width=30% size=4><a
 href="/etcbin/hyakuframe2www?act=queryform&specfile=/web/data/japanese/hyakunin/frames/index/hyaku1eng.o2w"><font color="000080">Search</font></a>
 <br><br>
- |
+ | 
 <a href="/japanese/hyakunin/frames/index/hyaku2rom.html#rom85"
 target="rom"><- Romaji</a>
  |
@@ -3072,7 +3072,7 @@ target="euc">Japanese -></a>
 <center><h3><a
 href="/japanese/hyakunin/images/onna86.jpg">86</a></h3></center>
 
-
+ 
 
 
 
@@ -3082,7 +3082,7 @@ href="/japanese/hyakunin/images/onna86.jpg">86</a></h3></center>
 
 <br><center>The Monk Saigyo</center>
 
-
+  
 <br>Should I blame the moon
 <br>For bringing forth this sadness,
 <br>As if it pictured grief?
@@ -3094,14 +3094,14 @@ href="/japanese/hyakunin/images/onna86.jpg">86</a></h3></center>
 <center><hr width=30% size=4><a
 href="/etcbin/hyakuframe2www?act=queryform&specfile=/web/data/japanese/hyakunin/frames/index/hyaku1eng.o2w"><font color="000080">Search</font></a>
 <br><br>
- |
-
+ | 
+ 
 <a href="/japanese/hyakunin/frames/index/hyaku2rom.html#rom86"
 target="rom"><- Romaji</a>
  |
 <a href="/japanese/hyakunin/frames/index/hyaku3euc.html#euc86"
 target="euc">Japanese -></a>
- |
+ | 
  </center>
 
 
@@ -3110,7 +3110,7 @@ target="euc">Japanese -></a>
 <center><h3><a
 href="/japanese/hyakunin/images/onna87.jpg">87</a></h3></center>
 
-
+ 
 
 
 
@@ -3132,14 +3132,14 @@ href="/japanese/hyakunin/images/onna87.jpg">87</a></h3></center>
 <center><hr width=30% size=4><a
 href="/etcbin/hyakuframe2www?act=queryform&specfile=/web/data/japanese/hyakunin/frames/index/hyaku1eng.o2w"><font color="000080">Search</font></a>
 <br><br>
- |
-
+ | 
+ 
 <a href="/japanese/hyakunin/frames/index/hyaku2rom.html#rom87"
 target="rom"><- Romaji</a>
  |
 <a href="/japanese/hyakunin/frames/index/hyaku3euc.html#euc87"
 target="euc">Japanese -></a>
- |
+ | 
  </center>
 
 
@@ -3148,7 +3148,7 @@ target="euc">Japanese -></a>
 <center><h3><a
 href="/japanese/hyakunin/images/onna88.jpg">88</a></h3></center>
 
-
+ 
 
 
 
@@ -3170,8 +3170,8 @@ href="/japanese/hyakunin/images/onna88.jpg">88</a></h3></center>
 <center><hr width=30% size=4><a
 href="/etcbin/hyakuframe2www?act=queryform&specfile=/web/data/japanese/hyakunin/frames/index/hyaku1eng.o2w"><font color="000080">Search</font></a>
 <br><br>
- |
-
+ | 
+ 
 <a href="/japanese/hyakunin/frames/index/hyaku2rom.html#rom88"
 target="rom"><- Romaji</a>
  |
@@ -3186,7 +3186,7 @@ target="euc">Japanese -></a>
 <center><h3><a
 href="/japanese/hyakunin/images/onna89.jpg">89</a></h3></center>
 
-
+ 
 
 
 
@@ -3208,8 +3208,8 @@ href="/japanese/hyakunin/images/onna89.jpg">89</a></h3></center>
 <center><hr width=30% size=4><a
 href="/etcbin/hyakuframe2www?act=queryform&specfile=/web/data/japanese/hyakunin/frames/index/hyaku1eng.o2w"><font color="000080">Search</font></a>
 <br><br>
- |
-
+ | 
+ 
 <a href="/japanese/hyakunin/frames/index/hyaku2rom.html#rom89"
 target="rom"><- Romaji</a>
  |
@@ -3239,7 +3239,7 @@ ext.lib.virginia.edu/japanese/hyakunin/images/onna90.jpg">90</a></h3></center>
 <center><hr width=30% size=4><a
 href="/etcbin/hyakuframe2www?act=queryform&specfile=/web/data/japanese/hyakunin/frames/index/hyaku1eng.o2w"><font color="000080">Search</font></a>
 <br><br>
- |
+ | 
 <a href="/japanese/hyakunin/frames/index/hyaku2rom.html#rom90"
 target="rom"><- Romaji</a>
  |
@@ -3251,7 +3251,7 @@ target="euc">Japanese -></a>
 <center><h3><a
 href="/japanese/hyakunin/images/onna91.jpg">91</a></h3></center>
 
-
+ 
 
 
 
@@ -3273,7 +3273,7 @@ href="/japanese/hyakunin/images/onna91.jpg">91</a></h3></center>
 <center><hr width=30% size=4><a
 href="/etcbin/hyakuframe2www?act=queryform&specfile=/web/data/japanese/hyakunin/frames/index/hyaku1eng.o2w"><font color="000080">Search</font></a>
 <br><br>
- |
+ | 
 <a href="/japanese/hyakunin/frames/index/hyaku2rom.html#rom91"
 target="rom"><- Romaji</a>
  |
@@ -3288,7 +3288,7 @@ target="euc">Japanese -></a>
 <center><h3><a
 href="/japanese/hyakunin/images/onna92.jpg">92</a></h3></center>
 
-
+ 
 
 
 
@@ -3310,8 +3310,8 @@ href="/japanese/hyakunin/images/onna92.jpg">92</a></h3></center>
 <center><hr width=30% size=4><a
 href="/etcbin/hyakuframe2www?act=queryform&specfile=/web/data/japanese/hyakunin/frames/index/hyaku1eng.o2w"><font color="000080">Search</font></a>
 <br><br>
- |
-
+ | 
+ 
 <a href="/japanese/hyakunin/frames/index/hyaku2rom.html#rom92"
 target="rom"><- Romaji</a>
  |
@@ -3326,7 +3326,7 @@ target="euc">Japanese -></a>
 <center><h3><a
 href="/japanese/hyakunin/images/onna93.jpg">93</a></h3></center>
 
-
+ 
 
 
 
@@ -3335,7 +3335,7 @@ href="/japanese/hyakunin/images/onna93.jpg">93</a></h3></center>
 
 
 <br><center>Minamoto no Sanetomo</center>
-
+  
 <br>If only our world
 <br>Could be always as it is!
 <br>How moving the sight
@@ -3347,8 +3347,8 @@ href="/japanese/hyakunin/images/onna93.jpg">93</a></h3></center>
 <center><hr width=30% size=4><a
 href="/etcbin/hyakuframe2www?act=queryform&specfile=/web/data/japanese/hyakunin/frames/index/hyaku1eng.o2w"><font color="000080">Search</font></a>
 <br><br>
- |
-
+ | 
+ 
 <a href="/japanese/hyakunin/frames/index/hyaku2rom.html#rom93"
 target="rom"><- Romaji</a>
  |
@@ -3363,7 +3363,7 @@ target="euc">Japanese -></a>
 <center><h3><a
 href="/japanese/hyakunin/images/onna94.jpg">94</a></h3></center>
 
-
+ 
 
 
 
@@ -3372,7 +3372,7 @@ href="/japanese/hyakunin/images/onna94.jpg">94</a></h3></center>
 
 
 <br><center>Fujiwara no Masatsune</center>
-
+ 
 <br>From Mount Yoshino
 <br>Blows a chill, autumnal wind.
 <br>In the deepening night
@@ -3384,8 +3384,8 @@ href="/japanese/hyakunin/images/onna94.jpg">94</a></h3></center>
 <center><hr width=30% size=4><a
 href="/etcbin/hyakuframe2www?act=queryform&specfile=/web/data/japanese/hyakunin/frames/index/hyaku1eng.o2w"><font color="000080">Search</font></a>
 <br><br>
- |
-
+ | 
+ 
 <a href="/japanese/hyakunin/frames/index/hyaku2rom.html#rom94"
 target="rom"><- Romaji</a>
  |
@@ -3400,7 +3400,7 @@ target="euc">Japanese -></a>
 <center><h3><a
 href="/japanese/hyakunin/images/onna95.jpg">95</a></h3></center>
 
-
+ 
 
 
 
@@ -3421,8 +3421,8 @@ href="/japanese/hyakunin/images/onna95.jpg">95</a></h3></center>
 <center><hr width=30% size=4><a
 href="/etcbin/hyakuframe2www?act=queryform&specfile=/web/data/japanese/hyakunin/frames/index/hyaku1eng.o2w"><font color="000080">Search</font></a>
 <br><br>
- |
-
+ | 
+ 
 <a href="/japanese/hyakunin/frames/index/hyaku2rom.html#rom95"
 target="rom"><- Romaji</a>
  |
@@ -3454,8 +3454,8 @@ href="/japanese/hyakunin/images/onna96.jpg">96</a></h3></center>
 <center><hr width=30% size=4><a
 href="/etcbin/hyakuframe2www?act=queryform&specfile=/web/data/japanese/hyakunin/frames/index/hyaku1eng.o2w"><font color="000080">Search</font></a>
 <br><br>
- |
-
+ | 
+ 
 <a href="/japanese/hyakunin/frames/index/hyaku2rom.html#rom96"
 target="rom"><- Romaji</a>
  |
@@ -3488,8 +3488,8 @@ a.edu/japanese/hyakunin/images/onna97.jpg">97</a></h3></center>
 <center><hr width=30% size=4><a
 href="/etcbin/hyakuframe2www?act=queryform&specfile=/web/data/japanese/hyakunin/frames/index/hyaku1eng.o2w"><font color="000080">Search</font></a>
 <br><br>
- |
-
+ | 
+ 
 <a href="/japanese/hyakunin/frames/index/hyaku2rom.html#rom97"
 target="rom"><- Romaji</a>
  |
@@ -3543,7 +3543,7 @@ href="/japanese/hyakunin/images/onna99.jpg">99</a></h3></center>
 <center><hr width=30% size=4><a
 href="/etcbin/hyakuframe2www?act=queryform&specfile=/web/data/japanese/hyakunin/frames/index/hyaku1eng.o2w"><font color="000080">Search</font></a>
 <br><br>
- |
+ | 
 <a href="/japanese/hyakunin/frames/index/hyaku2rom.html#rom99"
 target="rom"><- Romaji</a>
  |
@@ -3569,11 +3569,11 @@ href="/japanese/hyakunin/images/onna100.jpg">100</a></h3></center>
 <center><hr width=30% size=4><a
 href="/etcbin/hyakuframe2www?act=queryform&specfile=/web/data/japanese/hyakunin/frames/index/hyaku1eng.o2w"><font color="000080">Search</font></a>
 <br><br>
- |
+ | 
 
 <a href="/japanese/hyakunin/frames/index/hyaku2rom.html#rom100"
 target="rom"><- Romaji</a>
- |
+ | 
 <a href="/japanese/hyakunin/frames/index/hyaku3euc.html#euc100"
 target="euc">Japanese -></a>
 
