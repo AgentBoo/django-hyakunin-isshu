@@ -2,7 +2,6 @@
 ```
 conda create --name chihayaenv django
 source activate chihayaenv
-django-admin startproject chihayafuru
 
 pip install lxml
 pip install requests
