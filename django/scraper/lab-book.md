@@ -14,7 +14,9 @@ touch scraper.py
 2. scraper.py (lxml + requests )
 - html.fromstring() implicitly expects bytes as input
 
-``` python
+http://docs.python-guide.org/en/latest/scenarios/scrape/
+
+```python
 from lxml import html
 import requests
 
@@ -26,16 +28,13 @@ tree = html.fromstring(page.content)
 prices = tree.xpath('//span[@class="item-price"]/text()')
 ```
 
-http://docs.python-guide.org/en/latest/scenarios/scrape/
-
 
 3. scraper.py (bs4)
-``` python
+```python
 from bs4 import BeautifulSoup
 import requests
 
 url = 'http://jti.lib.virginia.edu/japanese/hyakunin/frames/hyakuframes.html'
-
 page = requests.get(url)
 tree = BeautifulSoup(page.text, 'lxml')
 ```
@@ -50,6 +49,7 @@ Requests
 
 http://docs.python-requests.org/en/master/user/quickstart/#make-a-request
 
+
 5. scraper.py  
 Parsing html documents
 - bs4 can use its own html.parser, or can use lxml
@@ -61,14 +61,16 @@ https://www.crummy.com/software/BeautifulSoup/bs4/doc/#navigating-the-tree
 
 6. iframes
 - make request to the main page with 3 iframes
+- inspect the result files
 
-``` python
+```python
 from bs4 import BeautifulSoup
 import requests
+import csv
 # main url
-url = 'http://jti.lib.virginia.edu/japanese/hyakunin/frames/hyakuframes.html'
+main = 'http://jti.lib.virginia.edu/japanese/hyakunin/frames/hyakuframes.html'
 # make request to the main url and parse the document
-page = requests.get(url)
+page = requests.get(main)
 tree = BeautifulSoup(page.text, 'lxml')
 
 # find all iframes (returns a list)
@@ -78,27 +80,38 @@ frames = tree.find_all('frame')
 for frame in frames:
   print(frame.attrs['src'])
 
-# get the root url from the original url
-root = url.split('hyakuframes.html')[0]
+# for each iframe, reconstruct the correct url to send GET requests to from a root URL
+# store correct urls in a list
+root = main.split('hyakuframes.html')[0]
+urls = []
 
 # make a list of all iframe urls
 # fetch content from all 3 urls
-urls = []
-contents = []
-for frame in frames:
-  src = frame.attrs['src']
-  url = root + src
-  urls.append(url)
-  content = requests.get(url)
-  contents.append(content)
+for index,frame in enumerate(frames):
+    url = root + frame.attrs['src']
+    content = requests.get(url).text
 
-# get rid of the first entry because it does not seem to be what I want
+    # save contents to txt files
+    fname = 'frame_{num}.txt'.format(num = index + 1)
+    f = open(fname, 'w+')
+    f.write(content)
+    f.close()
+
+    # store urls
+    urls.append(url)
+
+
+# the first iframe does not contain any poems
 urls.pop(0)
-contents.pop(0)
 
-# check everything
-print(urls)
-print(contents)
+# individual urls
+jap = urls[0]
+rom = urls[1]
+eng = urls[2]
+
+print(jap)          # frame_2.txt
+print(rom)          # frame_3.txt
+print(eng)          # frame_4.txt
 
 # urls
 jap = 'http://jti.lib.virginia.edu/japanese/hyakunin/frames/index/hyaku3euc.html'
@@ -106,30 +119,30 @@ rom = 'http://jti.lib.virginia.edu/japanese/hyakunin/frames/index/hyaku2rom.html
 eng = 'http://jti.lib.virginia.edu/japanese/hyakunin/frames/index/hyaku1eng.html'
 
 
-# create individual files with individual html strings for further processing
-# creates lang_1.py, lang_2.py, lang_3.py
-for item in range(1,4):
-    name = 'lang_{num}.py'.format(num = item)
-    f = open(name, 'w+')
-    f.write(contents[item-1].text)
-    f.close()
-
-```   
-
-- inspect the files
-
 7. Saving to a csv file
 https://blog.hartleybrody.com/web-scraping-cheat-sheet/#writing-to-a-csv
 
-8. poems_to_csv.py
 
-``` python
+8. poems_to_csv.py
+```python
 from bs4 import BeautifulSoup
 import csv
 
 '''
 Create a list of poems and write them into a csv file.
+Japanese translation: frame_2.txt is written in kanji (good luck finding raised errors),
+but it seems that a stray '\n' newline in poem #100 was passing one of my if-else conditions.
+Romanized transcription: everything seems to be correct in frame_3.txt.
+English translation: A closing </lg> and opening <lg> tags are missing in frame_4.txt, between
+Fujiwara no Kanesuke's and Minamoto no Muneyuki's poems, making the parser think
+that there is only one poem #27. Additionally, the lxml parser created this:
+    <center><h3><a
+    href="/japanese/hyakunin/images/onna100.jpg">100</a></h3></cente
+    r
+    >
+The strings after that segment in poem #100 are not extracted at all.
 '''
+
 
 # skip frame_1.txt file because it does not contain poems
 for index,language in enumerate(['jap', 'rom', 'eng']):
@@ -182,7 +195,6 @@ for index,language in enumerate(['jap', 'rom', 'eng']):
         # poems
         for poem in collection:
             writer.writerow(poem)
-
 ```
 
 #### Sources

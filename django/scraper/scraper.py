@@ -18,7 +18,7 @@ tree = BeautifulSoup(page.text,'lxml')
 
 frames = tree.find_all('frame')
 
-# for each iframe, reconstruct the correct url to send GET requests to
+# for each iframe, reconstruct the correct url to send GET requests to from root URL
 # store correct urls in a list
 root = main.split('hyakuframes.html')[0]
 urls = []
