@@ -117,7 +117,7 @@ print(eng)          # frame_4.txt
 jap = 'http://jti.lib.virginia.edu/japanese/hyakunin/frames/index/hyaku3euc.html'
 rom = 'http://jti.lib.virginia.edu/japanese/hyakunin/frames/index/hyaku2rom.html'
 eng = 'http://jti.lib.virginia.edu/japanese/hyakunin/frames/index/hyaku1eng.html'
-
+```
 
 7. Saving to a csv file
 https://blog.hartleybrody.com/web-scraping-cheat-sheet/#writing-to-a-csv
@@ -199,5 +199,7 @@ for index,language in enumerate(['jap', 'rom', 'eng']):
 
 #### Sources
 http://docs.python-guide.org/en/latest/scenarios/scrape/
+<br>
 https://hackernoon.com/web-scraping-tutorial-with-python-tips-and-tricks-db070e70e071
+<br>
 https://www.crummy.com/software/BeautifulSoup/bs4/doc/#quick-start
