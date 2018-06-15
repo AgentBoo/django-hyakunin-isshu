@@ -4,5 +4,5 @@ from .views import PoemList, PoemDetail
 
 urlpatterns = [
 	path('poems', PoemList.as_view(), name='poem-list'),
-	path('poems/<int:pk>', PoemDetail.as_view(), name='poem-detail')
+	path('poems/<int:numeral>', PoemDetail.as_view(), name='poem-detail')
 ]
