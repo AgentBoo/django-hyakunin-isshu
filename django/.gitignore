@@ -3,3 +3,10 @@
 
 # ignore poems scraper outputs
 /scraper/outputs/* 
+
+# ignore django stuff 
+__pycache__/
+*.py[cod] 
+
+*.log 
+*.pot 

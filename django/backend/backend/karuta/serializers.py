@@ -1,7 +1,16 @@
 from rest_framework import serializers 
-from backend.karuta.models import Poem, Author
+from .models import Poem, Author
 
-class PoemSerializer(serializers.HyperlinkedModelSerializer):
+
+class AuthorSerializer(serializers.ModelSerializer):
+	class Meta:
+		model = Author
+		fields = ('jap', 'rom', 'eng') 
+
+
+class PoemSerializer(serializers.ModelSerializer):
+	author = AuthorSerializer(read_only=True)
+
 	class Meta:
 		model = Poem 
-		fields = ('jap','rom','eng')
+		fields = ('author','jap','rom','eng')

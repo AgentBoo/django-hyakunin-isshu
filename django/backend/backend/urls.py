@@ -14,14 +14,10 @@ Including another URLconf
     2. Add a URL to urlpatterns:  path('blog/', include('blog.urls'))
 """
 from django.contrib import admin
-from django.urls import path, include 
-from rest_framework import routers 
-from backend.karuta import views 
+from django.urls import path, include
 
-router = routers.DefaultRouter()
-router.register(r'poems', views.PoemViewSet)
 
 urlpatterns = [
-	path('/', include(router.urls)),
+	path('api/', include('backend.karuta.urls')),
     path('admin/', admin.site.urls),
 ]

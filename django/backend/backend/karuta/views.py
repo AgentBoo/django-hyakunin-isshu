@@ -1,12 +1,15 @@
-# from django.shortcuts import render
-from backend.karuta.models import Poem
-from backend.karuta.serializers import PoemSerializer 
-from rest_framework import viewsets 
+from rest_framework import generics 
+from .models import Poem
+from .serializers import PoemSerializer 
+
 
 # Create your views here.
-class PoemViewSet(viewsets.ModelViewSet):
-	'''
-	API endpoint that allows poems to be viewed or edited
-	''' 
+
+class PoemList(generics.ListAPIView):
+	queryset = Poem.objects.all().order_by('numeral')
+	serializer_class = PoemSerializer
+
+
+class PoemDetail(generics.RetrieveUpdateAPIView):
 	queryset = Poem.objects.all().order_by('numeral')
 	serializer_class = PoemSerializer

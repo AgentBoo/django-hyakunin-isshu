@@ -11,7 +11,7 @@ from backend.karuta.models import Author, Poem
 
 root = os.path.dirname(os.path.abspath(__file__))
 
-# 
+
 def populate_poem(language,index,row):
 	try:
 		poem = Poem.objects.get(numeral=index + 1)
@@ -26,13 +26,11 @@ def populate_poem(language,index,row):
 	
 	except Poem.DoesNotExist:
 		author = Author.objects.get_or_create(**{ language: row[0] })[0]
-		poem = Poem(author=author, numeral=index + 1, **{language: row[1:6]})
+		poem = Poem.objects.create(author=author, numeral=index + 1, **{language: row[1:6]})
 
-		poem.save()
-		
 		print(poem) 
 
-# 
+
 def csv_to_poems(language):
 	file = '{lang}.csv'.format(lang=language)
 	path = os.path.join(root,'poems',file)
