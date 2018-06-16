@@ -1,0 +1,11 @@
+# lab-books 
+/lab-book.md
+
+# scraper outputs 
+/scraper/outputs/*
+
+# misc 
+__pycache__
+
+*.py[cod]
+*.log 
