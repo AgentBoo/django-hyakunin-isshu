@@ -15,5 +15,6 @@ Demo:
 
 <br>
 <br>
+
 #### Comments:
-**lab-book.md** files are used throughout this django project as a way to document my work in a protocol form (similar to a science lab book, but a lot less strict on format).
+**lab-book.md** files are used throughout this django project as a way to document my work in a protocol form and leave myself notes for future reference (similar to a science lab book, but a lot less strict on format).

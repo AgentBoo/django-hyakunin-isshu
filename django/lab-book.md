@@ -1,10 +1,11 @@
-# Django backend 
-0. Quick
+## Django+ Django REST framework backend
+
+0. Quick 
 ```
 # django-admin startapp will create a new directory 
 django-admin startapp <app_name>
 
-# django-admin startapp will not create a new directory for you if using this syntax 
+# django-admin startapp will not create a new directory for you if you use this syntax, so set up your own 
 django-admin startapp <app_name> <existing_app_directory>
 django-admin startapp karuta backend/karuta
 
@@ -17,18 +18,21 @@ Poem.objects.all().delete()
 ```
 
 
+#### Setup
 1. cli 
-* move ./chihayafuru django project to a different folder 
-
-* [kuma](https://github.com/mozilla/kuma) will serve as an example for file tree structure
-    * backend related apps are placed inside the backend project 
-    * frontend app is placed next to the backend project 
-
-* repo
+Move ./chihayafuru django project to a different folder 
+<br>
+Clone repo from 
 ``` 
 git clone https://github.com/AgentBoo/django-hyakunin-isshu.git
 ``` 
-
+<br>
+<br>
+[kuma](https://github.com/mozilla/kuma) will serve as an example for file tree structure
+    * backend related apps are placed inside the backend project 
+    * frontend app is placed next to the backend project 
+<br>
+Protocol
 ```
 conda create --name chihayaenv django 
 source activate chihayaenv 
