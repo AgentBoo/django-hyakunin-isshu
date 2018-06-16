@@ -18,22 +18,43 @@ Poem.objects.all().delete()
 ```
 
 
-#### Setup
-_cli_ <br>
-Move ./chihayafuru django project to a different folder <br>
+### Setup
+**1. cli**
+Move ./chihayafuru django project to a different folder. <br>
+
 Clone repo from 
 ``` 
 git clone https://github.com/AgentBoo/django-hyakunin-isshu.git
 ``` 
-<br>
+
 [kuma](https://github.com/mozilla/kuma) will serve as an example for file tree structure:
-    * backend related apps are placed inside the backend project 
-    * frontend app is placed next to the backend project 
+* backend related apps are placed inside the backend project  
+* frontend app is placed next to the backend project 
 <br>
+<br>
+
+* current tree 
+    * django-karuta 
+        * django
+            * backend
+                * backend 
+                    * karuta
+                * frontend  
+                * templates 
+                * manage.py
+                * seeds.py
+            * poems  
+            * lab-book
+            * .gitignore  
+        * scraper 
+<br>
+<br>
+
 Protocol
 ```
 conda create --name chihayaenv django 
 source activate chihayaenv 
+
 
 mkdir django-karuta && cd django-karuta  
 
@@ -57,9 +78,12 @@ npx create-react-app frontend
 cd backend && mkdir karuta  
 django-admin startapp karuta backend/karuta 
 
+
 pip install djangorestframework
 pip install psycopg2-binary 
 
+```
+```
 createdb poems 
 psql poems 
 
@@ -71,27 +95,15 @@ GRANT ALL PRIVILEGES ON DATABASE poems TO poems;
 \q
 ```
 
-* current tree 
-    * django-karuta 
-        * django
-            * backend
-                * backend 
-                    * karuta
-                * frontend  
-                * templates 
-                * manage.py
-                * seeds.py
-            * poems  
-            * lab-book
-            * .gitignore  
-        * scraper  
-
-* workflow: model => serializer => view => urls.py => root URLconf
+Workflow: <br>
+model => serializer => view => urls.py => root URLconf 
+<br>
+<br>
 
 Resources: 
 * create-react-app <br>
-https://github.com/facebook/create-react-app <br>
-https://gist.github.com/gaearon/4064d3c23a77c74a3614c498a8bb1c5f
+  https://github.com/facebook/create-react-app <br>
+  https://gist.github.com/gaearon/4064d3c23a77c74a3614c498a8bb1c5f
 
 
 2. backend/settings.py 
