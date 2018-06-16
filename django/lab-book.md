@@ -1,6 +1,6 @@
 ## Django+ Django REST framework backend
 
-0. Quick 
+Quick: 
 ```
 # django-admin startapp will create a new directory 
 django-admin startapp <app_name>
@@ -16,7 +16,9 @@ python manage.py shell
 
 Poem.objects.all().delete()
 ```
-
+<br>
+Workflow: <br>
+model => serializer => view => urls.py => root URLconf <br>
 
 ### Setup
 **1. cli**
@@ -30,8 +32,6 @@ git clone https://github.com/AgentBoo/django-hyakunin-isshu.git
 [kuma](https://github.com/mozilla/kuma) will serve as an example for file tree structure:
 * backend related apps are placed inside the backend project  
 * frontend app is placed next to the backend project 
-<br>
-<br>
 
 * current tree 
     * django-karuta 
@@ -47,8 +47,6 @@ git clone https://github.com/AgentBoo/django-hyakunin-isshu.git
             * lab-book
             * .gitignore  
         * scraper 
-<br>
-<br>
 
 Protocol
 ```
@@ -94,12 +92,6 @@ ALTER ROLE poems SET timezone TO 'UTC';
 GRANT ALL PRIVILEGES ON DATABASE poems TO poems;
 \q
 ```
-
-Workflow: <br>
-model => serializer => view => urls.py => root URLconf 
-<br>
-<br>
-
 Resources: 
 * create-react-app <br>
   https://github.com/facebook/create-react-app <br>
