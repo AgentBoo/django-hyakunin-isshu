@@ -4,6 +4,9 @@
 # scraper outputs 
 /scraper/outputs/*
 
+# .env 
+.env
+ 
 # misc 
 __pycache__
 

@@ -23,7 +23,7 @@ class App extends Component {
   }
 
   render() {
-    let poems = this.state.p.map(poem => poem.author.eng) 
+    let poems = this.state.p.map(poem => <p> {poem.author.eng } </p>) 
 
     return (
       <div className="App">
