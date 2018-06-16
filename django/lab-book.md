@@ -16,12 +16,12 @@ python manage.py shell
 
 Poem.objects.all().delete()
 ```
-<br>
-Workflow: <br>
-model => serializer => view => urls.py => root URLconf <br>
+
+Workflow: model => serializer => view => urls.py => root URLconf <br>
+
 
 ### Setup
-**1. cli**
+**1. cli** <br>
 Move ./chihayafuru django project to a different folder. <br>
 
 Clone repo from 
@@ -97,8 +97,9 @@ Resources:
   https://github.com/facebook/create-react-app <br>
   https://gist.github.com/gaearon/4064d3c23a77c74a3614c498a8bb1c5f
 
+<br>
 
-2. backend/settings.py 
+**2. backend/settings** <br> 
 ```python
 INSTALLED_APPS = [
     'django.contrib.admin',
@@ -133,15 +134,9 @@ REST_FRAMEWORK = {
 }
 ``` 
 
+<br>
 
-3. cli 
-* create superuser 
-```
-python manage.py createsuperuser --email chibi.chan@seznam.cz --username admin hakuoro++++
-``` 
-
-
-4. karuta/models.py 
+**3. karuta/models.py** <br>  
 ```python
 from django.db import models
 from django.contrib.postgres.fields import ArrayField
@@ -174,7 +169,6 @@ class Poem(models.Model):
     def __str__(self):
         return '%s  %s %s %s' % (self.numeral, self.author.jap, self.author.rom, self.author.eng) 
 ```
- 
 Resources: 
 * using dunders <br>
 https://stackoverflow.com/questions/1307014/python-str-versus-unicode
@@ -184,7 +178,7 @@ https://docs.djangoproject.com/en/2.0/ref/contrib/postgres/fields/
 
 * one-to-one association models inheritance <br>
     * not correct for the author-poem use case (author has one poem - poem belongs to an author)
-    * one-to-one signifies inheritance, almost as if an author basically is a poem (author is a basis for a poem and a poem is a subclass of author and extends it) <br>
+    * one-to-one signifies inheritance, where author basically is a poem (author is a basis for a poem and a poem is a subclass of author and extends it) <br>
 https://docs.djangoproject.com/en/2.0/topics/db/examples/one_to_one/ <br>
 https://stackoverflow.com/questions/25206447/when-to-use-one-to-one-relationships-in-django-models 
 
@@ -197,12 +191,13 @@ https://docs.djangoproject.com/en/2.0/ref/models/fields/#foreignkey
     * for CharField, it is preferred to not set null=True <br> 
 https://docs.djangoproject.com/en/2.0/ref/models/fields/#null
 
-
 * related_name to replace default model_set name for the backwards relation from the related object back to a primary object <br>
 https://docs.djangoproject.com/en/2.0/ref/models/fields/#django.db.models.ForeignKey.related_name
 
+<br>
 
-5. seeds.py 
+
+**4. seeds.py** <br>  
 ```python
 import os 
 os.environ.setdefault('DJANGO_SETTINGS_MODULE', 'backend.settings')
@@ -222,7 +217,6 @@ def csv_to_poems():
 def seed:
     pass 
 ``` 
-
 Resources: 
 * python fundamentals 
 ```python
@@ -253,10 +247,10 @@ https://docs.djangoproject.com/en/2.0/ref/models/querysets/#get-or-create
 * nested with statements (unnecessary) <br>
 https://stackoverflow.com/questions/26731720/how-to-avoid-nested-with-statements-when-working-with-multiple-files-in-python
 
+<br>
 
-6. backend/karuta/admin.py
-* register model with admin 
-
+**5. backend/karuta/admin.py** <br>  
+Register model with admin 
 ```python 
 from django.contrib import admin
 from .models import Poem, Author
@@ -266,8 +260,9 @@ admin.site.register(Poem)
 admin.site.register(Author)
 ```
 
+<br>
 
-7. karuta/serializers.py 
+**6. karuta/serializers.py** <br>  
 ```python
 from rest_framework import serializers 
 from .models import Poem, Author
@@ -286,13 +281,13 @@ class PoemSerializer(serializers.ModelSerializer):
         model = Poem 
         fields = ('author','jap','rom','eng') 
 ``` 
-
-Resources:
+Resources: 
 * serializer relations <br>
 http://www.django-rest-framework.org/api-guide/relations/#nested-relationships
 
+<br>
 
-8. karuta/views.py 
+**7. karuta/views.py** <br>  
 ```python 
 from rest_framework import generics 
 from .models import Poem
@@ -311,15 +306,14 @@ class PoemDetail(generics.RetrieveUpdateAPIView):
     queryset = Poem.objects.all().order_by('numeral')
     serializer_class = PoemSerializer
 ```
-
-Resources:
-* Generic views 
+Resources: 
+* Generic views <br> 
 http://www.django-rest-framework.org/api-guide/generic-views/#concrete-view-classes
-* lookup_field attr 
+* lookup_field attr <br>
 http://www.django-rest-framework.org/api-guide/generic-views/#attributes
 
 
-8. backend/karuta/urls.py
+**8. backend/karuta/urls.py** <br>  
 ```python
 from django.urls import path
 from .views import PoemList, PoemDetail
@@ -330,13 +324,15 @@ urlpatterns = [
     path('poems/<int:numeral>', PoemDetail.as_view(), name='poem-detail')
 ]
 ```
-Resources: <br>
-* specific lookup field 
-https://docs.djangoproject.com/en/2.0/topics/http/urls/#example
+Resources: 
+* specific lookup field <br>
+https://docs.djangoproject.com/en/2.0/topics/http/urls/#example <br>
 http://www.django-rest-framework.org/api-guide/generic-views/#attributes
 
 
-9. backend/urls.py 
+<br>
+
+**9. backend/urls.py** <br>  
 ```python 
 from django.contrib import admin
 from django.urls import path, include
@@ -348,11 +344,10 @@ urlpatterns = [
 ]
 
 ```
-
 Resources: <br>
 http://www.django-rest-framework.org/tutorial/quickstart/#settings
 
-
+<br>
 
 
 # Deployment to heroku
