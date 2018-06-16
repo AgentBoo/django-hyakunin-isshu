@@ -9,7 +9,7 @@ django.setup()
 import csv 
 from backend.karuta.models import Author, Poem
 
-root = os.path.dirname(os.path.abspath(__file__))
+root = os.path.dirname(os.path.dirname(os.path.abspath(__file__)))
 
 
 def populate_poem(language,index,row):
@@ -59,5 +59,5 @@ def seed(*languages):
 
 
 # populate database with data from language specific csv files 
-seed('eng', 'rom', 'jap')
+# seed('eng', 'rom', 'jap')
 

@@ -1,10 +1,7 @@
 # ignore lab book
-/lab-book.md
+lab-book.md
 
-# ignore poems scraper outputs
-/scraper/outputs/* 
-
-# ignore django stuff 
+# misc 
 __pycache__/
 *.py[cod] 
 
