@@ -19,16 +19,14 @@ Poem.objects.all().delete()
 
 
 #### Setup
-1. cli 
-Move ./chihayafuru django project to a different folder 
-<br>
+_cli_ <br>
+Move ./chihayafuru django project to a different folder <br>
 Clone repo from 
 ``` 
 git clone https://github.com/AgentBoo/django-hyakunin-isshu.git
 ``` 
 <br>
-<br>
-[kuma](https://github.com/mozilla/kuma) will serve as an example for file tree structure
+[kuma](https://github.com/mozilla/kuma) will serve as an example for file tree structure:
     * backend related apps are placed inside the backend project 
     * frontend app is placed next to the backend project 
 <br>
