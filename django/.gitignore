@@ -1,9 +1,0 @@
-# ignore lab book
-lab-book.md
-
-# misc 
-__pycache__/
-*.py[cod] 
-
-*.log 
-*.pot 
