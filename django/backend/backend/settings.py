@@ -11,22 +11,29 @@ https://docs.djangoproject.com/en/2.0/ref/settings/
 """
 
 import os
-import django_heroku
 
 # Build paths inside the project like this: os.path.join(BASE_DIR, ...)
+
 BASE_DIR = os.path.dirname(os.path.dirname(os.path.abspath(__file__)))
+
 TEMPLATE_DIR = os.path.join(BASE_DIR, 'templates')
 
-# Quick-start development settings - unsuitable for production
-# See https://docs.djangoproject.com/en/2.0/howto/deployment/checklist/
+REACT_APP_DIR = os.path.join(BASE_DIR,'karuta_react')
 
-# SECURITY WARNING: keep the secret key used in production secret!
-SECRET_KEY = os.environ['SECRET_KEY']
 
-# SECURITY WARNING: don't run with debug turned on in production!
-DEBUG = True
+'''
+Import local settings from local_settings (local_settings is never committed to version control)
+A specific local_settings is created for each dev and production environments.
+'''
 
-ALLOWED_HOSTS = []
+DEBUG = bool(os.getenv('DJANGO_DEBUG', False))
+
+try:
+   from .local_settings import *
+except ImportError:
+    raise Exception('A local_settings.py file is required to run this project') 
+
+SECRET_KEY = DJANGO_SECRET_KEY
 
 
 # Application definition
@@ -37,34 +44,26 @@ INSTALLED_APPS = [
     'django.contrib.contenttypes',
     'django.contrib.sessions',
     'django.contrib.messages',
+    'whitenoise.runserver_nostatic',
     'django.contrib.staticfiles',
     'rest_framework',
     'corsheaders',
-    'backend.karuta'
+    'webpack_loader',
+    'backend.karuta_api',
+    'backend.karuta_app',
 ]
 
 MIDDLEWARE = [
     'django.middleware.security.SecurityMiddleware',
     'django.contrib.sessions.middleware.SessionMiddleware',
     'corsheaders.middleware.CorsMiddleware',
+    'whitenoise.middleware.WhiteNoiseMiddleware',
     'django.middleware.common.CommonMiddleware',
     'django.middleware.csrf.CsrfViewMiddleware',
     'django.contrib.auth.middleware.AuthenticationMiddleware',
     'django.contrib.messages.middleware.MessageMiddleware',
     'django.middleware.clickjacking.XFrameOptionsMiddleware',
 ]
-
-CORS_ORIGIN_WHITELIST = (
-    'localhost:3000',
-    '192.168.1.80:3000',
-)
-
-CSRF_TRUSTED_ORIGINS = (
-    'localhost:3000',
-    '192.168.1.80:3000',
-)
-
-ROOT_URLCONF = 'backend.urls'
 
 TEMPLATES = [
     {
@@ -82,6 +81,14 @@ TEMPLATES = [
     },
 ]
 
+ALLOWED_HOSTS = LOCAL_HOSTS
+
+CORS_ORIGIN_WHITELIST = LOCAL_WHITELIST
+
+CSRF_TRUSTED_ORIGINS = LOCAL_TRUSTED_ORIGINS
+
+ROOT_URLCONF = 'backend.urls'
+
 WSGI_APPLICATION = 'backend.wsgi.application'
 
 
@@ -91,11 +98,11 @@ WSGI_APPLICATION = 'backend.wsgi.application'
 DATABASES = {
     'default': {
         'ENGINE': 'django.db.backends.postgresql',
-        'NAME': os.environ['DB_NAME'],
-        'USER': os.environ['DB_ROLE'],
-        'PASSWORD': os.environ['DB_PASSWORD'],
-        'HOST': '',
-        'PORT': os.environ['DB_PORT'],
+        'NAME': DATABASE_NAME,
+        'USER': DATABASE_ROLE,
+        'PASSWORD': DATABASE_PASSWORD,
+        'HOST': 'localhost',
+        'PORT': DATABASE_PORT,
     }
 }
 
@@ -124,7 +131,7 @@ AUTH_PASSWORD_VALIDATORS = [
 
 LANGUAGE_CODE = 'en-us'
 
-TIME_ZONE = 'America/Indiana/Indianapolis'
+TIME_ZONE = 'UTC'
 
 USE_I18N = True
 
@@ -137,6 +144,25 @@ USE_TZ = True
 # https://docs.djangoproject.com/en/2.0/howto/static-files/
 
 STATIC_URL = '/static/'
+
+# WhiteNoise requires specifying the staticfiles dir
+STATIC_ROOT = os.path.join(BASE_DIR, 'staticfiles')
+
+# Extra places for collectstatic to find static files.
+STATICFILES_DIRS = [
+    os.path.join(REACT_APP_DIR, 'build', 'static'),
+]
+
+
+# django-webpack-loader
+
+WEBPACK_LOADER = {
+    'DEFAULT': {
+        'BUNDLE_DIR_NAME': '',
+        'STATS_FILE': os.path.join(REACT_APP_DIR, 'webpack-stats-production.json'),
+        'CACHE': False,
+    }
+}
 
 
 # DRF
@@ -153,7 +179,3 @@ REST_FRAMEWORK = {
     ]
 }
 
-
-# Django-heroku 
-
-django_heroku.settings(locals()) 

@@ -18,6 +18,7 @@ from django.urls import path, include
 
 
 urlpatterns = [
-	path('api/', include('backend.karuta.urls')),
     path('admin/', admin.site.urls),
+	path('api/', include('backend.karuta_api.urls')),
+    path('', include('backend.karuta_app.urls')),
 ]
