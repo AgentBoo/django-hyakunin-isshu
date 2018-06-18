@@ -67,7 +67,7 @@ LOCAL_DATABASE = {
     'default': dj_database_url.config(conn_max_age=600)
 }
 
-LOCAL_HOSTS = [ os.environ['APP_URL'] ]
+LOCAL_HOSTS = [ 'https://fierce-hollows-19151.herokuapp.com', os.getenv('APP_URL','localhost:8000') ]
 
 LOCAL_WHITELIST = os.getenv('APP_URL', 'localhost:3000')
 
