@@ -17,6 +17,10 @@ Demo:
 <br>
 
 #### Comments:
+Add **local_settings** to **.gitignore** for remote push to GitHub, but make sure that **local_settings** is committed and **NOT** ignored for heroku pushes.   
+
+
 **lab-book.md** files are used throughout this django project as a way to document my work in a protocol form and leave myself notes for future reference (similar to a science lab book, but a lot less strict on format). 
+
 
 _Update: All lab books were moved inside the housekeeping directory_

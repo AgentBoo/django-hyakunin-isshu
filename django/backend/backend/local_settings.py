@@ -58,8 +58,7 @@ LOCAL_TRUSTED_ORIGINS = (
 # For production, see https://docs.djangoproject.com/en/2.0/howto/deployment/checklist/
 
 # if not DEBUG:
-import dj_database_url
-from .settings import DATABASES 
+import dj_database_url 
 
 
 DJANGO_SECRET_KEY = os.getenv('DJANGO_SECRET_KEY', 'cg#p$g+j9tax!#a3cup@1$8obt2_+&k3q+pmu)5%asj6yjpkagbboombboommomoland2018')

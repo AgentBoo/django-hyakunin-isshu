@@ -8,7 +8,7 @@
 
 # production 
 /build
-# *local_settings*.py
+*local_settings*.py
 /scraper/outputs/*
 
 # sqlite 
