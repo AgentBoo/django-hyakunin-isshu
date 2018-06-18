@@ -1,1 +1,1 @@
-web: gunicorn backend.wsgi --preload --log-file -
+web: gunicorn ./django/backend/backend.wsgi --preload --log-file -
