@@ -3,6 +3,7 @@
   "version": "0.1.0",
   "private": true,
   "dependencies": {
+    "js-cookie": "^2.2.0",
     "react": "^16.4.1",
     "react-app-rewired": "^1.5.2",
     "react-dom": "^16.4.1",
