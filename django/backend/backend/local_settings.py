@@ -45,15 +45,15 @@ import os
 # PRODUCTION
 # For production, see https://docs.djangoproject.com/en/2.0/howto/deployment/checklist/
 
-if not DEBUG:
-	import dj_database_url
+# if not DEBUG:
+import dj_database_url
 
-	DJANGO_SECRET_KEY = os.getenv('DJANGO_SECRET_KEY', 'cg#p$g+j9tax!#a3cup@1$8obt2_+&k3q+pmu)5%asj6yjpkagbboombboommomoland2018')
+DJANGO_SECRET_KEY = os.getenv('DJANGO_SECRET_KEY', 'cg#p$g+j9tax!#a3cup@1$8obt2_+&k3q+pmu)5%asj6yjpkagbboombboommomoland2018')
 
-	DATABASES['default'] = dj_database_url.config(conn_max_age=600)
+DATABASES['default'] = dj_database_url.config(conn_max_age=600)
 
-	LOCAL_HOSTS = [ os.environ['APP_URL'] ]
+LOCAL_HOSTS = [ os.environ['APP_URL'] ]
 
-	LOCAL_WHITELIST = os.getenv('APP_URL', 'localhost:3000')
+LOCAL_WHITELIST = os.getenv('APP_URL', 'localhost:3000')
 
-	LOCAL_TRUSTED_ORIGINS = os.getenv('APP_URL', 'localhost:3000')
+LOCAL_TRUSTED_ORIGINS = os.getenv('APP_URL', 'localhost:3000')
