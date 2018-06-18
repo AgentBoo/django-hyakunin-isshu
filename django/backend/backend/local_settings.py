@@ -6,27 +6,39 @@
 
 import os
 
+'''
 # DEVELOPMENT 
-# DEBUG = True
+DEBUG = True
 
-# DJANGO_SECRET_KEY = os.getenv('DJANGO_SECRET_KEY', 'xw9s+3ykue_)evq%4r=y=!h$7m^_(0%x0n7413xte=z56m)uiyhahaheeheehohorose2018')
+DJANGO_SECRET_KEY = os.getenv('DJANGO_SECRET_KEY', 'xw9s+3ykue_)evq%4r=y=!h$7m^_(0%x0n7413xte=z56m)uiyhahaheeheehohorose2018')
 
-# DATABASE_NAME = 'poems'
-# DATABASE_ROLE = 'poems'
-# DATABASE_PASSWORD = 'poems'
-# DATABASE_PORT = '5432'
+LOCAL_DATABASE = {
+    'default': {
+        'ENGINE': 'django.db.backends.postgresql',
+        'NAME': DATABASE_NAME,
+        'USER': DATABASE_ROLE,
+        'PASSWORD': DATABASE_PASSWORD,
+        'HOST': 'localhost',
+        'PORT': DATABASE_PORT,
+    }
+}
+
+DATABASE_NAME = 'poems'
+DATABASE_ROLE = 'poems'
+DATABASE_PASSWORD = 'poems'
+DATABASE_PORT = '5432'
 
 
-# LOCAL_HOSTS = []
+LOCAL_HOSTS = []
 
-# LOCAL_WHITELIST = (
-#     'localhost:3000',
-# )
+LOCAL_WHITELIST = (
+    'localhost:3000',
+)
 
-# LOCAL_TRUSTED_ORIGINS = (
-#     'localhost:3000',
-# )
-
+LOCAL_TRUSTED_ORIGINS = (
+    'localhost:3000',
+)
+'''
 
 # Superuser 
 # --email chibi.chan@seznam.cz 
@@ -47,10 +59,14 @@ import os
 
 # if not DEBUG:
 import dj_database_url
+from .settings import DATABASES 
+
 
 DJANGO_SECRET_KEY = os.getenv('DJANGO_SECRET_KEY', 'cg#p$g+j9tax!#a3cup@1$8obt2_+&k3q+pmu)5%asj6yjpkagbboombboommomoland2018')
 
-DATABASES['default'] = dj_database_url.config(conn_max_age=600)
+LOCAL_DATABASE = {
+    'default': dj_database_url.config(conn_max_age=600)
+}
 
 LOCAL_HOSTS = [ os.environ['APP_URL'] ]
 
