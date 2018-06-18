@@ -52,7 +52,7 @@ LOCAL_TRUSTED_ORIGINS = (
 # List of env variables: DJANGO_DEBUG, DJANGO_SECRET_KEY, APP_URL, REACT_APP_DJANGO_API_URL(for React)
 # In react, only variables starting with REACT_APP_ are imported from .env files
 # Because I am running npm run build locally, I need to make sure REACT_APP_DJANGO_API_URL is exported
-
+# heroku config:set WSGI_PATH=
 
 # PRODUCTION
 # For production, see https://docs.djangoproject.com/en/2.0/howto/deployment/checklist/
