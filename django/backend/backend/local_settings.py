@@ -55,10 +55,10 @@ LOCAL_DATABASE = {
     'default': dj_database_url.config(conn_max_age=600)
 }
 
-LOCAL_HOSTS = [ os.getenv('ROOT_URL', '*'), ]
+LOCAL_HOSTS = ('https://fierce-hollows-19151.herokuapp.com/',)
 
-LOCAL_WHITELIST = [ os.getenv('ROOT_URL', 'localhost:3000'), ]
+LOCAL_WHITELIST = ('https://fierce-hollows-19151.herokuapp.com/',)
 
-LOCAL_TRUSTED_ORIGINS = [ os.getenv('ROOT_URL', 'localhost:3000'), ]
+LOCAL_TRUSTED_ORIGINS = ('https://fierce-hollows-19151.herokuapp.com/',)
 
 
