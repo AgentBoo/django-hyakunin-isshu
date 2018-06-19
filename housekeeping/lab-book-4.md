@@ -1055,7 +1055,7 @@ http://www.deadcoderising.com/react-16-render-a-child-component-into-another-dom
 
 <!-- Links index -->
 [Using Webpack transparently with Django + hot reloading React components as a bonus]: https://owais.lone.pw/blog/webpack-plus-reactjs-and-django/
-[Why I love Create React App](https://medium.com/@tuchk4/why-i-love-create-react-app-e63b1be689a3)
+[Why I love Create React App]: https://medium.com/@tuchk4/why-i-love-create-react-app-e63b1be689a3
 [merits of CRA]: https://twitter.com/dan_abramov/status/802582517173944320?lang=en
 [Deploying Python and Django Apps on Heroku]: https://devcenter.heroku.com/articles/deploying-python
 [Configuring Django Apps for Heroku]: https://devcenter.heroku.com/articles/django-app-configuration
@@ -1070,8 +1070,8 @@ http://www.deadcoderising.com/react-16-render-a-child-component-into-another-dom
 [Gunicorn]: https://devcenter.heroku.com/articles/python-gunicorn
 [react-app-rewired]: https://github.com/timarney/react-app-rewired
 [TemplateView]: https://docs.djangoproject.com/en/2.0/ref/class-based-views/base/#templateview
-[npm run eject]: 
-[extend the CRA webpack configuration using hacks]:
+[npm run eject]: https://github.com/AgentBoo/django-hyakunin-isshu/blob/master/housekeeping/lab-book-4.md#modern-django-part-1-setting-up-django-and-react-created-05-10-2017-accessed-16-05-2018
+[extend the CRA webpack configuration using hacks]: https://github.com/AgentBoo/django-hyakunin-isshu/blob/master/housekeeping/lab-book-4.md#extending-cra-webpack-config
 [sundayguru]: https://github.com/sundayguru/django-react-heroku
 
 <br>
