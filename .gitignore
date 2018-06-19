@@ -7,12 +7,12 @@
 /coverage  
 
 # dev 
-#local_settings.py
+local_settings.py
 
 # production 
-/housekeeping
-/scraper
-README.md
+#/housekeeping
+#/scraper
+#README.md
 
 # sqlite 
 *.sqlite3

@@ -6,7 +6,7 @@
 
 import os
 
-'''
+
 # DEVELOPMENT 
 DEBUG = True
 
@@ -65,4 +65,4 @@ LOCAL_TRUSTED_ORIGINS = (
     'https://fierce-hollows-19151.herokuapp.com/',
 )
 
-
+'''
