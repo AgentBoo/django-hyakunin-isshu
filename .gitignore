@@ -10,7 +10,6 @@
 #local_settings.py
 
 # production 
-/build
 /housekeeping
 /scraper
 README.md
@@ -19,6 +18,8 @@ README.md
 *.sqlite3
 
 # misc
+/build
+
 __pycache__
 
 .DS_Store
