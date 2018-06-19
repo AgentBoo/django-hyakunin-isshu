@@ -39,9 +39,9 @@ LOCAL_TRUSTED_ORIGINS = (
     'localhost:3000',
     'localhost:8000'
 )
+
+
 '''
-
-
 # PRODUCTION
 # For production, see https://docs.djangoproject.com/en/2.0/howto/deployment/checklist/
 
@@ -59,10 +59,10 @@ LOCAL_HOSTS = ( '*',)
 
 LOCAL_WHITELIST = (
     'https://fierce-hollows-19151.herokuapp.com/',
-    )
+)
 
 LOCAL_TRUSTED_ORIGINS = (
     'https://fierce-hollows-19151.herokuapp.com/',
-    )
-
+)
+'''
 
