@@ -10,7 +10,7 @@ import csv
 from backend.karuta_api.models import Author, Poem
 
 
-root = os.path.dirname(os.path.dirname(os.path.abspath(__file__)))
+root = os.path.dirname(os.path.abspath(__file__))
 
 def populate_poem(language,index,row):
 	try:
@@ -38,7 +38,7 @@ def populate_poem(language,index,row):
 def csv_to_poems(language):
 	# csv files are named jap.csv, rom.csv, eng.csv
 	filename = '{lang}.csv'.format(lang=language)
-	path = os.path.join(root, 'poems', filename)
+	path = os.path.join(root, 'seeds', filename)
 
 	try:
 		with open(path, newline='') as csvfile:

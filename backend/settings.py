@@ -18,7 +18,7 @@ BASE_DIR = os.path.dirname(os.path.dirname(os.path.abspath(__file__)))
 
 TEMPLATE_DIR = os.path.join(BASE_DIR, 'templates')
 
-REACT_APP_DIR = os.path.join(BASE_DIR,'karuta_react')
+REACT_APP_DIR = os.path.join(BASE_DIR, 'frontend')
 
 
 '''

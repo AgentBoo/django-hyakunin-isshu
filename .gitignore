@@ -9,7 +9,7 @@
 # production 
 /build
 local_settings.py
-/scraper/outputs/*
+#/scraper/*
 
 # sqlite 
 *.sqlite3

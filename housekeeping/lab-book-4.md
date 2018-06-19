@@ -959,7 +959,7 @@ I knew beforehand that I wanted to deploy to Heroku, so I started with the requi
 
    `npm run build` should generate the `/build` directory and `webpack-stats.json` in the react app's base directory.
 
-   ```
+```
    # cli output
 
    The project was built assuming it is hosted at the server root.
@@ -974,15 +974,21 @@ I knew beforehand that I wanted to deploy to Heroku, so I started with the requi
   yarn global add serve
   serve -s build
  
-   ```
+```
+
+<br>
 
 5. Check `backend/staticfiles` and `karuta_react/build/` dirs  
    Move `asset-manifest.json` and `manifest.json` inside the `staticfiles` manually, if you really need them. This is a clumsy solution, but if `STATICFILES_DIRS` point to `os.path.join(REACT_APP_DIR, 'build')`, then `collectstatic` takes everything inside the `/build/` as is, but django-webpack-loader gets confused that it needs to look for a `static/` folder inside of it because it thinks the files are directly in staticfiles because STATIC_URL is '/static/', and shows `No Content` headers for those assets. 
 
    If `STATICFILES_DIRS` point to `os.path.join(REACT_APP_DIR, 'build','static')`, `collecstatic` only takes everything inside `/build/static` (js, css, media) and outputs `/js`, `/css`, `/media` directly into `staticfiles`, which can be picked up on by django-webpack-loader, but that means that if django-specific js,css,media directories and files need to exist, they will have to be put in a special directory inside `staticfiles` and referred to in django-templates.  
 
+<br>
+
 6. Django split settings 
    I wanted a way to have 2 different settings.py, one for dev and one for production, and used this [approach](https://www.agileleaf.com/blog/a-better-way-to-manage-settings-py-in-your-django-projects/) and now have a settings.py and importable local_settings.py file. 
+
+<br>
 
 7. workflow 
   1. `create-react-app` 
@@ -1025,8 +1031,10 @@ Note: `django-heroku` creates a very specific static files settings and outputs,
 
 ```
 # installs whitenoise for you
+
 pip install django-heroku
 ```
+
 ```python 
 # settings.py (bottom of the script)
 django_heroku.settings(locals()) 
