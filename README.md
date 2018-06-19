@@ -14,7 +14,8 @@ Demo:
 <br><br>
 
 #### Comments:
-Add **local_settings** to **.gitignore** for remote push to GitHub, but make sure that **local_settings** is committed and **NOT** ignored for heroku pushes.   
+**.gitignore** needs changed between remote pushes to GitHub and Heroku 
+**local_settings** needs changed between dev and production environments. Make sure **local_settings** **IS** gitignored for remote pushes to GitHub, but **committed** for heroku pushes.   
 
 
 **lab-book.md** files are used throughout this django project as a way to document my work in a protocol form and leave myself notes for future reference (similar to a science lab book, but a lot less strict on format). 
