@@ -18,7 +18,7 @@ BASE_DIR = os.path.dirname(os.path.dirname(os.path.abspath(__file__)))
 
 TEMPLATE_DIR = os.path.join(BASE_DIR, 'templates')
 
-REACT_APP_DIR = os.path.join(BASE_DIR, 'karuta')
+REACT_APP_DIR = os.path.join(BASE_DIR, 'karuta_react')
 
 
 '''
@@ -29,7 +29,7 @@ A specific local_settings is created for each dev and production environments.
 DEBUG = bool(os.getenv('DJANGO_DEBUG', False))
 
 try:
-   from .local_settings_dev import *
+   from .local_settings import *
 except ImportError:
     raise Exception('A local_settings.py file is required to run this project') 
 

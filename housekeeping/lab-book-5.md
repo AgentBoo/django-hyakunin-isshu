@@ -1,62 +1,54 @@
 ## Deployment to Heroku
 
-Start deployment right _after_ create-react-app to test if things will work alright <br>
+Start deployment right _after_ create-react-app to test if things will work alright (end of lab-book-4) <br>
 Heroku provides an example setup of [django + heroku](https://github.com/heroku/python-getting-started) <br>
 
 <br>
 
-<i> Check if everything works locally </i>
+_Check if everything works locally_
 ```
 # one terminal tab 
-cd django-karuta/django/backend 
+cd django-karuta/backend 
 python manage.py runserver 
 
 # second terminal tab 
-cd django-karuta/django/backend/karuta_react 
+cd django-karuta/backend/karuta
 npm start 
 ```
 
 <br>
 
-#### Procfile, requirements, gunicorn
-**1. Create a Procfile** (to explicitly declare what cmd should be executed to start the app) <br>
+#### Setting up Postgres for production 
+
+Heroku recommends running Postgres locally to ensure parity between environments 
+Export DATABASE_URL env variable for `dj-database-url` to pick up on it. 
+
+The `dj_database_url.config()` method returns a Django database connection dictionary, populated with all the data specified in your URL. There is also a `conn_max_age` argument to easily enable Django's connection pool (recommended by Heroku).
+
 ```
-Procfile
+pip install dj-database-url
 
-# declares a single process type (web process type will be attached to the HTTP routing stack of heroku and receive web traffic when deployed) 
-# and the cmd needed to run it
-web: gunicorn backend.wsgi --log-file -
-
-# if slow app boot time 
-web:gunicorn backend.wsgi --preload --log-file -
-
-# if using a more complex tree structure, use --pythonpath flag 
-web: gunicorn --pythonpath './django/backend' backend.wsgi --preload --log-file -
+export DATABASE_URL=postgres://USER:PASSWORD@HOST:PORT/NAME
 ```
+
+```python
+# settings.py 
+
+import dj_database_url
+
+DATABASES['default'] = dj_database_url.config(conn_max_age=600, ssl_require=True)
+```
+Resources: <br>
+https://github.com/kennethreitz/dj-database-url <br>
+https://devcenter.heroku.com/articles/heroku-postgresql#local-setup <br>
+https://devcenter.heroku.com/articles/heroku-postgresql#connecting-with-django <br>
+https://devcenter.heroku.com/articles/python-concurrency-and-database-connections#persistent-connections
 
 <br>
 
-**2. requirements.txt** <br>
+#### Gunicorn, Procfile, requirements
 
-Install gunicorn and whitenoise locally (so you can freeze them) or add their names + versions directly to requirements.txt  
-```
-pip install gunicorn 
-pip install whitenoise 
-
-pip freeze > requirements.txt
-pip install -r requirements.txt
-```
-Resources: 
-* requirements.txt <br>
-  https://pip.pypa.io/en/stable/user_guide/#requirements-files <br>
-  https://pip.pypa.io/en/stable/reference/pip_install/#requirements-file-format 
-
-* specifying a python runtime (python3 v python2): newly created python applications default to python3 (Python 3.6.4 as of 15 June 18) <br>
-  https://devcenter.heroku.com/articles/python-runtimes
-
-<br>
-
-**3. Gunicorn**<br>
+**1. Gunicorn**<br>
 
 Gunicorn is the recommended HTTP server to use with Django on Heroku. It is a pure-Python HTTP server for WSGI applications that can run multiple Python concurrent processes within a single heroku dyno 
 
@@ -72,291 +64,78 @@ Resources:
 
 <br>
 
-**4. Postgres setup** <br>
+**2. Create a Procfile** (to explicitly declare what cmd should be executed to start the app) <br>
 
-Heroku recommends running Postgres locally to ensure parity between environments 
-Export DATABASE_URL env variable for your app to connect to it locally: 
-```
-export DATABASE_URL=postgres://$(whoami)
-```
-Configure db according to heroku requirements using dj-database-url package, which will use the DATABASE_URL config variable honored by Heroku and config the database settings in settings.py the 'Django way', meaning my local postgres db config in settings.py will be ignored in production (and that is a good thing)
+A `Procfile` declares a single process type (e.g. `web` process type will be attached to the HTTP routing stack of heroku and receive web traffic when deployed) 
 
-The dj_database_url.config() method returns a Django database connection dictionary, populated with all the data specified in your URL. There is also a conn_max_age argument to easily enable Django's connection pool (recommended by Heroku).
 ```
-pip install dj-database-url
-```
-```python
-# settings.py (at the bottom of a script)
-import dj_database_url
+# Procfile
 
-DATABASES['default'] = dj_database_url.config(conn_max_age=600, ssl_require=True)
+web: gunicorn backend.wsgi --log-file -
+
+# if slow app boot time 
+web:gunicorn backend.wsgi --preload --log-file -
+
+# if using a more complex tree structure, use --pythonpath flag 
+web: gunicorn --pythonpath './django/backend' backend.wsgi --preload --log-file -
 ```
-Resources: <br>
-https://github.com/kennethreitz/dj-database-url <br>
-https://devcenter.heroku.com/articles/heroku-postgresql#local-setup <br>
-https://devcenter.heroku.com/articles/heroku-postgresql#connecting-with-django <br>
-https://devcenter.heroku.com/articles/python-concurrency-and-database-connections#persistent-connections
 
 <br>
 
-**5. package.json**
+**3. requirements.txt** <br>
+
+_Gunicorn and whitenoise should already be installed locally (so you can freeze them)_ 
+```
+pip freeze > requirements.txt
+pip install -r requirements.txt
+```
+Resources: 
+* requirements.txt <br>
+  https://pip.pypa.io/en/stable/user_guide/#requirements-files <br>
+  https://pip.pypa.io/en/stable/reference/pip_install/#requirements-file-format 
+
+* specifying a python runtime (python3 v python2): newly created python applications default to python3 (Python 3.6.4 as of 15 June 18) <br>
+  https://devcenter.heroku.com/articles/python-runtimes
+
+<br>
+
+**4. package.json**
+
 Move/copy the package.json from the react app base dir into the root dir when ready for deployment, otherwise Heroku will not detect, that there is a Node app. 
 
 <br>
 
-**6. Deployment** 
-
-Environ variables reminder:
-```
-DJANGO_DEBUG 
-DJANGO_SECRET_KEY
-ROOT_URL
-```
-
-Check your `settings.py`, `local_settings.py` and `.gitignore` file 
-
-For allowed hosts, follow [Django tutorial](https://devcenter.heroku.com/articles/getting-started-with-python#introduction)
-
-```python 
-"""
-Django settings for backend project.
-
-Generated by 'django-admin startproject' using Django 2.0.5.
-
-For more information on this file, see
-https://docs.djangoproject.com/en/2.0/topics/settings/
-
-For the full list of settings and their values, see
-https://docs.djangoproject.com/en/2.0/ref/settings/
-"""
-
-import os
-
-# Build paths inside the project like this: os.path.join(BASE_DIR, ...)
-
-BASE_DIR = os.path.dirname(os.path.dirname(os.path.abspath(__file__)))
-
-TEMPLATE_DIR = os.path.join(BASE_DIR, 'templates')
-
-REACT_APP_DIR = os.path.join(BASE_DIR,'karuta_react')
-
-
-'''
-Import local settings from local_settings (local_settings is never committed to version control)
-A specific local_settings is created for each dev and production environments.
-'''
-
-DEBUG = bool(os.getenv('DJANGO_DEBUG', False))
-
-try:
-   from .local_settings import *
-except ImportError:
-    raise Exception('A local_settings.py file is required to run this project') 
-
-SECRET_KEY = DJANGO_SECRET_KEY
-
-
-# Application definition
-
-INSTALLED_APPS = [
-    'django.contrib.admin',
-    'django.contrib.auth',
-    'django.contrib.contenttypes',
-    'django.contrib.sessions',
-    'django.contrib.messages',
-    'whitenoise.runserver_nostatic',
-    'django.contrib.staticfiles',
-    'rest_framework',
-    'corsheaders',
-    'webpack_loader',
-    'backend.karuta_api',
-    'backend.karuta_app',
-]
-
-MIDDLEWARE = [
-    'django.middleware.security.SecurityMiddleware',
-    'django.contrib.sessions.middleware.SessionMiddleware',
-    'corsheaders.middleware.CorsMiddleware',
-    'whitenoise.middleware.WhiteNoiseMiddleware',
-    'django.middleware.common.CommonMiddleware',
-    'django.middleware.csrf.CsrfViewMiddleware',
-    'django.contrib.auth.middleware.AuthenticationMiddleware',
-    'django.contrib.messages.middleware.MessageMiddleware',
-    'django.middleware.clickjacking.XFrameOptionsMiddleware',
-]
-
-TEMPLATES = [
-    {
-        'BACKEND': 'django.template.backends.django.DjangoTemplates',
-        'DIRS': [ TEMPLATE_DIR ],
-        'APP_DIRS': True,
-        'OPTIONS': {
-            'context_processors': [
-                'django.template.context_processors.debug',
-                'django.template.context_processors.request',
-                'django.contrib.auth.context_processors.auth',
-                'django.contrib.messages.context_processors.messages',
-            ],
-        },
-    },
-]
-
-ALLOWED_HOSTS = LOCAL_HOSTS
-
-CORS_ORIGIN_WHITELIST = LOCAL_WHITELIST
-
-CSRF_TRUSTED_ORIGINS = LOCAL_TRUSTED_ORIGINS
-
-ROOT_URLCONF = 'backend.urls'
-
-WSGI_APPLICATION = 'backend.wsgi.application'
-
-
-# Database
-# https://docs.djangoproject.com/en/2.0/ref/settings/#databases
-
-DATABASES = LOCAL_DATABASE
-
-
-# Password validation
-# https://docs.djangoproject.com/en/2.0/ref/settings/#auth-password-validators
-
-AUTH_PASSWORD_VALIDATORS = [
-    {
-        'NAME': 'django.contrib.auth.password_validation.UserAttributeSimilarityValidator',
-    },
-    {
-        'NAME': 'django.contrib.auth.password_validation.MinimumLengthValidator',
-    },
-    {
-        'NAME': 'django.contrib.auth.password_validation.CommonPasswordValidator',
-    },
-    {
-        'NAME': 'django.contrib.auth.password_validation.NumericPasswordValidator',
-    },
-]
-
-
-# Internationalization
-# https://docs.djangoproject.com/en/2.0/topics/i18n/
-
-LANGUAGE_CODE = 'en-us'
-
-TIME_ZONE = 'UTC'
-
-USE_I18N = True
-
-USE_L10N = True
-
-USE_TZ = True
-
-
-# Static files (CSS, JavaScript, Images)
-# https://docs.djangoproject.com/en/2.0/howto/static-files/
-
-STATIC_URL = '/static/'
-
-# WhiteNoise requires specifying the staticfiles dir
-STATIC_ROOT = os.path.join(BASE_DIR, 'staticfiles')
-
-# Extra places for collectstatic to find static files.
-STATICFILES_DIRS = [
-    os.path.join(REACT_APP_DIR, 'build', 'static'),
-]
-
-
-# django-webpack-loader
-
-WEBPACK_LOADER = {
-    'DEFAULT': {
-        'BUNDLE_DIR_NAME': '',
-        'STATS_FILE': os.path.join(REACT_APP_DIR, 'webpack-stats-production.json'),
-        'CACHE': False,
-    }
-}
-
-
-# DRF
-
-REST_FRAMEWORK = {
-    # Use Django's standard `django.contrib.auth` permissions,
-    # or allow read-only access for unauthenticated users.
-    'DEFAULT_PERMISSION_CLASSES': [
-        'rest_framework.permissions.DjangoModelPermissionsOrAnonReadOnly',
-    ],
-    'DEFAULT_RENDERER_CLASSES': [
-        'rest_framework.renderers.JSONRenderer',
-        'rest_framework.renderers.BrowsableAPIRenderer',
-    ]
-}
-
-
-# Production
-import dj_database_url 
-
-DJANGO_SECRET_KEY = os.environ['DJANGO_SECRET_KEY']
-
-LOCAL_DATABASE = {
-    'default': dj_database_url.config(conn_max_age=600)
-}
-
-LOCAL_HOSTS = [ ... ]
-
-LOCAL_WHITELIST = [ ... ]
-
-LOCAL_TRUSTED_ORIGINS = [ ... ]
-
-
-# Development
-
-DEBUG = True
-
-DJANGO_SECRET_KEY = os.getenv('DJANGO_SECRET_KEY', 'xw9s+3ykue_)evq%4r=y=!h$7m^_(0%x0n7413xte=z56m)uiyhahaheeheehohorose2018')
-
-DATABASE_NAME = 'poems'
-DATABASE_ROLE = 'poems'
-DATABASE_PASSWORD = 'poems'
-DATABASE_PORT = '5432'
-
-LOCAL_DATABASE = {
-    'default': {
-        'ENGINE': 'django.db.backends.postgresql',
-        'NAME': DATABASE_NAME,
-        'USER': DATABASE_ROLE,
-        'PASSWORD': DATABASE_PASSWORD,
-        'HOST': 'localhost',
-        'PORT': DATABASE_PORT,
-    }
-}
-
-LOCAL_HOSTS = []
-
-LOCAL_WHITELIST = (
-    'localhost:3000',
-    'localhost:8000'
-)
-
-LOCAL_TRUSTED_ORIGINS = (
-    'localhost:3000',
-    'localhost:8000'
-)
-```
-
+**5. Deployment** 
+
+  1. Check `settings.py` and change import to `local_settings.prod`
+  2. Check `local_settings.prod`
+  3. Generate requirements with `pip freeze > requirements.txt` 
+  4. Check runtime.txt 
+  5. Check path in Procfile
+  6. Run `python manage.py check --deploy`
+  7. Check `package.json` in root dir 
+  8. Check `.gitignore` and comment out sections that belong to dev environment 
+  
 ```
 # Generate production bundles by invoking webpack one time with production config 
+npm run build 
+
+# Run collectstatic to push compiled staticfiles to master 
 python manage.py collectstatic 
 
-# Check everything by starting the server to simulate production
-# Comment out dev config and expose production config in local_settings.py 
+# Check everything by starting the server with local_settings.prod.py
 python manage.py runserver 
 
 # heroku on ubuntu
 sudo snap install heroku --classic
 heroku create 
 
+# check all heroku apps 
+heroku apps
+
 # buildpacks (last buildpack determines the process type of the app)
-heroku buildpacks:add --index 1 heroku/nodejs
-heroku buildpacks:add --index 2 heroku/python
+heroku buildpacks:add --index 1 heroku/nodejs -a <heroku app name>
+heroku buildpacks:add --index 2 heroku/python -a <heroku app name>
 heroku buildpacks 
 
 # create config variables BEFORE deployment, especially the collectstatic disable 
@@ -364,9 +143,6 @@ heroku config:set DISABLE_COLLECTSTATIC=1
 heroku config:set DJANGO_SECRET_KEY='the actual key'
 heroku config:set ROOT_URL='https://fierce-hollows-19151.herokuapp.com/'
 heroku config:set WEB_CONCURRENCY=3
-
-# CHECK LOCAL_SETTINGS.PY
-# CHECK GITIGNORE BEFORE ALSO PUSHING TO GITHUB
 
 # DEPLOY
 git push heroku master 
@@ -391,7 +167,7 @@ heroku config:set WEB_CONCURRENCY=3
 
 <br>
 
-#### Heroku and postgres 
+#### Heroku postgresql 
  
 ```
 # check out which addons are used (heroku-postgresql (postgresql-concave-52656) should appear in the list)
@@ -400,10 +176,15 @@ heroku addons
 # show information about postgres 
 heroku pg:info 
 
+# continuously monitor status of db 
+watch heroku pg:info 
+
 # connect to the remote db 
 heroku pg:psql
+
 # then try to acquire an advisory lock before running a migration
 SELECT pg_try_advisory_lock(migration); 
+
 # then check number of active connections
 SELECT count(*) FROM pg_stat_activity WHERE pid <> pg_backend_pid() AND usename = current_user;
 
@@ -415,10 +196,9 @@ heroku run python seeds.py
 
 # check the django shell 
 heroku run python manage.py shell 
+```
 
-# continuously monitor status of db 
-watch heroku pg:info 
-
+```
 # pull remote data from a heroku postgrse db to a newly created local db example (you will be prompted to 
 # drop an already existing local db before proceeding) 
 heroku pg:pull HEROKU_POSTGRESQL_MAGENTA mylocaldb --app sushi 
@@ -433,48 +213,57 @@ heroku pg:push mylocaldb HEROKU_POSTGRESQL_MAGENTA --app sushi
 
 <br>
 
-#### Heroku misc 
+#### Resources  
+
+**ALLOWED_HOSTS**<br>
+https://devcenter.heroku.com/articles/getting-started-with-python#introduction
+https://stackoverflow.com/questions/31685688/is-allowed-hosts-needed-on-heroku <br>
+https://github.com/heroku/django-heroku/issues/5 <br>
+
+<br>
 
 **Env variables:** <br>
+
 https://devcenter.heroku.com/articles/config-vars#managing-config-vars <br>
 https://stackoverflow.com/questions/37473108/how-do-you-add-environment-variables-to-your-django-project <br>
 https://godjango.com/blog/working-with-environment-variables-in-python/ <br>
 https://docs.djangoproject.com/en/2.0/topics/settings/#the-django-admin-utility <br>
+
+<br>
 
 **Deploying Node.js app:** <br>
 https://devcenter.heroku.com/articles/nodejs-support <br>
 
 <br>
 
-#### Release phase (not for db migrations)
+**Release phase (not recommended for db migrations)** <br>
+https://devcenter.heroku.com/articles/release-phase <br>
 
-Release phase can be useful for tasks such as sending CSS, JS, and other assets from your app's slug to a CDN or S3 bucket or running db schema migrations. 
-If a release phase task fails, the new release is not deployed, leaving your current release unaffected. 
-
-For migrations, it is suggested to use `heroku run` instead. 
+Release phase can be useful for tasks such as sending CSS, JS, and other assets from your app's slug to a CDN or S3 bucket or potentially running db schema migrations. <br>
+If a release phase task fails, the new release is not deployed, leaving your current release unaffected. <br>
+For migrations, it is suggested to use `heroku run` instead. <br>
 
 ```
-Procfile
-p;[[[[hblgv*/+-b[]]]]
+# Procfile
 release: python manage.py migrate 
 web: gunicorn backend.wsgi --log-file 
 ```
-Resources:
-* specifying relase phase tasks in Procfile <br>
-  https://devcenter.heroku.com/articles/release-phase
 
 <br>
 
-#### Resources: 
-* heroku docs <br> 
-  https://devcenter.heroku.com/articles/deploying-python
-* allowed hosts <br>
-  https://stackoverflow.com/questions/31685688/is-allowed-hosts-needed-on-heroku
-  https://github.com/heroku/django-heroku/issues/5
-* tutorials <br>
-  [MDN deployment](https://developer.mozilla.org/en-US/docs/Learn/Server-side/Django/Deployment) <br>
+**Deploying python apps** <br> 
+https://devcenter.heroku.com/articles/deploying-python
+
+<br>
+
+**Tutorials** <br>
+[MDN deployment](https://developer.mozilla.org/en-US/docs/Learn/Server-side/Django/Deployment) <br>
 
 <br>
 
 #### Issues 
 https://www.reddit.com/r/django/comments/2848gb/bad_request_400_on_heroku_where_to_look/
+
+<br>
+<br>
+<br>

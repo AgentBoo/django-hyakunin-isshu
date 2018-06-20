@@ -1,7 +1,5 @@
 ## Django project setup 
 
-_Originally, there was a chihayafuru django project, but the project was moved to a different folder_
-
 The current repository can be cloned from: 
 ```
 git clone https://github.com/AgentBoo/django-hyakunin-isshu.git
@@ -17,54 +15,83 @@ git clone https://github.com/AgentBoo/django-hyakunin-isshu.git
 
 ```
 | django-karuta 
-|-- django
-    |-- backend
-        |-- backend 
-            |-- karuta_api
-            |-- karuta_app 
-        |-- karuta_react 
-        |-- staticfiles 
-        |-- templates 
-        |-- manage.py
-        |-- seeds.py
-    |-- poems  
+|-- backend
+    |-- karuta_api
+    |-- karuta_app 
+|-- housekeeping
+|-- karuta 
+|-- staticfiles 
+|-- templates 
+|-- .gitignore
+|-- manage.py   
+|-- package.json 
+|-- Procfile   
+|-- README.md
+|-- requirements.txt 
+|-- runtime.txt 
+|-- seeds.py
+
+# karuta project specific directories 
 |-- scraper 
-|-- .gitignore   
-|-- README.md 
+|-- seeds  
 ```
 
-_NOTE: Heroku cli commands rely on the fact that your project actually starts at /backend, making manage.py available from root directory. Keeping Procfile, requirements, .gitignore and everything else there is also more helpful for deployment, but a more complex structure can be worked with_
-
+_NOTE: Exact heroku cli commands in heroku docs rely on the fact that your project actually starts at `/<django_project>`, so initialize `.git` repo inside the django project to make things easier in the long run, not outside. However, a more complex structure can be worked with_
 
 <br>
 
 #### Setup and file tree 
 
-Protocol
+_Environment_
 ```
 conda create --name chihayaenv django 
 source activate chihayaenv 
 ```
 
-```
-# makes django-karuta
-mkdir django-karuta && cd django-karuta  
+<br>
 
-# makes django-karuta/scraper: put scripts for scraping the ogura-hyakunin-isshu resource here  
+_Initial dependencies_
+```python 
+pip install djangorestframework
+pip install django-cors-headers 
+pip install django-webpack-loader 
+pip install psycopg2-binary 
+pip install whitenoise 
+pip install gunicorn 
+pip install dj-database-url
+``` 
+
+```javascript 
+npm i -S react-app-rewired 
+npm i -S webpack-bundle-tracker
+```
+
+<br>
+
+_Protocol_
+```
+# makes backend/ 
+django-admin startproject backend . && cd backend 
+
+# makes backend/scraper: put scripts for scraping the ogura-hyakunin-isshu resource here  
 mkdir scraper
 
-# makes django-karuta/django 
-mkdir django && cd django
+# makes backend/seeds: put csv files with scraper poem outputs here   
+mkdir seeds 
 
-# makes django-karuta/django/poems: put csv files with poems here   
-mkdir poems 
+# makes backend/staticfiles: register staticfiles in settings.py  
+mkdir staticfiles 
 
-# makes django-karuta/django/backend: start django project here 
-django-admin startproject backend .
+# makes backend/templates: register templates in settings.py  
+mkdir templates 
+
+# makes backend/housekeeping: optional directory for lab-books etc. 
+mkdir housekeeping
 ```
 
 ```
-# makes django-karuta/django/backend/backend/karuta_api and karuta_app 
+# put backend-related apps inside a backend project directory, next to settings.py and wsgi.py files
+# makes backend/backend/karuta_api and karuta_app 
 cd backend/backend  
 
 django-admin startapp karuta_api 
@@ -72,11 +99,11 @@ django-admin startapp karuta_app
 ```
 
 ```
-# makes django-karuta/django/backend/karuta_react 
+# if you have npm 5.2+ and create-react-app is (or is not) already installed via yarn or npm: npx create-react-app karuta
+# makes backend/karuta:  react app
 
-# if you have npm 5.2+ and create-react-app isn't already installed via yarn or npm: npx create-react-app karuta_react  
 sudo npm i -g create-react-app 
-create-react-app karuta_react 
+create-react-app karuta 
 ```
 
 ```
@@ -90,13 +117,24 @@ ALTER ROLE poems SET timezone TO 'UTC';
 GRANT ALL PRIVILEGES ON DATABASE poems TO poems;
 \q
 ```
+
+#### Environ variables 
+
+```
+export DATABASE_URL=postgres://%2Fvar%2Flib%2Fpostgresql/dbname or postgres://USER:PASSWORD@HOST:PORT/NAME
+export DJANGO_SECRET_KEY=boomshakalaka
+export DJANGO_DEBUG=True
+```
+
 <br>
 
 #### Resources: 
 * create-react-app <br>
   https://github.com/facebook/create-react-app <br>
   https://gist.github.com/gaearon/4064d3c23a77c74a3614c498a8bb1c5f <br>
+* dj-database-url db url schema 
+  https://github.com/kennethreitz/dj-database-url#url-schema
 
 <br>
-
-### All dependencies (requirements.txt and package.json copypasta):
+<br>
+<br>

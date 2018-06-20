@@ -1,3 +1,4 @@
+# See https://help.github.com/ignore-files/ for more about ignoring files.
 # There is another .gitignore file in the react app directory 
 
 # dependencies 
@@ -5,14 +6,6 @@
 
 # testing 
 /coverage  
-
-# dev 
-local_settings.py
-
-# production 
-#/housekeeping
-#/scraper
-#README.md
 
 # sqlite 
 *.sqlite3
@@ -37,3 +30,15 @@ yarn-error.log*
 *.bak  
 *.py[cod]
 
+
+
+# dev 
+
+local_settings_*.py
+
+
+# production 
+
+#/housekeeping
+#/scraper
+#README.md

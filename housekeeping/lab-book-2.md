@@ -1,8 +1,8 @@
 ## Scraper lab-book 
 
-### Setup
+#### Setup
 
-**1. django-karuta/scraper** <br>
+**1. backend/scraper** <br>
 
 ```
 source activate chihayaenv
@@ -11,24 +11,23 @@ pip install lxml
 pip install requests
 pip install beautifulsoup4
 
-touch scraper.py
+cd backend/scraper && touch scraper.py && touch poems_to_csv.py
 ```
 
 <br>
 
-### Scraping
+#### Scraping
 
-2. scraper.py <br> 
+**2. scraper.py** <br> 
 
-Example use of lxml + requests:
-Note: html.fromstring() implicitly expects bytes as input
-
+_Example use of lxml + requests:_
 ```python
 from lxml import html
 import requests
 
 url = 'http://jti.lib.virginia.edu/japanese/hyakunin/frames/hyakuframes.html'
 page = requests.get(url)
+# html.fromstring() implicitly expects bytes as input
 tree = html.fromstring(page.content)
 
 # for example
@@ -39,9 +38,9 @@ http://docs.python-guide.org/en/latest/scenarios/scrape/
 
 <br>
 
-3. scraper.py 
+**3. scraper.py** <br> 
 
-Example use of bs4
+_Example use of bs4_
 ```python
 from bs4 import BeautifulSoup
 import requests
@@ -53,31 +52,9 @@ tree = BeautifulSoup(page.text, 'lxml')
 
 <br>
 
-4. scraper.py
+**4. scraper.py** <br>
 
-**Requests**
-requests.get() returns a Response object
-
-Note:
-> timeout is not a time limit on the entire response download; rather, an exception is raised if the server has not issued a response for timeout seconds (more precisely, if no bytes have been received on the underlying socket for timeout seconds). If no timeout is specified explicitly, requests do not time out
-
-Resources: <br>
-http://docs.python-requests.org/en/master/user/quickstart/#make-a-request <br>
-
-<br>
-
-**Parsing html documents**
-BeautifulSoup can use its own html.parser, or can use lxml
-BeautifulSoup() constructor accepts a string or an open filehandle: pass it page.text (although page.content seems to work too)
-
-Resources: <br>
-https://www.crummy.com/software/BeautifulSoup/bs4/doc/#navigating-the-tree <br>
-
-<br>
-
-**5. scraper.py** <br>
-
-The html source has 3 iframes embedded, so make a request to the main page with all 3 iframes first, inspect the results, and then target each iframe.
+The html source has 3 iframes embedded, so I am going to make a request to the main page with all 3 iframes first, inspect the results, and then target each iframe.
 
 ```python
 from bs4 import BeautifulSoup
@@ -137,7 +114,7 @@ print(eng)          # frame_4.txt
 
 <br>
 
-**6. poems_to_csv.py** <br>
+**5. poems_to_csv.py** <br>
 
 ```python
 from bs4 import BeautifulSoup
@@ -226,8 +203,40 @@ for index,language in enumerate(['jap', 'rom', 'eng']):
 
 <br>
 
+**5. poems_to_csv.py** <br>
+
+Move all outputs into a `/backend/scraper/outputs` directory
+Copy all .csv files into backend/seeds 
+
+<br>
+
+#### Notes
+
+**Requests**
+
+requests.get() returns a Response object
+
+> timeout is not a time limit on the entire response download; rather, an exception is raised if the server has not issued a response for timeout seconds (more precisely, if no bytes have been received on the underlying socket for timeout seconds). If no timeout is specified explicitly, requests do not time out
+
+Resources: <br>
+http://docs.python-requests.org/en/master/user/quickstart/#make-a-request <br>
+
+<br>
+
+**Parsing html documents**
+
+BeautifulSoup can use its own html.parser, or can use lxml
+
+BeautifulSoup() constructor accepts a string or an open filehandle: pass it page.text (although page.content seems to work too)
+
+Resources: <br>
+https://www.crummy.com/software/BeautifulSoup/bs4/doc/#navigating-the-tree <br>
+
+<br>
+
 #### Resources
+
 http://docs.python-guide.org/en/latest/scenarios/scrape/ <br>
-https://hackernoon.com/web-scraping-tutorial-with-python-tips-and-tricks-db070e70e071 <br>
 https://www.crummy.com/software/BeautifulSoup/bs4/doc/#quick-start <br>
 https://blog.hartleybrody.com/web-scraping-cheat-sheet/#writing-to-a-csv <br>
+https://hackernoon.com/web-scraping-tutorial-with-python-tips-and-tricks-db070e70e071 <br>

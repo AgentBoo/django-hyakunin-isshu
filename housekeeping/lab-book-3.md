@@ -1,13 +1,13 @@
 ## Django+ Django REST framework backend
 
-Quick: 
+_Quick:_ 
 ```
 # django-admin startapp will create a new directory 
 django-admin startapp <app_name>
 
 # django-admin startapp will not create a new directory for you if you use this syntax, so set up your own 
 django-admin startapp <app_name> <existing_app_directory>
-django-admin startapp karuta backend/karuta
+django-admin startapp karuta_api backend/karuta_api
 
 python manage.py makemigrations 
 python manage.py migrate
@@ -15,9 +15,13 @@ python manage.py runserver
 python manage.py shell 
 
 Poem.objects.all().delete()
+Poem.objects.first()
+Poem.objects.last()
 ```
 
-#### Dependencies
+<br>
+
+#### Setup
 ```
 pip install djangorestframework
 pip install psycopg2-binary 
@@ -25,10 +29,9 @@ pip install psycopg2-binary
 
 <br>
 
-
 #### Initial Settings
 
-**1. backend/settings.py** <br> 
+**1. backend/backend/settings.py** <br> 
 
 For environ variables, use [os.getenv()](https://docs.python.org/3/library/os.html#os.getenv)
 
@@ -50,7 +53,6 @@ DATABASES = {
     'default': {
         # .postgresql is in the newer django versions, old django versions have .postgresql-psycopg2
         'ENGINE': 'django.db.backends.postgresql',
-        # hide these inside os.environ['...'] eventually
         'NAME': 'poems',
         'USER': 'poems',
         'PASSWORD': 'poems',
@@ -65,15 +67,22 @@ REST_FRAMEWORK = {
     # or allow read-only access for unauthenticated users.
     'DEFAULT_PERMISSION_CLASSES': [
         'rest_framework.permissions.DjangoModelPermissionsOrAnonReadOnly',
+    ],
+    'DEFAULT_RENDERER_CLASSES': [
+        'rest_framework.renderers.JSONRenderer',
+        'rest_framework.renderers.BrowsableAPIRenderer',
     ]
 }
+
 ``` 
 
 <br>
 
-### Model - serializer - view - URLconf - root URLconf (karuta_api)
+#### Model => serializer => view => URLconf => root URLconf (karuta_api)
 
-**2. backend/karuta_api/models.py** <br>  
+**2. backend/backend/karuta_api/models.py** <br>  
+
+_Make migrations and migrate after creating models_
 
 ```python
 from django.db import models
@@ -81,7 +90,6 @@ from django.contrib.postgres.fields import ArrayField
 
 
 # Create your models here.
-# Check out the imports: use ArrayField instead of models.ArrayField
 
 class Author(models.Model):
     jap = models.CharField(max_length=100, blank=True, default='Unknown')
@@ -89,12 +97,11 @@ class Author(models.Model):
     eng = models.CharField(max_length=100, blank=True, default='Unknown')
 
     def __str__(self):
-        return '%s  %s %s %s' % (self.id, self.jap, self.rom, self.eng) 
+        return '[%s]  %s - %s - %s' % (self.id, self.jap, self.rom, self.eng) 
 
 
 class Poem(models.Model):
-    # unique=True implies the creation of a unique index 
-    numeral = models.IntegerField(blank=True, null=True, unique=True)
+    numeral = models.PositiveIntegerField(blank=True, null=True, unique=True)
     jap = ArrayField(models.CharField(max_length=200, blank=True, default='None'), blank=True, null=True)
     rom = ArrayField(models.CharField(max_length=200, blank=True, default='None'), blank=True, null=True)
     eng = ArrayField(models.CharField(max_length=200, blank=True, default='None'), blank=True, null=True)
@@ -105,7 +112,8 @@ class Poem(models.Model):
         ordering = ('numeral',)
         
     def __str__(self):
-        return '%s  %s %s %s' % (self.numeral, self.author.jap, self.author.rom, self.author.eng) 
+        return '[%s]  %s - %s - %s' % (self.numeral, self.author.jap, self.author.rom, self.author.eng)
+
 ```
 Resources: 
 * using dunders <br>
@@ -134,7 +142,9 @@ Resources:
 
 <br>
 
-**3. seeds.py** <br>  
+**3. backend/seeds.py** <br>  
+
+_I had to use `python manage.py shell` a lot for this_
 
 ```python
 import os 
@@ -187,12 +197,13 @@ with open(file,'r') as csvfile:
 
 <br>
 
-**4. backend/karuta_api/admin.py** <br>  
+**4. backend/backend/karuta_api/admin.py** <br>  
 
 Register model with the admin interface 
 ```python 
 from django.contrib import admin
 from .models import Poem, Author
+
 
 # Register your models here.
 admin.site.register(Poem)
@@ -201,11 +212,14 @@ admin.site.register(Author)
 
 <br>
 
-**5. backend/karuta_api/serializers.py** <br>  
+**5. backend/backend/karuta_api/serializers.py** <br>  
+
+_Create a `serializers.py` file in `/karuta_api`_
 
 ```python
 from rest_framework import serializers 
 from .models import Poem, Author
+
 
 class AuthorSerializer(serializers.ModelSerializer):
     class Meta:
@@ -214,12 +228,13 @@ class AuthorSerializer(serializers.ModelSerializer):
 
 # serialize one 
 class PoemSerializer(serializers.ModelSerializer):
-    # serialize one 
+    # serialize one
     author = AuthorSerializer(read_only=True)
 
     class Meta:
         model = Poem 
-        fields = ('author','jap','rom','eng') 
+        fields = ('author','jap','rom','eng')
+
 ``` 
 Resources: 
 * serializer relations <br>
@@ -227,7 +242,23 @@ Resources:
 
 <br>
 
-**6. backend/karuta_api/views.py** <br>  
+**6. cli** <br>
+
+```
+python manage.py makemigrations 
+python manage.py migrate 
+
+python manage.py shell 
+
+from backend.karuta_api.models import Poem, Author 
+from backend.karuta_api.serializers import AuthorSerializer, PoemSerializer 
+
+=> checkout models and serializers
+```
+
+<br>
+
+**7. backend/backend/karuta_api/views.py** <br>  
 
 ```python 
 from rest_framework import generics 
@@ -236,6 +267,7 @@ from .serializers import PoemSerializer
 
 
 # Create your views here.
+
 # serialize many => list 
 class PoemList(generics.ListAPIView):
     queryset = Poem.objects.all().order_by('numeral')
@@ -255,7 +287,9 @@ Resources:
 
 <br>
 
-**7. backend/karuta_api/urls.py** <br>  
+**8. backend/backend/karuta_api/urls.py** <br>  
+
+_Create a `urls.py` file in `/karuta_api`_
 
 ```python
 from django.urls import path
@@ -275,7 +309,7 @@ Resources:
 
 <br>
 
-**8. backend/urls.py** <br>  
+**9. backend/backend/urls.py** <br>  
 
 ```python 
 from django.contrib import admin
@@ -293,10 +327,27 @@ http://www.django-rest-framework.org/tutorial/quickstart/#settings
 
 <br>
 
-#### Comments
+**10. cli** <br>
+
+```
+python manage.py makemigrations 
+python manage.py migrate 
+
+python manage.py shell 
+
+python manage.py runserver
+```
+
+<br>
+
+#### Notes
 _This set up is enough to create a consumable api to retrieve poems, but compatibility with react is going to be ensured next_
 
 <br>
 
 #### Resources: 
 https://docs.python.org/3/library/os.html#os.getenv <br>
+
+<br>
+<br>
+<br>
