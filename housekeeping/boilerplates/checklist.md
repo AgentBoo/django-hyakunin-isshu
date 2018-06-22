@@ -78,7 +78,6 @@ import os
 import dj_database_url
 
 DJANGO_SECRET_KEY = ''
-DEBUG = True
 LOCAL_DATABASE = {}
 LOCAL_WHITELIST = ()
 LOCAL_TRUSTED_ORIGINS = ()

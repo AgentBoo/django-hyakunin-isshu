@@ -1,4 +1,3 @@
-
 # Problem statement and design of solution
 
 There are quite a bit of tutorials online, which walk a reader through setting up Django and React. However, many of them are incomplete, or are only good for 'proof-of-concept' projects, or are not configured for potential production builds. Moreover, the more comprehensive tutorials use older and distinctly different versions of Django or React, or use technologies I would rather avoid. 

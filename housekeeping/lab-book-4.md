@@ -324,7 +324,7 @@ npm i -S webpack-bundle-tracker
 
 <br>
 
-**18. backend/** <br>
+**18. backend/_** <br>
 ```
 create-react-app karuta (should already be there if steps were reproduced using lab-book-1.md)
 ```
