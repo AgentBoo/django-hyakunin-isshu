@@ -12,15 +12,15 @@ export const getPoems = (state) => {
 			id: id,
 			jap: {
 				author: authors[id].jap,
-				poem: poems[id].jap
+				verses: poems[id].jap
 			},
 			rom: {
 				author: authors[id].rom,
-				poem: poems[id].rom
+				verses: poems[id].rom
 			},
 			eng: {
 				author: authors[id].eng,
-				poem: poems[id].eng 
+				verses: poems[id].eng 
 			},
 		})
 	  )

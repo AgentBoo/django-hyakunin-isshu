@@ -2,7 +2,7 @@ import React, { Component } from 'react';
 import { connect } from 'react-redux';
 import { requestData } from './../../store/actions';
 import { getPoems, getIsFetching } from './../../store/selectors';
-import Card from './../presentational/Card'
+import Card from './../coupled/Card'
 
 
 class Main extends Component{
@@ -10,17 +10,19 @@ class Main extends Component{
 		this.props.requestData('/poems','poems','poems-list')
 	}
 
-	renderPoems = () => this.props.poems.map(poem => (
-		<Card key={ poem.id } locale={ this.props.locale } poem={ poem } /> 
+	renderPoems = (N=100) => this.props.poems.slice(0,N).map(poem => (
+		<Card key={ poem.id }
+			  poem={ poem } 
+			  locale={ this.props.locale } /> 
 	))
 
 	render(){
-		let poems = this.props.poems ? this.renderPoems() : null 
+		let poems = this.props.poems ? this.renderPoems(1) : null 
 
 		return(
-			<section>
+			<main>
 				{ poems }
-			</section>
+			</main>
 		)
 	}
 }
