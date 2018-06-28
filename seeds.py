@@ -64,7 +64,7 @@ def seed(*languages):
 
 
 # populate database with data from language specific csv files 
-# seed('eng', 'rom', 'jap')
+seed('eng', 'rom', 'jap')
 
 
 
