@@ -9,12 +9,14 @@
 
 # production 
 /build
+/public
+/housekeeping
+/scraper 
+README.md 
+*.scss
 
-#/public
-#/housekeeping
-#/scraper 
-
-#README.md 
+# dev 
+*local_settings.py
 
 # sqlite 
 *.sqlite3
@@ -36,8 +38,5 @@ yarn-error.log*
 *.log
 *.bak  
 *.py[cod]
-#*.scss
 
 
-# dev 
-local_settings_*.py
