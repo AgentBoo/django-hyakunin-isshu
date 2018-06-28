@@ -23,12 +23,17 @@ const receiveFailure = (message) => ({
 
 export const requestData = (endpoint,schema,actionName) => (dispatch) => {
 	let url = API_ROOT + endpoint
-
+	let options = {
+		method: 'GET',
+		headers: {
+			Origin: 'https://fierce-hollows-19151.herokuapp.com'
+		},
+	}
 	dispatch({
 		type: actionTypes['data-request'],
 	})
 	
-	return fetch(url)
+	return fetch(url, options)
 			.then(response => !response.ok ? response.json() : response.json())
 			.then(resjson => {
 				console.log(resjson)
