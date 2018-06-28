@@ -52,9 +52,9 @@ else:
    
     ALLOWED_HOSTS = [ os.getenv('ALLOWED_HOSTS') ]
 
-    CORS_ORIGIN_WHITELIST = [ os.getenv('API_ROOT'), 'localhost:3000', 'localhost:8000' ] 
+    CORS_ORIGIN_WHITELIST = [ os.getenv('API_ROOT') ] 
 
-    CSRF_TRUSTED_ORIGINS = [ os.getenv('API_ROOT'), 'localhost:3000', 'localhost:8000' ]
+    CSRF_TRUSTED_ORIGINS = [ os.getenv('API_ROOT') ]
 
     DATABASES = {
         'default': dj_database_url.config(conn_max_age=600)  
