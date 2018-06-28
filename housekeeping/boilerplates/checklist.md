@@ -171,8 +171,6 @@ _Disable collecstatic + set environ variables_
 heroku config:set DISABLE_COLLECTSTATIC=1
 heroku config:set WEB_CONCURRENCY=3
 heroku config:set DJANGO_DEBUG=False
-heroku config:set DJANGO_SECRET_KEY='???'
-heroku config:set ROOT_URL='???'
 ```
 
 _Set up buildpacks with Node followed by Python_
