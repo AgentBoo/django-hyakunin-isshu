@@ -29,8 +29,9 @@ export const requestData = (endpoint,schema,actionName) => (dispatch) => {
 	})
 	
 	return fetch(url)
-			.then(response => !response.ok ? Promise.reject(response) : response.json())
+			.then(response => !response.ok ? response.json() : response.json())
 			.then(resjson => {
+				console.log(resjson)
 				dispatch({
 					type: actionTypes[actionName], 
 					data: normalize(resjson, schemas[schema]) 
