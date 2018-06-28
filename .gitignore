@@ -16,8 +16,7 @@ README.md
 *.scss
 
 # dev 
-*local_settings.py
-.env
+# .env
 
 # sqlite 
 *.sqlite3
@@ -39,4 +38,5 @@ yarn-error.log*
 *.bak  
 *.py[cod]
 
+*local_settings.py
 
