@@ -1,17 +1,11 @@
-from rest_framework import generics 
+from rest_framework import viewsets
 from .models import Poem
-from .serializers import PoemSerializer, PoemsSerializer 
-
+from .serializers import PoemSerializer
 
 # Create your views here.
 
-class PoemDetail(generics.RetrieveUpdateAPIView):
-	lookup_field = 'numeral'
-	queryset = Poem.objects.all().order_by('numeral')
+class PoemViewSet(viewsets.ReadOnlyModelViewSet):
+	queryset = Poem.objects.all()
 	serializer_class = PoemSerializer
 
-
-class PoemList(generics.ListAPIView):
-	queryset = Poem.objects.all().order_by('numeral')
-	serializer_class = PoemsSerializer
 

@@ -3,5 +3,5 @@ from .views import reactKarutaApp
 
 
 urlpatterns = [
-	path('', reactKarutaApp, name='karuta-app'),
+	path('', reactKarutaApp, name='react-karuta'),
 ]

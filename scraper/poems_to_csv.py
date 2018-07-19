@@ -26,6 +26,7 @@ for index,language in enumerate(['jap', 'rom', 'eng']):
     text = open('frame_{num}.txt'.format(num = index + 2), 'r')
     tree = BeautifulSoup(text, 'lxml')
 
+    '''Look for html elements without important content and slowly decompose all of them'''
     for lg in tree.find_all('lg'):
         poem = []
 

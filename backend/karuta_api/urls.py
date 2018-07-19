@@ -1,8 +1,8 @@
-from django.urls import path
-from .views import PoemList, PoemDetail
+from rest_framework.routers import SimpleRouter
+from .views import PoemViewSet
 
 
-urlpatterns = [
-	path('poems', PoemList.as_view(), name='poem-list'),
-	path('poems/<int:numeral>', PoemDetail.as_view(), name='poem-detail')
-]
+router = SimpleRouter(trailing_slash=False)
+router.register(r'poems', PoemViewSet, base_name='poem')
+
+urlpatterns = router.urls

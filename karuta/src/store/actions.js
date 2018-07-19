@@ -1,54 +1,55 @@
+// js-cookie 
+import Cookies from 'js-cookie';
+// normalizr
 import { normalize } from 'normalizr';
-import * as schemas from './../config/normalizr';
-import { API_ROOT } from './../config/api'
+import Schemas from './../config/normalizrSchemas';
+// constants
+import { endpoint, actionType } from './../config/constants';
 
 
-export const actionTypes = {
-	'data-request' : 'DATA_REQUEST',
-	'data-success' : 'DATA_SUCCESS',
-	'data-failure' : 'DATA_FAILURE',
-	'poems-list'   : 'FETCH_POEMS_LIST',
-	'poem-detail'  : 'FETCH_POEM'
-}
+/* FETCH REQUEST ACTION CREATORS */
 
-const receiveSuccess = (message) => ({
-	type: actionTypes['data-success'],
-	message: message
-})
+// list(), retrieve() django endpoints
+export const requestPoems = (urlpattern) => (dispatch) => {
+	dispatch({ type: 'DATA_REQUEST' })
 
-const receiveFailure = (message) => ({
-	type: actionTypes['data-failure'],
-	message: message || 'Something went wrong'
-})
+	const url = endpoint[urlpattern]
+	console.log(url)
 
-export const requestData = (endpoint,schema,actionName) => (dispatch) => {
-	let url = API_ROOT + endpoint
-	let options = {
+	const options = {
 		method: 'GET',
 		headers: {
-			Origin: 'https://fierce-hollows-19151.herokuapp.com'
-		},
+			'Accept': 'application/json', 
+		}
 	}
-	dispatch({
-		type: actionTypes['data-request'],
-	})
 	
-	return fetch(url, options)
-			.then(response => !response.ok ? response.json() : response.json())
-			.then(resjson => {
-				console.log(resjson)
-				dispatch({
-					type: actionTypes[actionName], 
-					data: normalize(resjson, schemas[schema]) 
-				})
+	const success = (json) => dispatch({
+		type: actionType[urlpattern],
+		data: normalize(json, Schemas[urlpattern])
+	}) 
 
-				return Promise.resolve('Done')
-			 })
-			.then(success => 
-				dispatch(receiveSuccess(success))
-			 )
-			.catch(error => 
-				dispatch(receiveFailure(error.message))
-			 )
-}
+	const failure = (error) => dispatch({
+		type: 'DATA_FAILURE',
+		message: error || 'Something went wrong'
+	}) 
 
+	return requestData(url, options, success, failure)
+};
+
+
+export const requestData = (url, opt, success, failure) => {
+	return fetch(url, opt)
+			.then(response => {
+				// Django returns a JSON response for 200-299 statuses
+				if(response.status >= 200 && response.status < 300){
+					return response.json().then(resjson => success(resjson))
+				}
+				// Django returns a JSON response with details for HTTP_400_BAD_REQUEST  
+				if(response.status === 400){
+					return response.json().then(resjson => failure(resjson.detail))
+				}
+				// reject the promise with response status text for anything else 
+				return Promise.reject(`${response.status}: ${response.statusText}`)
+			})
+			.catch(error => failure(error))
+};

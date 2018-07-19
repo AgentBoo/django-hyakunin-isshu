@@ -59,6 +59,7 @@ pip install psycopg2-binary
 pip install whitenoise 
 pip install gunicorn 
 pip install dj-database-url
+pip install python-dotenv
 ``` 
 
 ```javascript 
@@ -124,6 +125,51 @@ GRANT ALL PRIVILEGES ON DATABASE poems TO poems;
 export DATABASE_URL=postgres://%2Fvar%2Flib%2Fpostgresql/dbname or postgres://USER:PASSWORD@HOST:PORT/NAME
 export DJANGO_SECRET_KEY=boomshakalaka
 export DJANGO_DEBUG=True
+```
+
+#### Refactor settings.py 
+There will no longer be 2 local_settings files, for production and development
+There will only be 1 local_settings.py file for development and 1 .env file for production. 
+Essentially, everything is still the same, but it is less confusing for me to associate .env with production and local_settings with dev, when I am changing things in a hurry 
+
+<br> 
+The only environ variables that will be required for settings are `DJANGO_DEBUG` and `DATABASE_URL` for testing production settings.py locally
+
+```python 
+# settings.py
+DEBUG = bool(os.getenv('DJANGO_DEBUG', False))
+
+if DEBUG:
+    try:
+        from .local_settings import *
+
+        SECRET_KEY = DJANGO_SECRET_KEY
+        ALLOWED_HOSTS = LOCAL_HOSTS
+        CORS_ORIGIN_WHITELIST = LOCAL_WHITELIST
+        CSRF_TRUSTED_ORIGINS = LOCAL_TRUSTED_ORIGINS
+        DATABASES = LOCAL_DATABASE
+
+    except ImportError:
+        raise Exception('A local_settings.py file is required to run this project') 
+
+else:
+    import dj_database_url
+    from dotenv import load_dotenv, find_dotenv
+    load_dotenv(find_dotenv())
+
+    # SECURITY WARNING: keep the secret key used in production secret!
+    
+    SECRET_KEY = os.getenv('DJANGO_SECRET_KEY')
+   
+    ALLOWED_HOSTS = [ os.getenv('ALLOWED_HOSTS') ]
+
+    CORS_ORIGIN_WHITELIST = [ os.getenv('API_ROOT') ] 
+
+    CSRF_TRUSTED_ORIGINS = [ os.getenv('API_ROOT') ]
+
+    DATABASES = {
+        'default': dj_database_url.config(conn_max_age=600)  
+    }
 ```
 
 <br>

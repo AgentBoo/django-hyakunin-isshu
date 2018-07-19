@@ -8,8 +8,9 @@ npm i -S react-router react-router-dom
 npm i -S redux-thunk
 npm i -S cross-fetch
 npm i -S react-bootstrap
-npm i -D redux-logger 
-
+npm i -D redux-logger (!!!)
+npm i -S webpack-bundle-tracker 
+npm i -S react-app-rewired
 ```
 
 1. file tree 
@@ -116,3 +117,6 @@ getAuthors
 getPoems 
 
 
+9. components
+ 
+10. 

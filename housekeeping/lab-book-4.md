@@ -7,8 +7,8 @@ pip install django-cors-headers
 pip install django-webpack-loader
 pip install whitenoise
 
-npm i -D react-app-rewired 
-npm i -D webpack-bundle-tracker
+npm i -S react-app-rewired 
+npm i -S webpack-bundle-tracker
 npm i -S js-cookie
 ``` 
 
@@ -120,17 +120,16 @@ var csrftoken = getCookie('csrftoken');
 fetch(url, {
     credentials: 'include',
     method: 'POST',
-    mode: 'same-origin',
+    mode: 'same-origin', ???
     headers: {
       'Accept': 'application/json',
       'Content-Type': 'application/json',
+      'Origin': 'origin site name'
       'X-CSRFToken': csrftoken
     },
     body: {}
-   })
-  } 
+   }) 
 ```
-
 Resources: <br>
 * csrf docs 
   https://docs.djangoproject.com/en/2.0/ref/csrf/#acquiring-the-token-if-csrf-use-sessions-is-false <br>

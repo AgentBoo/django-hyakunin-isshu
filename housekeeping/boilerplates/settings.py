@@ -26,20 +26,40 @@ Import local settings from local_settings (local_settings is never committed to 
 A specific local_settings is created for each dev and production environments.
 '''
 
-DEBUG = bool(os.getenv('DJANGO_DEBUG', True))
+DEBUG = bool(os.getenv('DJANGO_DEBUG', False))
 
-try:
-   from .local_settings_dev import *
-except ImportError:
-    raise Exception('A local_settings.py file is required to run this project') 
+if DEBUG:
+    try:
+        from .local_settings import *
 
-SECRET_KEY = DJANGO_SECRET_KEY
+        SECRET_KEY = DJANGO_SECRET_KEY
+        ALLOWED_HOSTS = LOCAL_HOSTS
+        CORS_ORIGIN_WHITELIST = LOCAL_WHITELIST
+        CSRF_TRUSTED_ORIGINS = LOCAL_TRUSTED_ORIGINS
+        DATABASES = LOCAL_DATABASE
 
-ALLOWED_HOSTS = LOCAL_HOSTS
+    except ImportError:
+        raise Exception('A local_settings.py file is required to run this project') 
 
-CORS_ORIGIN_WHITELIST = LOCAL_WHITELIST
+else:
+    import dj_database_url
+    from dotenv import load_dotenv, find_dotenv
+    load_dotenv(find_dotenv())
 
-CSRF_TRUSTED_ORIGINS = LOCAL_TRUSTED_ORIGINS
+    # SECURITY WARNING: keep the secret key used in production secret!
+    
+    SECRET_KEY = os.getenv('DJANGO_SECRET_KEY')
+   
+    ALLOWED_HOSTS = [ os.getenv('ALLOWED_HOSTS') ]
+
+    CORS_ORIGIN_WHITELIST = [ os.getenv('API_ROOT') ] 
+
+    CSRF_TRUSTED_ORIGINS = [ os.getenv('API_ROOT') ]
+
+    DATABASES = {
+        'default': dj_database_url.config(conn_max_age=600)  
+    }
+
 
 
 # Application definition
@@ -95,7 +115,7 @@ WSGI_APPLICATION = 'backend.wsgi.application'
 # Database
 # https://docs.djangoproject.com/en/2.0/ref/settings/#databases
 
-DATABASES = LOCAL_DATABASE
+# DATABASES = LOCAL_DATABASE
 
 
 # Password validation
