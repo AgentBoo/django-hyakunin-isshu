@@ -9,15 +9,6 @@ const ScrollControl = ({ children }) => (
 	</aside>
 );
 
-const Button = ({ label, onClick }) => (
-	<button 
-		type = 'button'
-		className = 'btn round'
-		onClick = { onClick }>
-		{ label }
-	</button>
-)
-
-ScrollControl.Button = Button; 
+ScrollControl.Button = ScrollTopButtonRound; 
 
 export default ScrollControl

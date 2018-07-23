@@ -6,8 +6,11 @@ import { myPoem } from '../../store/selectors';
 // router 
 import { withRouter } from 'react-router';
 // components 
+import { Link, Element, animateScroll as scroll } from 'react-scroll'
 import { CSSTransition } from 'react-transition-group'; 
+import { ScrollTopButtonRound } from './../toolbox/Buttons';
 import { LoremIpsum } from './../toolbox/Lorem';
+
 
 
 /* POEM DETAIL VIEW */
@@ -17,30 +20,29 @@ class PoemDetail extends Component{
 		super(props)
 		this.state = {
 			pageUnfold: false,
-			paragraphOpen: false, 
+			translations: {
+				'Template': ['In Naniwa Bay','now the flowers are blossoming','After lying dormant all winter','now the spring has come','and the flowers are blossoming']
+			},
+			author: 'Template' 
 		}
-		this.paragraphRef = React.createRef()
 	}
 
 	componentDidMount(){
 		window.scrollTo(0,0)
-		return this.setState({ pageUnfold: !this.state.pageUnfold })
+		// fetch other translations
+	}
+
+	componentDidUpdate(prevProps){
+		if(prevProps.poem !== this.props.poem){
+			return this.setState({
+				translations: Object.assign({}, this.state.translations, {
+					'Clay MacCauley Revised': this.props.poem.eng.verses
+				}),
+			})
+		}
 	}
 
 	endTransition = () => this.setState({ pageUnfold: !this.state.pageUnfold })
-
-	scrollToParagraph = (event) => {
-		this.setState({ paragraphOpen: true })
-		const paragraph = this.paragraphRef.current
-		return window.scrollTo(0, paragraph.offsetTop)
-	}
-
-	renderAuthor = () => (
-		<section className='author'>
-			<h3> { this.props.poem.rom.author } </h3>
-			<p> { this.props.poem.eng.author } </p>
-		</section>
-	)
 
 	renderPoem = (lang) => {
 		const { verses } = this.props.poem[lang]
@@ -58,30 +60,56 @@ class PoemDetail extends Component{
 		)
 	};
 
-	renderTranslation = (lang) => {
-		const { verses } = this.props.poem[lang]
+	renderAuthor = () => (
+		<section className='author'>
+			<h3> { this.props.poem.rom.author } </h3>
+			<p> { this.props.poem.eng.author } </p>
+		</section>
+	)
 
+	renderTranslation = (author) => {
+		const verses = this.state.translations[author]
 		return (
-			<section className='panel split'>
-				<div className='card-verses'>
-					<p> { verses[0] } </p>
-					<p> { verses[1] } </p>
-					<p> { verses[2] } </p>
-					<p> { verses[3] } </p>
-					<p> { verses[4] } </p>
-				</div>
-				<div className='author'>
-					<p> { this.props.poem[lang].author } </p>
-				</div>
+			<section>
+				<p> { verses[0] } </p>
+				<p> { verses[1] } </p>
+				<p> { verses[2] } </p>
+				<p> { verses[3] } </p>
+				<p> { verses[4] } </p>
 			</section>
 		)
 	};
 
+	renderTranslationControls = () => {
+		const controls = Object.keys(this.state.translations).map(translation => 
+			<button 
+				type='button'
+				author={ translation }
+				onClick={ () => this.switchToTranslation(translation) }> 
+				{ translation } 
+			</button>
+		)
+		return (
+			<section> { controls } </section>
+		)
+	}
+
+	switchToTranslation = (translation) => {
+		return this.setState({
+			author: translation
+		})
+	}
+
+	scrollToTop = () => scroll.scrollToTop({
+		duration: 1600,
+		delay: 50,
+		smooth: 'easeInOutCubic',
+	})
+
 	render(){
-		const authorPanel = this.props.poem.id ? this.renderAuthor() : null 
+		const authorSection = this.props.poem.id ? this.renderAuthor() : null 
 		const japPanel = this.props.poem.id ? this.renderPoem('jap') : null 
-		const engPanel = this.props.poem.id ? this.renderTranslation('eng') : null 
-		const romPanel = this.props.poem.id ? this.renderPoem('rom') : null 
+		const romPanel = this.props.poem.id ? this.renderPoem('rom') : null
 
 		return (
 			<CSSTransition
@@ -93,11 +121,15 @@ class PoemDetail extends Component{
 					<aside className='lateral-page-side'>
 						<div>
 							<h2> [{ this.props.match.params.id }] </h2>
-							
-							{ authorPanel }
+							{ authorSection }
+							{ this.renderTranslationControls() }
+							{ this.renderTranslation(this.state.author) }
+							<ScrollTopButtonRound 
+								label='Top'
+								onClick={ this.scrollToTop } />
 						</div>
 					</aside>
-					<main className='lateral-page-main'>
+					<main id='main' className='lateral-page-main'>
 						<section className='panels'>
 							{ romPanel }
 							
@@ -107,24 +139,24 @@ class PoemDetail extends Component{
 								{ this.props.poem.id ? this.props.poem.jap.author : null }
 							</div>
 
-							<div 
-								className='panel'
-								onClick={ this.scrollToParagraph }> 
-								Translations 
+							<div className='panel'> 
+								<Link 
+									to='translations'
+									duration={1600}
+									delay={25}
+									offset={50}
+									smooth>
+									Interpretation
+								</Link> 
 							</div>
-							
-							{ engPanel } 
-
-							{ engPanel }
-							
-							{ engPanel }
-
 						</section>
-
-						<div ref={ this.paragraphRef }>
-							<p> Interpretation </p>
-							<LoremIpsum />
-						</div>
+						<Element name='translations'>
+							<div>
+								<p> Interpretation </p>
+								<LoremIpsum />
+								<p> Add Translation </p>
+							</div>
+						</Element>
 					</main>
 				</div>
 			</CSSTransition>

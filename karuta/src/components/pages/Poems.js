@@ -16,17 +16,10 @@ import ScrollControl from './../subcomponents/ScrollControl';
 /* POEMS VIEW */
 
 class Home extends Component{
-	constructor(props){
-		super(props)
-		this.state = {
-			topPosition: false
-		}
-	}
-
 	componentDidMount(){
 		window.scrollTo(0,0)
 		// <Component onScroll={} /> does not seem to work, so this is an alternative
-		window.addEventListener('scroll', this.handleScroll)
+		// window.addEventListener('scroll', this.handleScroll)
 
 	}
 
@@ -38,14 +31,6 @@ class Home extends Component{
 		}
 
 		return ['jap','rom','eng'].reduce((acc, lang) => locale === lang ? acc = true : acc, false) 
-	};
-
-	handleScroll = () => {
-		if(window.pageYOffset > window.screen.availHeight){
-			return this.setState({
-
-			})
-		}
 	};
 
 	scrollDown = () => scroll.scrollMore(1000, {
