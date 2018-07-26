@@ -23,14 +23,28 @@ const Test = () => (
 				</div>
 			</div>
 			<div className='panel'>
-				<div className='card-verses'>
+				<div className='flip-container'>
+				<div className='flipper'>
+				<div className='card-verses front'>
+						<p> Michinoku no </p>
+						<p> Shinobu mojizuri </p>
+					 	<p> Tare yue ni </p>
+					 	<p> Midare some ni </p>
+					 	<p> Ware naranaku ni </p>
+			 	</div>
+			 	<div className='card-verses back'>
+
 					<p> Michinoku no </p>
 					<p> Shinobu mojizuri </p>
 				 	<p> Tare yue ni </p>
 				 	<p> Midare some ni </p>
 				 	<p> Ware naranaku ni </p>
+
 			 	</div>
+				</div>
+				</div>
 			</div>
+
 			<div className='panel'>
 				<div className='card-verses'>
 					<p> Whose fault is it </p>

@@ -6,9 +6,9 @@ import { myPoem } from '../../store/selectors';
 // router 
 import { withRouter } from 'react-router';
 // components 
-import { Link, Element, animateScroll as scroll } from 'react-scroll'
+import { Link as ScrollLink, Element, animateScroll as scroll } from 'react-scroll'
 import { CSSTransition } from 'react-transition-group'; 
-import { ScrollTopButtonRound } from './../toolbox/Buttons';
+import { ButtonRound } from './../toolbox/Buttons';
 import { LoremIpsum } from './../toolbox/Lorem';
 
 
@@ -23,13 +23,23 @@ class PoemDetail extends Component{
 			translations: {
 				'Template': ['In Naniwa Bay','now the flowers are blossoming','After lying dormant all winter','now the spring has come','and the flowers are blossoming']
 			},
-			author: 'Template' 
+			translator: 'Template' 
 		}
 	}
 
 	componentDidMount(){
 		window.scrollTo(0,0)
+		this.setState({
+			pageUnfold: true
+		})
 		// fetch other translations
+		if(this.props.poem.eng){
+			return this.setState({
+				translations: Object.assign({}, this.state.translations, {
+					'Clay MacCauley Revised': this.props.poem.eng.verses
+				}),
+			})
+		}
 	}
 
 	componentDidUpdate(prevProps){
@@ -49,13 +59,16 @@ class PoemDetail extends Component{
 
 		return (
 			<section className={ lang === 'jap' ? 'panel jp-vertical' : 'panel' }>
-				<div className='card-verses'>
-					<p> { verses[0] } </p>
-					<p> { verses[1] } </p>
-					<p> { verses[2] } </p>
-					<p> { verses[3] } </p>
-					<p> { verses[4] } </p>
-				</div>
+
+						<div className='card-verses'>
+						<p> { verses[0] } </p>
+						<p> { verses[1] } </p>
+						<p> { verses[2] } </p>
+						<p> { verses[3] } </p>
+						<p> { verses[4] } </p>
+						</div>
+
+				
 			</section>
 		)
 	};
@@ -67,8 +80,8 @@ class PoemDetail extends Component{
 		</section>
 	)
 
-	renderTranslation = (author) => {
-		const verses = this.state.translations[author]
+	renderTranslation = (translator) => {
+		const verses = this.state.translations[translator]
 		return (
 			<section>
 				<p> { verses[0] } </p>
@@ -81,12 +94,13 @@ class PoemDetail extends Component{
 	};
 
 	renderTranslationControls = () => {
-		const controls = Object.keys(this.state.translations).map(translation => 
-			<button 
+		const controls = Object.keys(this.state.translations).map(translator => 
+			<button
+				className={ translator == this.state.translator ? 'active' : null }
 				type='button'
-				author={ translation }
-				onClick={ () => this.switchToTranslation(translation) }> 
-				{ translation } 
+				translator={ translator }
+				onClick={ () => this.switchToTranslation(translator) }> 
+				{ translator } 
 			</button>
 		)
 		return (
@@ -94,9 +108,9 @@ class PoemDetail extends Component{
 		)
 	}
 
-	switchToTranslation = (translation) => {
+	switchToTranslation = (translator) => {
 		return this.setState({
-			author: translation
+			translator: translator
 		})
 	}
 
@@ -119,14 +133,22 @@ class PoemDetail extends Component{
 				onEntered={ this.endTransition }>
 				<div className='lateral-page'>
 					<aside className='lateral-page-side'>
-						<div>
+						<div className='lateral-page-side-content'>
 							<h2> [{ this.props.match.params.id }] </h2>
 							{ authorSection }
 							{ this.renderTranslationControls() }
-							{ this.renderTranslation(this.state.author) }
-							<ScrollTopButtonRound 
+							{ this.renderTranslation(this.state.translator) }
+							<section>
+							<ButtonRound 
+								label='Back'
+								onClick={ this.scrollToTop } />
+							<ButtonRound 
 								label='Top'
 								onClick={ this.scrollToTop } />
+							<ButtonRound 
+								label='Forw'
+								onClick={ this.scrollToTop } />
+							</section>
 						</div>
 					</aside>
 					<main id='main' className='lateral-page-main'>
@@ -140,18 +162,17 @@ class PoemDetail extends Component{
 							</div>
 
 							<div className='panel'> 
-								<Link 
+								<ScrollLink 
 									to='translations'
 									duration={1600}
 									delay={25}
-									offset={50}
 									smooth>
 									Interpretation
-								</Link> 
+								</ScrollLink> 
 							</div>
 						</section>
 						<Element name='translations'>
-							<div>
+							<div className='panel text'>
 								<p> Interpretation </p>
 								<LoremIpsum />
 								<p> Add Translation </p>

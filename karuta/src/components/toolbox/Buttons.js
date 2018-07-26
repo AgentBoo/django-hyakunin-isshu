@@ -3,7 +3,7 @@ import React from 'react';
 
 
 // scroll to top 
-const ScrollTopButtonRound = ({ label, onClick }) => (
+const ButtonRound = ({ label, onClick }) => (
 	<button 
 		type = 'button'
 		className = 'btn round'
@@ -12,5 +12,5 @@ const ScrollTopButtonRound = ({ label, onClick }) => (
 	</button>
 );
 
-export { ScrollTopButtonRound };
+export {  ButtonRound };
 

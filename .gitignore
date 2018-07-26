@@ -13,7 +13,7 @@
 /housekeeping
 /scraper 
 README.md 
-*.scss
+#*.scss
 
 # dev 
 # .env

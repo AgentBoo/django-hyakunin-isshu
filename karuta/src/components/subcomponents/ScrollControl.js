@@ -1,7 +1,7 @@
 // react 
 import React from 'react';
 // components 
-import { ScrollTopButtonRound } from './../toolbox/Buttons';
+import { ButtonRound } from './../toolbox/Buttons';
 
 const ScrollControl = ({ children }) => (
 	<aside className='btn-group aside-scroll'>	
@@ -9,6 +9,6 @@ const ScrollControl = ({ children }) => (
 	</aside>
 );
 
-ScrollControl.Button = ScrollTopButtonRound; 
+ScrollControl.Button = ButtonRound; 
 
 export default ScrollControl

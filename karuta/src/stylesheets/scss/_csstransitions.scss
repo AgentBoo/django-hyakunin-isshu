@@ -1,0 +1,69 @@
+/* CSSTransitions FLIPPER */  
+
+.flip-container{
+	perspective: 1000px;
+	height: $card-height;
+	width: $card-width;
+}
+
+.flip-container .card-front, 
+.flip-container .card-back{
+	backface-visibility: hidden; 
+}
+
+.flipper-enter{
+	opacity: 0.01;
+	transform: rotateY(180deg);
+}
+.flipper-enter-active{
+	opacity: 0.98;
+	transform: rotateY(0deg);
+	transform-style: preserve-3d;
+	transition: 1s;
+}
+.flipper-enter-done{
+	opacity: 0.98;
+	transform: rotateY(0deg);
+}
+
+.flipper-exit{
+	opacity: 0.98;
+	transform: rotateY(0deg);
+}
+.flipper-exit-active{
+	opacity: 0.01;
+	transform: rotateY(-180deg);
+	transform-style: preserve-3d;
+	transition: 1s;
+}
+.flipper-exit-done{
+	opacity: 0.01;	
+	transform: rotateY(-180deg);
+}
+
+
+/* CSSTransitions FADE IN */
+
+.shortfade-enter,
+.longfade-enter{
+	opacity: 0.01;
+}
+.shortfade-enter-active{
+	opacity: 1;
+	transition: opacity 0.2s ease-in-out;
+}
+.longfade-enter-active{
+	opacity: 1;
+	transition: opacity 1.2s ease-in-out 0s;
+}
+.shortfade-enter-done,
+.shortfade-exit,
+.shortfade-exit-active,
+.shortfade-exit-done,
+.longfade-enter-done,
+.longfade-exit,
+.longfade-exit-active,
+.longfade-exit-done{
+	opacity: 1;
+}
+

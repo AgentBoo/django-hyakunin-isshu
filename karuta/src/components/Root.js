@@ -10,6 +10,7 @@ import { BrowserRouter as Router, Switch, Route, Redirect } from 'react-router-d
 import Home from './pages/Poems';
 import PoemDetail from './pages/PoemDetail';
 import NotFound from './pages/NotFound';
+import Test from './markups/PoemDetail_markup.js' 
 
 // createStore's wrapper with all middlewares passed into it  
 
@@ -21,6 +22,9 @@ const Root = () => (
     <Provider store={ configured }>
       <Router>
           <Switch>
+           <Route exact strict path='/test'
+                   component={ Test } />   
+
             <Route exact strict path ='/'
                    render={() => <Redirect from='/' to='/jap'/> } />
 
@@ -29,7 +33,7 @@ const Root = () => (
 
             <Route exact path='/:locale'
                    component={ Home } />
-
+                          
             <Route component={ NotFound } />
 
           </Switch>

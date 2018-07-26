@@ -8,6 +8,11 @@ const LangControl = () => (
 	<aside className='btn-group aside-lang'>
 		<NavLink 
 			activeClassName='active'
+			to='/eng'> 
+			I 
+		</NavLink>
+		<NavLink 
+			activeClassName='active'
 			to='/jap'> 
 			J 
 		</NavLink>
@@ -20,6 +25,11 @@ const LangControl = () => (
 			activeClassName='active'
 			to='/eng'> 
 			E 
+		</NavLink>
+		<NavLink 
+			activeClassName='active'
+			to='/eng'> 
+			I 
 		</NavLink>
 	</aside>
 );
