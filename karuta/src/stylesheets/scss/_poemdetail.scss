@@ -4,91 +4,95 @@
 
 div.lateral-page{
 	background: $porcelain;
-    display: grid;
-    	grid-gap: 0;
-        grid-template-columns: 300px 1fr;
-        grid-template-rows: 1fr;
-    padding: 5rem 2rem;
-    position: relative;
+  display: grid;
+  	grid-gap: 0;
+    grid-template-columns: 17.086rem 1fr;
+    grid-template-rows: 1fr;
+  position: relative;
+	padding-bottom: 2.25rem;
 }
 
 
 // side panel
 
 div.lateral-page .lateral-page-side{
-	background: $porcelain;
-    display: grid;
-    	grid-template-columns: 1fr;
-    	grid-template-rows: 50px 100px 1fr;
+	background: $isabelline;
+	font-family: $Nanum;
 }
 
 div.lateral-page .lateral-page-side > div.lateral-page-side-content{
+	border-top: solid 1px white;
 	display: flex;
 		align-items: flex-start;
-		flex-flow: column nowrap; 
+		flex-flow: column nowrap;
 		justify-content: space-between;
+	padding-top: 0.667rem;
 	position: fixed;
-    	top: 3rem;
-    	left: 2rem;
+			top: 2.25rem;
+    	left: 1.5rem;
 }
 
-// numeral 
-
-// author name  
-div.lateral-page-side-content > section:nth-child(n+1){
-	padding: 2rem 0;
+// numeral
+div.lateral-page-side-content > h2{
+	color: $grey;
+	font-weight: 300;
 }
 
-// translators 
+// author
+div.lateral-page-side-content > section:nth-of-type(1){
+	margin: 1.667rem 0 2.779rem;
+}
+div.lateral-page-side-content > section:nth-of-type(1) > p{
+	color: $granite;
+	font-size: 0.8335rem;
+}
+
+// translators
 div.lateral-page-side-content > section:nth-child(3){
 	display: flex;
 		align-items: flex-start;
-		flex-flow: column nowrap; 
-		justify-content: space-between;
-	padding-top: 13rem;
+		flex-flow: column nowrap;
+		justify-content: center;
+	margin: 2.667rem 0 1.667rem;
 }
-
 div.lateral-page-side-content > section:nth-child(3) > button{
-	color: $granite;
+	background: $alabaster;
 	line-height: 1.94;
 	margin: 0.5px 0;
-	padding: 0 10.33px 0 3.33px;
+	padding: 0 0.667em 0 3.33px;
 }
 div.lateral-page-side-content > section:nth-child(3) > button:hover{
 	background: transparent;
+	color: $trolley;
 	transition: all 0.3s ease-in-out 0s;
 }
 
 div.lateral-page-side-content > section:nth-child(3) > button.active{
-	color: $plum;
+	color: $camel;
 	transition: all 0.3s ease-in-out 0s;
 }
 
-// translated poem 
+// translated poem
 div.lateral-page-side-content > section:nth-child(4){
-	font-size: 1.2em;
+	font-size: 0.8335em;
 	line-height: 1.94;
 }
 
 // page controls
 div.lateral-page-side-content > *:last-child{
-	position: fixed;
-		bottom: 6rem;
-		left: 2rem;
+	margin: 2.779rem 0 1.667rem;
 }
-
 div.lateral-page-side-content > *:last-child > .btn{
-	background: transparent;
-	color: $granite;
-} 
+	background: $alabaster;
+	margin-right: 1px;
+}
 div.lateral-page-side-content > *:last-child > .btn:hover{
 	background: $carmine;
 	color: $porcelain;
-	transition: all 0.3s ease-in-out 0s;
-} 
+}
 
 
-// main 
+// main
 
 div.lateral-page .lateral-page-main{
 	padding: 2rem 4rem;
@@ -102,7 +106,7 @@ section.panels{
 }
 
 
-// panel 
+// panel
 
 div.panel,
 section.panel{
@@ -113,10 +117,10 @@ section.panel{
 
 div.panel.jp-vertical,
 section.panel.jp-vertical{
-	@include jp-vertical;	
+	@include jp-vertical;
 }
 
-// individual panels 
+// individual panels
 
 section.panels.jp-vertical{
 	@include jp-vertical;
@@ -172,7 +176,7 @@ section.panels > .panel:nth-child(3){
 }
 section.panels > .panel:nth-child(3):hover{
 	background: $camel;
-	transition: all 0.4s ease-in-out 0s;	
+	transition: all 0.4s ease-in-out 0s;
 }
 
 section.panels > .panel:nth-child(4){
@@ -183,12 +187,12 @@ section.panels > .panel:nth-child(4){
 	font-size: 3rem;
 	grid-area: 5/2/6/3;
 	opacity: 0.3;
-	padding: 4rem 8% 0.5rem;	
+	padding: 4rem 8% 0.5rem;
 }
 section.panels > .panel:nth-child(4):hover{
 	background: $rose;
 	opacity: 1;
-	transition: all 0.4s ease-in-out 0s;	
+	transition: all 0.4s ease-in-out 0s;
 }
 
 
