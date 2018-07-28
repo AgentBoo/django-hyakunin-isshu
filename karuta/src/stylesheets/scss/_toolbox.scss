@@ -33,8 +33,12 @@
 /* BUTTONS */
 
 button{
+  font-family: $Source;
   cursor: pointer;
   outline: none;
+}
+button:hover{
+  transition: all 0.3s ease-in-out 0s;
 }
 button::-moz-focus-inner {
   border: 0;
@@ -45,6 +49,13 @@ button::-moz-focus-inner {
   height: 3em;
   text-align: center;
   width: 3em;
+}
+
+.btn.brick{
+  background: transparent;
+  border: solid 0.5px $isabelline;
+  line-height: 1.94;
+	padding: 0 2.25em;
 }
 
 
@@ -140,7 +151,7 @@ a{
   color: $carmine;
 }
 
-// about link 
+// about link
 .link.about{
-  
+
 }

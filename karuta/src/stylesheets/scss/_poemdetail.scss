@@ -16,11 +16,7 @@ div.lateral-page{
 // side panel
 
 div.lateral-page .lateral-page-side{
-	@include box-shadow-out;
-	background: $porcelain;
-    display: grid;
-    	grid-template-columns: 1fr;
-    	grid-template-rows: 50px 100px 1fr;
+	@include box-shadow-out;	grid-template-rows: 50px 100px 1fr;
 }
 
 div.lateral-page .lateral-page-side > div.lateral-page-side-content{

@@ -3,6 +3,7 @@
 @import url('https://fonts.googleapis.com/css?family=Nanum+Myeongjo:400,800|Roboto:300|Song+Myung');
 
 $Roboto : 'Roboto', Tahoma, Arial, sans-serif;
+$Source: 'Source Sans Pro', sans-serif;
 $Nanum  : 'Nanum Myeongjo', serif;
 $Sawarabi:  'Sawarabi Mincho', sans-serif;
 $Mplus: 'Mplus 1p', sans-serif;
@@ -76,7 +77,7 @@ $card-width: 360px;
 $card-height: 380px;
 
 
-// NOTE: Imports */  
+// NOTE: Imports */
 
 @import 'root';
 @import 'csstransitions';
@@ -84,8 +85,3 @@ $card-height: 380px;
 @import 'poems';
 @import 'toolbox';
 @import 'notfound';
-
-
-
-
-

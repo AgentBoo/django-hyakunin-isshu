@@ -2,9 +2,9 @@
 import React from 'react';
 
 
-// scroll to top 
+// Example: scroll to top
 const ButtonRound = ({ label, onClick }) => (
-	<button 
+	<button
 		type = 'button'
 		className = 'btn round'
 		onClick = { onClick }>
@@ -14,3 +14,14 @@ const ButtonRound = ({ label, onClick }) => (
 
 export {  ButtonRound };
 
+// Example: back and forward button
+const ButtonBrick = ({ label, onClick }) => (
+	<button
+		type = 'button'
+		className = 'btn brick'
+		onClick = { onClick }>
+		{ label }
+	</button>
+);
+
+export {  ButtonBrick };

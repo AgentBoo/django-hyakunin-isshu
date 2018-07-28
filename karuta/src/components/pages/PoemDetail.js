@@ -1,14 +1,14 @@
-// react 
+// react
 import React, { Component } from 'react';
-// redux 
+// redux
 import { connect } from 'react-redux';
 import { myPoem } from '../../store/selectors';
-// router 
+// router
 import { withRouter } from 'react-router';
-// components 
+// components
 import { Link as ScrollLink, Element, animateScroll as scroll } from 'react-scroll'
-import { CSSTransition } from 'react-transition-group'; 
-import { ButtonRound } from './../toolbox/Buttons';
+import { CSSTransition } from 'react-transition-group';
+import { ButtonRound, ButtonBrick } from './../toolbox/Buttons';
 import { LoremIpsum } from './../toolbox/Lorem';
 
 
@@ -23,7 +23,7 @@ class PoemDetail extends Component{
 			translations: {
 				'Template': ['In Naniwa Bay','now the flowers are blossoming','After lying dormant all winter','now the spring has come','and the flowers are blossoming']
 			},
-			translator: 'Template' 
+			translator: 'Template'
 		}
 	}
 
@@ -68,7 +68,7 @@ class PoemDetail extends Component{
 						<p> { verses[4] } </p>
 						</div>
 
-				
+
 			</section>
 		)
 	};
@@ -94,13 +94,13 @@ class PoemDetail extends Component{
 	};
 
 	renderTranslationControls = () => {
-		const controls = Object.keys(this.state.translations).map(translator => 
+		const controls = Object.keys(this.state.translations).map(translator =>
 			<button
 				className={ translator == this.state.translator ? 'active' : null }
 				type='button'
 				translator={ translator }
-				onClick={ () => this.switchToTranslation(translator) }> 
-				{ translator } 
+				onClick={ () => this.switchToTranslation(translator) }>
+				{ translator }
 			</button>
 		)
 		return (
@@ -121,8 +121,8 @@ class PoemDetail extends Component{
 	})
 
 	render(){
-		const authorSection = this.props.poem.id ? this.renderAuthor() : null 
-		const japPanel = this.props.poem.id ? this.renderPoem('jap') : null 
+		const authorSection = this.props.poem.id ? this.renderAuthor() : null
+		const japPanel = this.props.poem.id ? this.renderPoem('jap') : null
 		const romPanel = this.props.poem.id ? this.renderPoem('rom') : null
 
 		return (
@@ -134,18 +134,18 @@ class PoemDetail extends Component{
 				<div className='lateral-page'>
 					<aside className='lateral-page-side'>
 						<div className='lateral-page-side-content'>
-							<h2> [{ this.props.match.params.id }] </h2>
+							<h2> { this.props.match.params.id } </h2>
 							{ authorSection }
 							{ this.renderTranslationControls() }
 							{ this.renderTranslation(this.state.translator) }
 							<section>
-							<ButtonRound 
+							<ButtonBrick
 								label='Back'
 								onClick={ this.scrollToTop } />
-							<ButtonRound 
+							<ButtonBrick
 								label='Top'
 								onClick={ this.scrollToTop } />
-							<ButtonRound 
+							<ButtonBrick
 								label='Forw'
 								onClick={ this.scrollToTop } />
 							</section>
@@ -154,21 +154,21 @@ class PoemDetail extends Component{
 					<main id='main' className='lateral-page-main'>
 						<section className='panels'>
 							{ romPanel }
-							
-							{ japPanel }				
-							
+
+							{ japPanel }
+
 							<div className='panel jp-vertical'>
 								{ this.props.poem.id ? this.props.poem.jap.author : null }
 							</div>
 
-							<div className='panel'> 
-								<ScrollLink 
+							<div className='panel'>
+								<ScrollLink
 									to='translations'
 									duration={1600}
 									delay={25}
 									smooth>
 									Interpretation
-								</ScrollLink> 
+								</ScrollLink>
 							</div>
 						</section>
 						<Element name='translations'>
