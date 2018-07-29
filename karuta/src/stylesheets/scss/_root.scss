@@ -26,7 +26,7 @@ html{
 body{
   background: #fff;
   color: $plum;
-  font-family: $Roboto;
+  font-family: $Nanum;
   font-weight: 100;
   line-height: 1.6;
   min-height: 100%;
@@ -35,17 +35,12 @@ body{
 
 
 /* entire container, keeps perspective */
-.flip-container {
-  perspective: 1000px;
-  background: $alabaster;
-}
-
 /* flip the pane when hovered */
-.flip-container:hover .flipper{
+.cuboid-container:hover .flipper{
   transform: rotateX(-90deg) translateY(160px) translateZ(160px);
 }
 
-.flip-container, .front, .back, .flipper{
+.front, .side, .flipper{
   width: 320px;
   height: 320px;
   position: relative;
@@ -63,7 +58,7 @@ body{
 
 
 /* hide back of pane during swap */
-.front, .back {
+.front, .side {
   backface-visibility: hidden;
   position: absolute;
     top: 0;
@@ -80,7 +75,7 @@ body{
 
 
 /* back, initially hidden pane */
-.back {
+.side {
   background: blue;
   transition: background 0.7s ease-in-out 0s;
   transform: rotateX(90deg) translateY(-160px) translateZ(160px);

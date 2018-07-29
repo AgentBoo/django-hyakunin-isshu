@@ -43,7 +43,9 @@ button:hover{
 button::-moz-focus-inner {
   border: 0;
 }
-
+button.active{
+  transition: all 0.3s ease-in-out 0s;
+}
 .btn.round{
   border-radius: 50%;
   height: 3em;
@@ -55,7 +57,7 @@ button::-moz-focus-inner {
   background: transparent;
   border: solid 0.5px $isabelline;
   line-height: 1.94;
-	padding: 0 2.25em;
+	padding: 0 1.8em;
 }
 
 

@@ -67,3 +67,68 @@
 	opacity: 1;
 }
 
+
+/* ONHOVER transition flipper */
+
+// container keeps the perspective
+.cuboid-container{
+  background: transparent;
+  overflow: visible;
+  perspective: 1000px;
+}
+
+// transition specs defined in the flipper 
+.cuboid-flipper{
+  opacity: 1;
+  position: relative;
+  transform-origin: 50% 50%;
+  transform-style: preserve-3d;
+  transition: all 0.7s ease-in-out 0s;
+}
+
+.cuboid-flipper, .front, .side{
+  height: 320px;
+  width: 320px;
+}
+
+// line up surfaces + hide back of surface during flip
+.front, .side{
+  backface-visibility: hidden;
+  position: absolute;
+  	top: 0;
+  	left: 0;
+  transition: background 0.7s ease-in-out 0s;
+}
+
+.front{
+  transform: rotateX(0deg);
+  z-index: 2;
+}
+
+// do a flip on container:hover
+.cuboid-container:hover .cuboid-flipper.up{
+  transform: rotateX(90deg) translateY(-160px) translateZ(160px);
+} 
+.cuboid-container:hover .cuboid-flipper.down{
+  transform: rotateX(-90deg) translateY(160px) translateZ(160px);
+}
+.cuboid-container:hover .cuboid-flipper.left{
+  transform: rotateY(-90deg) translateX(-160px) translateZ(160px);
+}
+.cuboid-container:hover .cuboid-flipper.right{
+  transform: rotateY(90deg) translateX(160px) translateZ(160px);
+}
+
+// side transformation corresponds to transition direction  
+.cuboid-flipper.up .side{
+  transform: rotateX(-90deg) translateY(160px) translateZ(160px);
+}
+.cuboid-flipper.down .side{
+  transform: rotateX(90deg) translateY(-160px) translateZ(160px);
+}
+.cuboid-flipper.left .side{
+	transform: rotateY(90deg) translateX(160px) translateZ(160px);
+}
+.cuboid-flipper.right .side{
+	transform: rotateY(-90deg) translateX(-160px) translateZ(160px);
+}

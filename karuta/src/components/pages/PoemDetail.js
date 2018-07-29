@@ -59,15 +59,24 @@ class PoemDetail extends Component{
 
 		return (
 			<section className={ lang === 'jap' ? 'panel jp-vertical' : 'panel' }>
-
-						<div className='card-verses'>
+				<div className='cuboid-container'>
+					<div className='cuboid-flipper'>
+						<div className='card-verses front'>
 						<p> { verses[0] } </p>
 						<p> { verses[1] } </p>
 						<p> { verses[2] } </p>
 						<p> { verses[3] } </p>
 						<p> { verses[4] } </p>
 						</div>
-
+						<div className='card-verses side'>
+						<p> { verses[0] } </p>
+						<p> { verses[1] } </p>
+						<p> { verses[2] } </p>
+						<p> { verses[3] } </p>
+						<p> { verses[4] } </p>
+						</div>
+					</div>
+				</div>
 
 			</section>
 		)
@@ -79,7 +88,9 @@ class PoemDetail extends Component{
 			<p> { this.props.poem.eng.author } </p>
 		</section>
 	)
-
+	
+	renderVerses = (verses) => verses.map((verse,i) => <p> verse[i] </p>)
+	
 	renderTranslation = (translator) => {
 		const verses = this.state.translations[translator]
 		return (
@@ -134,7 +145,7 @@ class PoemDetail extends Component{
 				<div className='lateral-page'>
 					<aside className='lateral-page-side'>
 						<div className='lateral-page-side-content'>
-							<h2> { this.props.match.params.id } </h2>
+							<h1> { this.props.match.params.id } </h1>
 							{ authorSection }
 							{ this.renderTranslationControls() }
 							{ this.renderTranslation(this.state.translator) }
@@ -158,7 +169,16 @@ class PoemDetail extends Component{
 							{ japPanel }
 
 							<div className='panel jp-vertical'>
-								{ this.props.poem.id ? this.props.poem.jap.author : null }
+								<div className='cuboid-container'>
+									<div className='cuboid-flipper'>
+										<div className='front'>
+											{ this.props.poem.id ? this.props.poem.jap.author : null }
+										</div>
+										<div className='side'>
+											{ this.props.poem.id ? this.props.poem.jap.author : null }
+										</div>
+									</div>
+								</div>
 							</div>
 
 							<div className='panel'>
@@ -166,8 +186,18 @@ class PoemDetail extends Component{
 									to='translations'
 									duration={1600}
 									delay={25}
+									offset={10}
 									smooth>
-									Interpretation
+									<div className='cuboid-container'>
+										<div className='cuboid-flipper'>
+											<div className='front'>
+												Interpretation
+											</div>
+											<div className='side'>
+												Interpretation
+											</div>
+										</div>
+									</div>
 								</ScrollLink>
 							</div>
 						</section>
@@ -175,9 +205,12 @@ class PoemDetail extends Component{
 							<div className='panel text'>
 								<p> Interpretation </p>
 								<LoremIpsum />
-								<p> Add Translation </p>
 							</div>
 						</Element>
+						<div className='panel text'>
+							<p> Add Translation </p>
+							<LoremIpsum />
+						</div>
 					</main>
 				</div>
 			</CSSTransition>
