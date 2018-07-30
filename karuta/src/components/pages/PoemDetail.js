@@ -58,7 +58,7 @@ class PoemDetail extends Component{
 		const { verses } = this.props.poem[lang]
 
 		return (
-			<section className={ lang === 'jap' ? 'panel jp-vertical' : 'panel' }>
+			<section className='panel'>
 				<div className='cuboid-container'>
 					<div className='cuboid-flipper'>
 						<div className='card-verses front'>
@@ -150,6 +150,7 @@ class PoemDetail extends Component{
 							{ this.renderTranslationControls() }
 							{ this.renderTranslation(this.state.translator) }
 							<section>
+							<div className='btn-group page-control'>
 							<ButtonBrick
 								label='Back'
 								onClick={ this.scrollToTop } />
@@ -159,6 +160,7 @@ class PoemDetail extends Component{
 							<ButtonBrick
 								label='Forw'
 								onClick={ this.scrollToTop } />
+							</div>
 							</section>
 						</div>
 					</aside>
@@ -172,10 +174,10 @@ class PoemDetail extends Component{
 								<div className='cuboid-container'>
 									<div className='cuboid-flipper'>
 										<div className='front'>
-											{ this.props.poem.id ? this.props.poem.jap.author : null }
+											<p> { this.props.poem.id ? this.props.poem.jap.author : null } </p>
 										</div>
 										<div className='side'>
-											{ this.props.poem.id ? this.props.poem.jap.author : null }
+											<p> { this.props.poem.id ? this.props.poem.jap.author : null } </p>
 										</div>
 									</div>
 								</div>
@@ -191,10 +193,10 @@ class PoemDetail extends Component{
 									<div className='cuboid-container'>
 										<div className='cuboid-flipper'>
 											<div className='front'>
-												Interpretation
+												<p>Interpretation</p>
 											</div>
 											<div className='side'>
-												Interpretation
+												<p>Interpretation</p>
 											</div>
 										</div>
 									</div>
@@ -207,9 +209,11 @@ class PoemDetail extends Component{
 								<LoremIpsum />
 							</div>
 						</Element>
-						<div className='panel text'>
-							<p> Add Translation </p>
-							<LoremIpsum />
+						<div>
+							<div className='panel text'>
+								<p> Add Translation </p>
+								<LoremIpsum />
+							</div>
 						</div>
 					</main>
 				</div>

@@ -8,25 +8,27 @@ div.lateral-page{
     	grid-gap: 0;
         grid-template-columns: 300px 1fr;
         grid-template-rows: 1fr;
-    padding-top: 2rem;
-}
-
-div.lateral-page, 
-div.lateral-page .lateral-page-side,
-div.lateral-page .lateral-page-main{
-	position: relative;
+    height: 100%;
+    padding: 1rem 0;
+    position: relative;
+    width: 100%;
 }
 
 
-// side panel
+/* Side Panel */
+
 div.lateral-page .lateral-page-side > div.lateral-page-side-content{
+	background: rgba(253, 255, 252, 0.65);
+	border: solid 4px $porcelain;
 	display: grid;
-		grid-gap: 1rem;
+		grid-gap: 3.2vh;
 		grid-template-columns: 1;
-		grid-template-rows: max-content max-content 1.74fr 2fr 1fr;
+		grid-template-rows: max-content max-content 1.64fr 2fr 1fr;
 	min-height: 90vh;
+	padding: 0 3vmin 0 1rem;
 	position: fixed;
-    	left: 2rem;
+    	left: 0;
+    z-index: 50;
 }
 
 // numeral 
@@ -37,11 +39,6 @@ div.lateral-page-side-content > h1{
 // author name  
 div.lateral-page-side-content > section:nth-of-type(1){
 	line-height: 1.34;
-	padding: 0.78rem 0;
-}
-
-div.lateral-page-side-content > section:nth-of-type(1) p{
-	font-size: 0.9rem; 
 }
 
 // translators 
@@ -61,6 +58,7 @@ div.lateral-page-side-content > section:nth-of-type(2) > button{
 }
 div.lateral-page-side-content > section:nth-of-type(2) > button:hover{
 	background: transparent;
+	transition: none;
 }
 div.lateral-page-side-content > section:nth-of-type(2) > button.active{
 	color: $rose;
@@ -68,9 +66,7 @@ div.lateral-page-side-content > section:nth-of-type(2) > button.active{
 
 // translated poem 
 div.lateral-page-side-content > section:nth-of-type(3){
-	font-size: 0.9rem; 
-	line-height: 1.8;
-	padding: 0.6vh 0;
+	line-height: 1.88;
 }
 
 // page controls
@@ -79,22 +75,18 @@ div.lateral-page-side-content > *:last-child{
 	padding-bottom: 4.6vh;
 }
 
-div.lateral-page-side-content > *:last-child > .btn{
-	background: transparent;
-	color: $granite;
-} 
-div.lateral-page-side-content > *:last-child > .btn:hover{
-	background: $carmine;
-	color: $porcelain;
-} 
+div.lateral-page-side-content > *:last-child button{
+	border: solid 0.5px $isabelline;
+}
 
 
-// main section
+/* MAIN SECTION */
 
+// individual sections inside main section
 div.lateral-page .lateral-page-main > *{
 	@include box-shadow-out;
-	margin: 1rem 2rem 2.4rem 1.4rem;
-	padding: 4.3vh 3.6vw;
+	margin: 4.3vh 2.4vw 5vh;
+	padding: 1.5rem 3.46vw;
 }
 
 // stack components differently for different screens sizes
@@ -102,14 +94,25 @@ section.panels{
 	display: grid;
 		grid-auto-flow: row dense;
 		grid-auto-rows: max-content;
-		grid-template-columns: 1fr 1.67fr;
+		grid-template-columns: 1fr 1.667fr;
 }
 
+
+// individual panels 
 div.panel,
 section.panel{
 	background: $porcelain;
 	border: solid 2px $porcelain;
-	overflow: auto;
+	cursor: pointer;
+	display: flex;
+		align-items: center;
+		flex-flow: column nowrap;
+		justify-content: center;
+	overflow:visible;
+}
+div.panel:hover,
+section.panel:hover{
+	transition: all 0.3s ease-in-out 0s;
 }
 
 div.panel.jp-vertical,
@@ -117,136 +120,185 @@ section.panel.jp-vertical{
 	@include jp-vertical;	
 }
 
-// individual panels 
+/*
+	There are multiple .panel children inside .panels 
+	Each .panel has a different color, size, and padding.
+	Parent of .cuboid-container must have overflow:visible (.panel)
+	Parent of .cuboid-container and .front have the same color 
+	Parent of .cuboid-container and .side, in hover states, have the same color 
+	Wrapping order: 
+	.panel > 
+	.cuboid-container > 
+	.cuboid-flipper > 
+	.front + .side 
+*/
 
 // romanized poem flip up 
 section.panels > .panel:nth-child(1){
-	background: $eggshell;
-	justify-self: stretch;
-	align-self: end;
-	color: $raisin;
-	display: flex;
-		align-items: flex-start;
-		flex-flow: column nowrap;
-		justify-content: center;
-	font-family: $Mplus;
-	font-weight: 300;
-	font-size: 1.5vw;
+	background: $isabelline;
 	grid-area: 1/1/3/2;
-	opacity: 0.7;
-	overflow:visible;
+	padding: 2rem 0;
 }
-
+section.panels > .panel:nth-child(1):hover{
+	background: $grullo;
+}
 section.panels > .panel:nth-child(1) .cuboid-container:hover .cuboid-flipper{
-  transform: rotateX(90deg) translateY(-160px) translateZ(160px);
-} 
-
-section.panels > .panel:nth-child(1) .cuboid-flipper .side{
-  background: blue;
-  transform: rotateX(-90deg) translateY(160px) translateZ(160px);
+	transform: rotateX(90deg) translateY(-9vmax) translateZ(9vmax);
 }
-
+section.panels > .panel:nth-child(1) .cuboid-flipper, 
+section.panels > .panel:nth-child(1) .front, 
+section.panels > .panel:nth-child(1) .side{
+	height: 18vmax;
+	width: 18vmax;
+}
+section.panels > .panel:nth-child(1) .front{
+	background: $isabelline;
+}
+section.panels > .panel:nth-child(1) .side{
+	background: pink;
+	transform: rotateX(-90deg) translateY(9vmax) translateZ(9vmax);
+}
+section.panels > .panel:nth-child(1) .side:hover{
+	background: $grullo;
+}
 section.panels > .panel:nth-child(1) .card-verses{
-	padding: 4rem 2em;
+	font-size: 1vmax;
+	padding: 3vmax 3vw 0;
 }
 
 // japanese poem flip right 
 section.panels > .panel:nth-child(2){
 	background: $eggshell;
-	color: $grey;
-	font-size: 2.5vw;
-	font-family: $Mplus;
-	height: 40rem;
 	grid-area: 1/2/5/3;
-	padding: 6rem 2.5rem;
+	min-height: 28vmax;
 }
 section.panels > .panel:nth-child(2):hover{
 	background: $grullo;
-	color: $plum;
-	transition: all 0.4s ease-in-out 0s;
 }
-
 section.panels > .panel:nth-child(2) .cuboid-container:hover .cuboid-flipper{
-  transform: rotateY(90deg) translateX(160px) translateZ(160px);
+	transform: rotateY(90deg) translateX(14vmax) translateZ(14vmax);
 }
-
-section.panels > .panel:nth-child(2) .cuboid-flipper .side{
-	background: blue;
-	transform: rotateY(-90deg) translateX(-160px) translateZ(160px);
+section.panels > .panel:nth-child(2) .cuboid-flipper, 
+section.panels > .panel:nth-child(2) .front, 
+section.panels > .panel:nth-child(2) .side{
+	height: 28vmax;
+	width: 28vmax;
+}
+section.panels > .panel:nth-child(2) .front{
+	@include jp-vertical;
+	font-family: $Mplus;
+	font-weight: 600;
+	background: $eggshell;
+}
+section.panels > .panel:nth-child(2) .side{
+	background: $porcelain;
+	font-family: $Sawarabi;
+	line-height: 1.34;
+	text-align: right;
+	transform: rotateY(-90deg) translateX(-14vmax) translateZ(14vmax);
+}
+section.panels > .panel:nth-child(2) .side:hover{
+	background: $grullo;
+}
+section.panels > .panel:nth-child(2) .card-verses{
+	font-size: 2.5vmax;
+	letter-spacing: 10px;
+	padding: 4vmax 4vmax 0;
 }
 
 // japanese author flip left 
 section.panels > .panel:nth-child(3){
 	background: $grey;
-	color: $granite;
-	display: flex;
-		align-items: center;
-		flex-flow: column nowrap;
-		justify-content: center;
-	font-size: 3.1rem;
-	letter-spacing: 8px;
-	font-family: $Sawarabi;
+	font-size: 1rem;
+	letter-spacing: 4px;
+	line-height: 4.6;
 	grid-area: 3/1/6/2;
-	padding: 5rem;
+	padding: 4vmax 0;
 	text-align: center;
 }
 section.panels > .panel:nth-child(3):hover{
-	background: $camel;
-	transition: all 0.4s ease-in-out 0s;	
+	background: $rose;
 }
-
 section.panels > .panel:nth-child(3) .cuboid-container:hover .cuboid-flipper{
-  transform: rotateY(-90deg) translateX(-160px) translateZ(160px);
+	transform: rotateY(-90deg) translateX(-140px) translateZ(140px);
+}
+section.panels > .panel:nth-child(3) .cuboid-flipper,
+section.panels > .panel:nth-child(3) .cuboid-flipper .front,
+section.panels > .panel:nth-child(3) .cuboid-flipper .side{
+	height: 280px;
+	width: 280px;
+}
+section.panels > .panel:nth-child(3) .front{
+	background: $grey;
+}
+section.panels > .panel:nth-child(3) .side{
+	background: $porcelain;
+	transform: rotateY(90deg) translateX(140px) translateZ(140px);
+}
+section.panels > .panel:nth-child(3) .side:hover{
+	background: $rose;
 }
 
-section.panels > .panel:nth-child(3) .cuboid-flipper .side{
-	background: blue;
-	transform: rotateY(90deg) translateX(160px) translateZ(160px);
-}
 
 // scroll-down link flip down
 section.panels > .panel:nth-child(4){
-	background: $fern;
-	color: $grey;
-	font-family: $Mplus;
-	font-weight: 300;
-	font-size: 3rem;
+	background: $alabaster;
+	display: block;
+	font-family: $Source;
+	font-size: 5.063vmin;
+	font-weight: 500;
+	height: 6.063rem;
 	grid-area: 5/2/6/3;
-	opacity: 0.3;
-	padding: 4rem 8% 0.5rem;	
+	padding: 1px;
 }
 section.panels > .panel:nth-child(4):hover{
-	background: $rose;
-	opacity: 1;
-	transition: all 0.4s ease-in-out 0s;	
+	background: $porcelain;
 }
-
 section.panels > .panel:nth-child(4) .cuboid-container:hover .cuboid-flipper{
-  transform: rotateX(-90deg) translateY(160px) translateZ(160px);
+	transform: rotateX(90deg) translateY(-6.5vmin) translateZ(6.5vmin);
 }
-
+section.panels > .panel:nth-child(4) .cuboid-container{
+	position: relative;
+		top: 50%;
+	transform: translateY(-50%)
+}
+section.panels > .panel:nth-child(4) .cuboid-flipper,
+section.panels > .panel:nth-child(4) .cuboid-flipper .front,
 section.panels > .panel:nth-child(4) .cuboid-flipper .side{
-  background: blue;
-  transform: rotateX(90deg) translateY(-160px) translateZ(160px);
+	height: 13vmin;
+	width: 100%;
+}
+section.panels > .panel:nth-child(4) .front{
+	background: $alabaster;
+}
+section.panels > .panel:nth-child(4) .side{
+	background: $rose;
+	transform: rotateX(-90deg) translateY(6.5vmin) translateZ(6.5vmin);
+}
+section.panels > .panel:nth-child(4) .side:hover{
+	background: $porcelain;
+}
+section.panels > .panel:nth-child(4) p{
+	padding-left: 2.25rem;
+	position: relative;
+		top: 50%;
+	transform: translateY(-50%);
 }
 
 // interpretation panel
 
 main.lateral-page-main .panel.text{
-	padding: 3.8rem 0;
+	align-items: flex-start;
+	padding: 1vh 0.667rem 2.25rem;
 }
 
 main.lateral-page-main .panel.text > p{
-	font-size: 2em;
-	line-height: 4.6;
-}
-main.lateral-page-main .panel.text > p:hover{
-	color: $carmine;
-	transition: all 0.4s ease-in-out 0s;
+	font-size: 2.25em;
+	line-height: 4.7;
 }
 
 main.lateral-page-main .panel.text article{
-	line-height: 1.74;
-	text-align: justify;
 	font-family: $Source;
+	font-size: 1.125em;
+	text-align: justify;
 }

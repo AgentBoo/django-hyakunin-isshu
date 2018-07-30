@@ -55,7 +55,6 @@ button.active{
 
 .btn.brick{
   background: transparent;
-  border: solid 0.5px $isabelline;
   line-height: 1.94;
 	padding: 0 1.8em;
 }
@@ -98,32 +97,34 @@ button.active{
   color: $porcelain;
 }
 
-.btn-group.aside-scroll{
+// page controls 
+.btn-group.page-control{
     display: flex;
         align-items: center;
-        flex-flow: column nowrap;
-        justify-content: flex-end;
-    height: 100%;
-    outline: none;
-    position: fixed;
-        bottom: 24%;
-        right: 1%;
+        flex-flow: row nowrap;
+        justify-content: flex-start;
+}
+.btn-group.page-control.vertical{
+    flex-flow: column nowrap;
+    justify-content: center;
 }
 
-.btn-group.aside-scroll button{
-    background: $granite;
-    color: $porcelain;
-    font-family: $Nanum;
-    margin: 0.66em 1em;
-    outline: none;
+.btn-group.page-control button{
+    background: transparent;
+    color: $granite;
 }
-.btn-group.aside-scroll button::-moz-focus-inner {
-    border: 0;
-}
-.btn-group.aside-scroll button:hover{
+.btn-group.page-control button:hover{
     background: $carmine;
-    transition: 0.3s ease-in-out 0s;
+    color: $porcelain;
 }
+
+.btn-group.page-control button:first-child{
+  border-right: none;
+}
+.btn-group.page-control button:last-child{
+  border-left: none;
+}
+
 
 
 /* LINKS */

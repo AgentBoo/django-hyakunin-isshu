@@ -4,13 +4,12 @@
 
 div.focal-page{
     border-top: solid 5px $carmine;
-    border-left: solid 5px $alabaster;
-    border-right: solid 5px $alabaster;
     display: flex;
         align-items: center;
         flex-flow: column nowrap;
         justify-content: flex-start;
     height: 100%;
+    padding: 3.3vmax 0;
     position: relative;
     width: 100%;
 }
@@ -19,17 +18,16 @@ div.focal-page{
 // header
 
 div.focal-page .focal-page-header{
-    padding-top: 7.5rem;
-    padding-bottom: 1rem;
+    padding-top: 3rem;
 }
 
 div.focal-page .focal-page-title{
     color: $carmine;
     font-family: $Nanum;
-    font-size: 3em;
+    font-size: 3.375em;
     font-weight: 800;
     letter-spacing: 0.3px;
-    line-height: 2.44;
+    line-height: 2.14;
     text-align: center;
 }
 
@@ -41,31 +39,30 @@ div.focal-page .focal-page-nav{
 // main 
 
 div.focal-page .focal-page-main{
-    padding-top: 2rem;
+    padding-top: 0.667rem;
 }
 
 div.focal-page .focal-page-main.cards{
-    display: flex;
-        align-items: center;
-        flex-flow: row wrap;
-        justify-content: center;
+    display: grid;
+        grid-auto-rows: max-content;
+        grid-template-columns: repeat(auto-fit, minmax(0,1fr));
     max-width: 1024px;
 }
-
-
+div.focal-page .focal-page-main.cards{}
 div.focal-page .focal-page-main.cards:hover .card{
     opacity: 0.2;
     transition: all 0.3s ease-in-out 0s;
 }
 div.focal-page .focal-page-main.cards .card:hover{
     opacity: 1;
-    transition: all 0.3s ease-in-out 0s;    
+    transition: all 0.3s ease-in-out 0s;
+    z-index: 1000;    
 }
 
 /* CARD */
 
 div.card{
-    @include box-shadow-in;
+    @include box-shadow-out;
     background: $carmine;
     border-radius: 1.5px;
     font-family: $Nanum;

@@ -4,7 +4,7 @@ import React from 'react';
 import { ButtonRound } from './../toolbox/Buttons';
 
 const ScrollControl = ({ children }) => (
-	<aside className='btn-group aside-scroll'>	
+	<aside className='btn-group page-control'>	
 		{ children }
 	</aside>
 );
