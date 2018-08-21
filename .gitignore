@@ -12,9 +12,10 @@ README.md
 /build
 /public
 /housekeeping
-/scraper  
+/scraper 
+/__tests__ 
 *.scss
-*.test.js
+*.test
 
 # dev 
 .env

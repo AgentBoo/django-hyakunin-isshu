@@ -10,7 +10,7 @@ I also needed an excuse to use python to scrape someone else's website and set u
 Django and Django REST framework (DRF) are used on the backend, React is used on the frontend. You can check out other vital packages in requirements.txt and package.json
 <br><br>
 Demo: <br>
-https://fierce-hollows-19151.herokuapp.com/
+https://fathomless-ravine-59797.herokuapp.com
 <br><br>
 
 #### Comments:
