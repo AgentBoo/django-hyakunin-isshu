@@ -15,7 +15,7 @@ README.md
 /scraper 
 /__tests__ 
 *.scss
-*.test
+*.test*
 
 # dev 
 .env
