@@ -17,7 +17,7 @@ export const poemsSchema = new schema.Array(poemSchema)
 // named urlpattern => schema mappings
 const Schemas = {
 	'fetch-poem'  : poemSchema,
-	'fetch-poems' : poemsSchema,
+	'FETCH_POEMS' : poemsSchema,
 }
 
 export default Schemas;

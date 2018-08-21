@@ -1,6 +1,7 @@
 import React, { Component } from 'react'
 
-const Test = () => (
+
+const Markup = () => (
 	<div className='focal-page'>
 		<header className='focal-page-header'>
 			<h1 className='focal-page-title'> Ogura Hyakunin Isshu </h1>
@@ -72,4 +73,4 @@ const Test = () => (
 
 )
 
-export default Test;
+export default Markup;

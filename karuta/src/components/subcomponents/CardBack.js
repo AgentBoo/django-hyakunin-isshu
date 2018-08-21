@@ -15,7 +15,7 @@ const CardBack = ({ poem, locale, onClick }) => {
 			className={ locale === 'jap' ? 'card-back jp-vertical' : 'card-back' }
 			onClick={ handleClick }>
 			<Link 
-				className={ locale === 'jap' ? 'link' : 'link underlined'} 
+				className={ locale === 'jap' ? 'link' : 'link-underlined'} 
 				to={ `/detail/${ poem.id}` }> 
 				{ poem[locale].author }
 			</Link>

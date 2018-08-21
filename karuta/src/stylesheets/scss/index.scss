@@ -1,4 +1,10 @@
-/* NOTE: Typography */
+/* CONSTANTS */
+// Scales
+// horizontal(x-axis): 18px @ 3:4 (P4)
+// vertical(y-axis): 18px @ 3:5 (M6)
+
+
+// Typography 
 
 @import url('https://fonts.googleapis.com/css?family=Nanum+Myeongjo:400,800|Roboto:300|Song+Myung');
 
@@ -9,7 +15,7 @@ $Sawarabi:  'Sawarabi Mincho', sans-serif;
 $Mplus: 'Mplus 1p', sans-serif;
 
 
-// Vendor specific
+// Vendor specific mixins
 
 @mixin linear-transition($transition){
   -webkit-transition: linear $transition;
@@ -17,22 +23,26 @@ $Mplus: 'Mplus 1p', sans-serif;
        -o-transition: linear $transition;
           transition: linear $transition;
 }
+
 @mixin border-radius($radius){
   -webkit-border-radius: $radius;
      -moz-border-radius: $radius;
       -ms-border-radius: $radius;
           border-radius: $radius;
 }
+
 @mixin box-shadow-out{
   -webkit-box-shadow: 0px 2px 6px -4px rgba(43, 45, 66, 0.8);
      -moz-box-shadow: 0px 2px 6px -4px rgba(43, 45, 66, 0.8);
           box-shadow: 0px 2px 6px -4px rgba(43, 45, 66, 0.8);
 }
+
 @mixin box-shadow-in{
   -webkit-box-shadow: inset 0px 0px 12px -4px rgba(43, 45, 66, 1);
      -moz-box-shadow: inset 0px 0px 12px -4px rgba(43, 45, 66, 1);
           box-shadow: inset 0px 0px 12px -4px rgba(43, 45, 66, 1);
 }
+
 
 // Misc mixins
 
@@ -68,20 +78,11 @@ $pomona: #295135;
 $indigo:  #26413c;
 
 
-// Scales
-
-// horizontal(x-axis): 18px @ 3:4 (P4)
-// vertical(y-axis): 18px @ 3:5 (M6)
-
-$card-width: 360px;
-$card-height: 380px;
-
-
 // NOTE: Imports */
 
 @import 'root';
 @import 'csstransitions';
 @import 'poemdetail';
-@import 'poems';
+@import 'poemlist';
 @import 'toolbox';
 @import 'notfound';

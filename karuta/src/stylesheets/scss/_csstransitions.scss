@@ -1,9 +1,9 @@
 /* CSSTransitions FLIPPER */  
 
 .flip-container{
+	// do NOT declare height or width of the flip-container
+	// it will interfere with the grid system  
 	perspective: 1000px;
-	height: $card-height;
-	width: $card-width;
 }
 
 .flip-container .card-front, 
@@ -15,12 +15,14 @@
 	opacity: 0.01;
 	transform: rotateY(180deg);
 }
+
 .flipper-enter-active{
 	opacity: 0.98;
 	transform: rotateY(0deg);
 	transform-style: preserve-3d;
 	transition: 1s;
 }
+
 .flipper-enter-done{
 	opacity: 0.98;
 	transform: rotateY(0deg);
@@ -30,12 +32,14 @@
 	opacity: 0.98;
 	transform: rotateY(0deg);
 }
+
 .flipper-exit-active{
 	opacity: 0.01;
 	transform: rotateY(-180deg);
 	transform-style: preserve-3d;
 	transition: 1s;
 }
+
 .flipper-exit-done{
 	opacity: 0.01;	
 	transform: rotateY(-180deg);
@@ -48,14 +52,17 @@
 .longfade-enter{
 	opacity: 0.01;
 }
+
 .shortfade-enter-active{
 	opacity: 1;
 	transition: opacity 0.2s ease-in-out;
 }
+
 .longfade-enter-active{
 	opacity: 1;
 	transition: opacity 1.2s ease-in-out 0s;
 }
+
 .shortfade-enter-done,
 .shortfade-exit,
 .shortfade-exit-active,
@@ -69,32 +76,31 @@
 
 
 /* ONHOVER transition flipper */
+// recreated from https://davidwalsh.name/css-flip
 
-// container keeps the perspective and overflow
 .cuboid-container{
+  // container keeps the perspective and overflow
   background: transparent;
   overflow: visible;
   perspective: 1000px;
 }
 
-// transition specs are defined in the flipper 
 .cuboid-flipper{
+  // transition specs are defined in the flipper 
   position: relative;
   transform-origin: 50% 50%;
   transform-style: preserve-3d;
   transition: all 0.7s ease-in-out 0s;
 }
 
-// flipper, front, and side must have the same size
 .cuboid-flipper, .front, .side{
+	// flipper, front, and side must have the same size
+	// e.g. arbitrary height: 320px, width: 320px;
 	cursor: pointer;
-	// arbitrary
-  	//height: 320px;
-  	//width: 320px;
 }
 
-// line up surfaces + hide back of surface during flip
 .front, .side{
+  // line up surfaces + hide back of surface during flip
   backface-visibility: hidden;
   position: absolute;
   	top: 0;
@@ -109,6 +115,7 @@
 
 
 /*
+
 // do a flip on container:hover
 .cuboid-container:hover .cuboid-flipper.up{
   transform: rotateX(90deg) translateY(-160px) translateZ(160px);
@@ -136,4 +143,5 @@
 .cuboid-flipper.right .side{
 	transform: rotateY(-90deg) translateX(-160px) translateZ(160px);
 }
+
 */

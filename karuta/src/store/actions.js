@@ -14,7 +14,6 @@ export const requestPoems = (urlpattern) => (dispatch) => {
 	dispatch({ type: 'DATA_REQUEST' })
 
 	const url = endpoint[urlpattern]
-	console.log(url)
 
 	const options = {
 		method: 'GET',

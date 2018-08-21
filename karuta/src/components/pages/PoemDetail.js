@@ -2,44 +2,43 @@
 import React, { Component } from 'react';
 // redux
 import { connect } from 'react-redux';
-import { myPoem } from '../../store/selectors';
+import { getPoem } from '../../store/selectors';
 // router
 import { withRouter } from 'react-router';
 // components
 import { Link as ScrollLink, Element, animateScroll as scroll } from 'react-scroll'
 import { CSSTransition } from 'react-transition-group';
-import { ButtonRound, ButtonBrick } from './../toolbox/Buttons';
+import SidePanel from './../sections/PoemDetailSidePanel'
+import FlipPanels from './../sections/PoemDetailFlipPanels';
 import { LoremIpsum } from './../toolbox/Lorem';
 
-
-
-/* POEM DETAIL VIEW */
 
 class PoemDetail extends Component{
 	constructor(props){
 		super(props)
 		this.state = {
-			pageUnfold: false,
+			pageFadeIn: false,
 			translations: {
-				'Template': ['In Naniwa Bay','now the flowers are blossoming','After lying dormant all winter','now the spring has come','and the flowers are blossoming']
+				'Template': [
+					'In Naniwa Bay',
+					'now the flowers are blossoming',
+					'After lying dormant all winter',
+					'now the spring has come',
+					'and the flowers are blossoming'
+				]
 			},
 			translator: 'Template'
 		}
 	}
 
 	componentDidMount(){
+		// on route switch, scroll to top of the page 
 		window.scrollTo(0,0)
+
+		// trigger CSSTransition
 		this.setState({
-			pageUnfold: true
+			pageFadeIn: true
 		})
-		// fetch other translations
-		if(this.props.poem.eng){
-			return this.setState({
-				translations: Object.assign({}, this.state.translations, {
-					'Clay MacCauley Revised': this.props.poem.eng.verses
-				}),
-			})
-		}
 	}
 
 	componentDidUpdate(prevProps){
@@ -52,78 +51,9 @@ class PoemDetail extends Component{
 		}
 	}
 
-	endTransition = () => this.setState({ pageUnfold: !this.state.pageUnfold })
-
-	renderPoem = (lang) => {
-		const { verses } = this.props.poem[lang]
-
-		return (
-			<section className='panel'>
-				<div className='cuboid-container'>
-					<div className='cuboid-flipper'>
-						<div className='card-verses front'>
-						<p> { verses[0] } </p>
-						<p> { verses[1] } </p>
-						<p> { verses[2] } </p>
-						<p> { verses[3] } </p>
-						<p> { verses[4] } </p>
-						</div>
-						<div className='card-verses side'>
-						<p> { verses[0] } </p>
-						<p> { verses[1] } </p>
-						<p> { verses[2] } </p>
-						<p> { verses[3] } </p>
-						<p> { verses[4] } </p>
-						</div>
-					</div>
-				</div>
-
-			</section>
-		)
-	};
-
-	renderAuthor = () => (
-		<section className='author'>
-			<h3> { this.props.poem.rom.author } </h3>
-			<p> { this.props.poem.eng.author } </p>
-		</section>
-	)
-	
-	renderVerses = (verses) => verses.map((verse,i) => <p> verse[i] </p>)
-	
-	renderTranslation = (translator) => {
-		const verses = this.state.translations[translator]
-		return (
-			<section>
-				<p> { verses[0] } </p>
-				<p> { verses[1] } </p>
-				<p> { verses[2] } </p>
-				<p> { verses[3] } </p>
-				<p> { verses[4] } </p>
-			</section>
-		)
-	};
-
-	renderTranslationControls = () => {
-		const controls = Object.keys(this.state.translations).map(translator =>
-			<button
-				className={ translator == this.state.translator ? 'active' : null }
-				type='button'
-				translator={ translator }
-				onClick={ () => this.switchToTranslation(translator) }>
-				{ translator }
-			</button>
-		)
-		return (
-			<section> { controls } </section>
-		)
-	}
-
-	switchToTranslation = (translator) => {
-		return this.setState({
-			translator: translator
-		})
-	}
+	endTransition = () => this.setState({ 
+		pageFadeIn: !this.state.pageFadeIn 
+	})
 
 	scrollToTop = () => scroll.scrollToTop({
 		duration: 1600,
@@ -131,84 +61,41 @@ class PoemDetail extends Component{
 		smooth: 'easeInOutCubic',
 	})
 
-	render(){
-		const authorSection = this.props.poem.id ? this.renderAuthor() : null
-		const japPanel = this.props.poem.id ? this.renderPoem('jap') : null
-		const romPanel = this.props.poem.id ? this.renderPoem('rom') : null
+	switchTranslation = (translator) => this.setState({ 
+		translator: translator 
+	})
 
+	render(){
 		return (
 			<CSSTransition
-				in={ this.state.pageUnfold }
+				in={ this.state.pageFadeIn }
 				timeout={500}
 				classNames='longfade'
 				onEntered={ this.endTransition }>
 				<div className='lateral-page'>
-					<aside className='lateral-page-side'>
-						<div className='lateral-page-side-content'>
-							<h1> { this.props.match.params.id } </h1>
-							{ authorSection }
-							{ this.renderTranslationControls() }
-							{ this.renderTranslation(this.state.translator) }
-							<section>
-							<div className='btn-group page-control'>
-							<ButtonBrick
-								label='Back'
-								onClick={ this.scrollToTop } />
-							<ButtonBrick
-								label='Top'
-								onClick={ this.scrollToTop } />
-							<ButtonBrick
-								label='Forw'
-								onClick={ this.scrollToTop } />
-							</div>
-							</section>
-						</div>
-					</aside>
-					<main id='main' className='lateral-page-main'>
-						<section className='panels'>
-							{ romPanel }
+					<SidePanel
+						romAuthor={ this.props.poem.id ? this.props.poem.rom.author : null }
+						engAuthor={ this.props.poem.id ? this.props.poem.eng.author : null } 
+						poemId={ this.props.match.params.id }
+						translator={ this.state.translator }
+						translations={ this.state.translations } 
+						switchTranslation={ this.switchTranslation }/>
 
-							{ japPanel }
+					<main 
+						id='main' 
+						className='lateral-page-main'>
+						<FlipPanels 
+							poem={ this.props.poem.id ? this.props.poem : null }/>
 
-							<div className='panel jp-vertical'>
-								<div className='cuboid-container'>
-									<div className='cuboid-flipper'>
-										<div className='front'>
-											<p> { this.props.poem.id ? this.props.poem.jap.author : null } </p>
-										</div>
-										<div className='side'>
-											<p> { this.props.poem.id ? this.props.poem.jap.author : null } </p>
-										</div>
-									</div>
-								</div>
-							</div>
-
-							<div className='panel'>
-								<ScrollLink
-									to='translations'
-									duration={1600}
-									delay={25}
-									offset={10}
-									smooth>
-									<div className='cuboid-container'>
-										<div className='cuboid-flipper'>
-											<div className='front'>
-												<p>Interpretation</p>
-											</div>
-											<div className='side'>
-												<p>Interpretation</p>
-											</div>
-										</div>
-									</div>
-								</ScrollLink>
-							</div>
-						</section>
-						<Element name='translations'>
+						{/* Interpretation section */}
+						<Element name='interpretation'>
 							<div className='panel text'>
 								<p> Interpretation </p>
 								<LoremIpsum />
 							</div>
 						</Element>
+						
+						{/* Add translation section */}
 						<div>
 							<div className='panel text'>
 								<p> Add Translation </p>
@@ -220,12 +107,12 @@ class PoemDetail extends Component{
 			</CSSTransition>
 		)
 	}
-
+// end component
 };
 
 
 const mapStateToProps = (state, intrinsic) => ({
-	poem: myPoem(state, intrinsic.match.params.id)
+	poem: getPoem(state, intrinsic.match.params.id)
 })
 
 PoemDetail = withRouter(connect(mapStateToProps)(PoemDetail));

@@ -7,16 +7,18 @@
 # testing 
 /coverage  
 
-# production 
+# production
+README.md 
 /build
 /public
 /housekeeping
-/scraper 
-README.md 
-#*.scss
+/scraper  
+*.scss
+*.test.js
 
 # dev 
-# .env
+.env
+*local_settings.py
 
 # sqlite 
 *.sqlite3
@@ -38,5 +40,4 @@ yarn-error.log*
 *.bak  
 *.py[cod]
 
-*local_settings.py
 

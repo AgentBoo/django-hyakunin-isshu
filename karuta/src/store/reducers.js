@@ -35,7 +35,7 @@ export const flashMessage = (state=null, action) => {
 };
 
 
-export const index = (state=[], action) => {
+export const poemIndex = (state=[], action) => {
 	switch(action.type){
 		case 'FETCH_POEMS':
 			return [...action.data.result]

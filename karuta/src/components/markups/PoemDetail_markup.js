@@ -1,6 +1,7 @@
 import React, { Component } from 'react'
 
-const Test = () => (
+
+const Markup = () => (
 	<div className='lateral-page'>
 		<aside className='lateral-page-side'>
 			<h2> [1] </h2>	
@@ -73,4 +74,4 @@ const Test = () => (
 
 )
 
-export default Test;
+export default Markup;
