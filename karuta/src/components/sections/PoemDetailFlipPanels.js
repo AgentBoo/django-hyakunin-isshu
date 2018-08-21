@@ -5,8 +5,8 @@ import { Link as ScrollLink } from 'react-scroll'
 
 
 class PoemDetailFlipPanels extends Component{
-	renderVerses= (lang) => this.props.poem[lang].verses.map(verse => (
-		<p> { verse } </p>
+	renderVerses= (lang) => this.props.poem[lang].verses.map((verse,idx) => (
+		<p key={idx}> { verse } </p>
 	))
 
 	render(){

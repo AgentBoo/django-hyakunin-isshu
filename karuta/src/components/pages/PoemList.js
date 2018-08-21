@@ -118,11 +118,11 @@ class PoemList extends Component{
 
 				<ScrollControl> 
 					<ScrollControl.Button 
-						label={<i class="fas fa-long-arrow-alt-up"></i>}
+						label={<i className="fas fa-long-arrow-alt-up"></i>}
 						onClick={ this.scrollUp } />
 					<ScrollControl.Button 
 						onClick={ this.scrollDown }
-						label={<i class="fas fa-long-arrow-alt-down"></i> }/>
+						label={<i className="fas fa-long-arrow-alt-down"></i> }/>
 					<ScrollControl.Button 
 						onClick={ () => this.handleGrid('grid-1') }
 						label='I'/>
@@ -134,7 +134,7 @@ class PoemList extends Component{
 						label='IIII'/>
 					<ScrollControl.Button 
 						onClick={ this.handleGrid }
-						label={<i class="fas fa-th"></i>} />
+						label={<i className="fas fa-th"></i>} />
 				</ScrollControl>
 
 				{/* 100 poems */}

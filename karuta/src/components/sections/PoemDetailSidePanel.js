@@ -8,13 +8,6 @@ import { ButtonBrick } from './../toolbox/Buttons';
 
 
 class PoemDetailSidePanel extends Component{
-	shouldComponentUpdate(nextProps){
-		if(nextProps.translator === this.props.translator){
-			return false 
-		}
-		return true 
-	}
-
 	getPreviousPage = () => this.props.poemId !== '1' ? 1*this.props.poemId - 1 : 1;
 
 	getNextPage = () => this.props.poemId !== '100' ? 1*this.props.poemId + 1 : 100;
@@ -26,8 +19,9 @@ class PoemDetailSidePanel extends Component{
 	})
 
 	renderTranslationControls = () => {
-		const controls = Object.keys(this.props.translations).map(translator => (
+		const controls = Object.keys(this.props.translations).map((translator,idx) => (
 			<button
+				key={idx}
 				className={ translator === this.props.translator ? 'active' : null }
 				type='button'
 				onClick={ () => this.props.switchTranslation(translator) }>
