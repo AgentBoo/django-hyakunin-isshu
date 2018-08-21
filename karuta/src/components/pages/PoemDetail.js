@@ -6,7 +6,7 @@ import { getPoem } from '../../store/selectors';
 // router
 import { withRouter } from 'react-router';
 // components
-import { Link as ScrollLink, Element, animateScroll as scroll } from 'react-scroll'
+import { Element } from 'react-scroll'
 import { CSSTransition } from 'react-transition-group';
 import SidePanel from './../sections/PoemDetailSidePanel'
 import FlipPanels from './../sections/PoemDetailFlipPanels';
@@ -53,12 +53,6 @@ class PoemDetail extends Component{
 
 	endTransition = () => this.setState({ 
 		pageFadeIn: !this.state.pageFadeIn 
-	})
-
-	scrollToTop = () => scroll.scrollToTop({
-		duration: 1600,
-		delay: 50,
-		smooth: 'easeInOutCubic',
 	})
 
 	switchTranslation = (translator) => this.setState({ 

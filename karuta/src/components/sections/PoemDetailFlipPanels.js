@@ -1,7 +1,7 @@
 // react 
 import React, { Component } from 'react';
 // components 
-import { Link as ScrollLink, Element, animateScroll as scroll } from 'react-scroll'
+import { Link as ScrollLink } from 'react-scroll'
 
 
 class PoemDetailFlipPanels extends Component{

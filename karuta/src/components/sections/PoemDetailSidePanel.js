@@ -3,6 +3,7 @@ import React, { Component } from 'react';
 // router
 import { Link } from 'react-router-dom';
 // components 
+import { animateScroll as scroll } from 'react-scroll'
 import { ButtonBrick } from './../toolbox/Buttons';
 
 
@@ -17,6 +18,12 @@ class PoemDetailSidePanel extends Component{
 	getPreviousPage = () => this.props.poemId !== '1' ? 1*this.props.poemId - 1 : 1;
 
 	getNextPage = () => this.props.poemId !== '100' ? 1*this.props.poemId + 1 : 100;
+
+	scrollToTop = () => scroll.scrollToTop({
+		duration: 1600,
+		delay: 50,
+		smooth: 'easeInOutCubic',
+	})
 
 	renderTranslationControls = () => {
 		const controls = Object.keys(this.props.translations).map(translator => (
