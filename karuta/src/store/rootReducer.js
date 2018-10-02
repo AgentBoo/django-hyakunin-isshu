@@ -1,7 +1,7 @@
 // redux
-import { combineReducers } from 'redux';
-// slice reducers 
-import { isFetching, flashMessage, collections, poemIndex } from './reducers';
+import { combineReducers } from "redux";
+// slice reducers
+import { isFetching, flashMessage, collections, index } from "./reducers";
 
 /* initial state shape 
    state = {
@@ -15,16 +15,13 @@ import { isFetching, flashMessage, collections, poemIndex } from './reducers';
 	}
 */
 
-
 /* ROOT REDUCER */
 
 const rootReducer = combineReducers({
 	isFetching,
 	flashMessage,
-	collections, 
-	poemIndex
+	collections,
+	index
 });
 
 export default rootReducer;
-
-

@@ -1,5 +1,5 @@
 # See https://help.github.com/ignore-files/ for more about ignoring files.
-# There is another .gitignore file in the react app directory 
+# There might be another .gitignore file in the react app directory 
 
 # dependencies 
 /node_modules 
@@ -12,12 +12,14 @@ README.md
 /build
 /public
 /housekeeping
-/scraper 
+#/scraper 
 /__tests__ 
 *.scss
-*.test*
+*.test.js
 
-# dev 
+# dev
+/staticfiles
+constants.js 
 .env
 *local_settings.py
 

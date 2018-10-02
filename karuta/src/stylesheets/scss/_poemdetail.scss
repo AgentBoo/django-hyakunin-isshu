@@ -81,10 +81,6 @@ div.lateral-page-side-content > *:last-child{
 	padding-bottom: 4.6vh;
 }
 
-div.lateral-page-side-content > *:last-child a,
-div.lateral-page-side-content > *:last-child button{
-	border: solid 0.5px $isabelline;
-}
 
 
 /* MAIN SECTION */
@@ -153,6 +149,10 @@ section.panels > .panel:nth-child(1):hover{
 	background: $plum;
 }
 
+section.panels > .panel:nth-child(1):hover .front{
+	opacity: 0.53;
+}
+
 section.panels > .panel:nth-child(1) .cuboid-container:hover .cuboid-flipper{
 	transform: rotateX(90deg) translateY(-9vmax) translateZ(9vmax);
 }
@@ -177,7 +177,7 @@ section.panels > .panel:nth-child(1) .side{
 
 section.panels > .panel:nth-child(1) .side:hover{
 	// eggshell
-	background: rgba(252, 248, 240, 0.03);
+	background: rgba(252, 248, 240, 0.01);
 }
 
 section.panels > .panel:nth-child(1) .card-verses{
@@ -191,51 +191,69 @@ section.panels > .panel:nth-child(1) .card-verses{
 section.panels > .panel:nth-child(2){
 	background: $eggshell;
 	grid-area: 1/2/5/3;
-	min-height: 28vmax;
+	min-height: 30vmax;
 }
 
 section.panels > .panel:nth-child(2):hover{
-	background: $grullo;
+	background: $porcelain;
+}
+
+section.panels > .panel:nth-child(2):hover .front{
+	line-height: 1.46;
+	transition: line-height 1s ease-in-out 0s;
 }
 
 section.panels > .panel:nth-child(2) .cuboid-container:hover .cuboid-flipper{
-	transform: rotateY(90deg) translateX(14vmax) translateZ(14vmax);
+	transform: rotateY(90deg) translateX(15vmax) translateZ(15vmax);
 }
 
 section.panels > .panel:nth-child(2) .cuboid-flipper, 
 section.panels > .panel:nth-child(2) .front, 
 section.panels > .panel:nth-child(2) .side{
-	height: 28vmax;
-	width: 28vmax;
+	height: 30vmax;
+	width: 30vmax;
 }
 
 section.panels > .panel:nth-child(2) .front{
 	@include jp-vertical;
 	font-family: $Mplus;
 	font-weight: 600;
-	background: $eggshell;
+	line-height: 0;
+	background: rgba(239, 233, 231,0.33);
 	color: $grullo;
+	transition: line-height 1s ease-in-out 0s;
+	padding-right: 2.8vmax;
+	padding-top: 3.4vmax;
+	font-size: 0.78vmax;
+	letter-spacing: 10px;
 }
 
 section.panels > .panel:nth-child(2) .side{
 	background: $porcelain;
 	font-family: $Sawarabi;
-	color: $porcelain;
-	line-height: 1.34;
+	color: $granite;
 	text-align: right;
-	transform: rotateY(-90deg) translateX(-14vmax) translateZ(14vmax);
+	transform: rotateY(-90deg) translateX(-15vmax) translateZ(15vmax);
+	display: flex;
+		flex-flow: column nowrap;
+		align-items: flex-start;
+		justify-content: center;
+	padding: 5.55vmax 0 5.55vmax 4.6vmax;
+}
+
+section.panels > .panel:nth-child(2) .side p{
+	font-size: 1.68vmax;
+	color: $granite;
+	background: rgba(171, 155, 150,0.03);
+	letter-spacing: 0.68em;
+	line-height: 1.51;
 }
 
 section.panels > .panel:nth-child(2) .side:hover{
-	// eggshell
-	background: rgba(252, 248, 240, 0.1);
+	background: rgba(171, 155, 150,0.03);
 }
 
-section.panels > .panel:nth-child(2) .card-verses{
-	font-size: 2.5vmax;
-	letter-spacing: 10px;
-	padding: 4vmax 4vmax 0;
-}
+
 
 
 // japanese author flip left 
@@ -247,12 +265,12 @@ section.panels > .panel:nth-child(3){
 	line-height: 4.6;
 	grid-area: 3/1/6/2;
 	padding: 4vmax 0;
-	text-align: center;
 }
 
 section.panels > .panel:nth-child(3):hover{
 	background: $fern;
 }
+
 
 section.panels > .panel:nth-child(3) .cuboid-container:hover .cuboid-flipper{
 	transform: rotateY(-90deg) translateX(-140px) translateZ(140px);
@@ -265,6 +283,14 @@ section.panels > .panel:nth-child(3) .cuboid-flipper .side{
 	width: 280px;
 }
 
+section.panels > .panel:nth-child(3) .cuboid-flipper .front, 
+section.panels > .panel:nth-child(3) .cuboid-flipper .side{
+	display: flex;
+		flex-flow: column nowrap;
+		align-items:center;
+		justify-content: center;
+}
+
 section.panels > .panel:nth-child(3) .front{
 	background: $grey;
 	color: $granite;
@@ -272,14 +298,13 @@ section.panels > .panel:nth-child(3) .front{
 
 section.panels > .panel:nth-child(3) .side{
 	background: $pomona;
-	color: $porcelain;
+	color: $grey;
 	transform: rotateY(90deg) translateX(140px) translateZ(140px);
 }
 
 section.panels > .panel:nth-child(3) .side:hover{
 	// pomona
 	background: rgba(41, 81, 53, 0.1);
-	color: $grey;
 }
 
 
@@ -287,7 +312,6 @@ section.panels > .panel:nth-child(3) .side:hover{
 
 section.panels > .panel:nth-child(4){
 	background: $alabaster;
-	display: block;
 	font-family: $Source;
 	font-size: 5.063vmin;
 	font-weight: 500;
@@ -295,51 +319,32 @@ section.panels > .panel:nth-child(4){
 	grid-area: 5/2/6/3;
 	padding: 1px;
 	color: $granite;
-}
-
-section.panels > .panel:nth-child(4):hover{
-	background: $porcelain;
-}
-
-section.panels > .panel:nth-child(4) .cuboid-container:hover .cuboid-flipper{
-	transform: rotateX(90deg) translateY(-6.5vmin) translateZ(6.5vmin);
-}
-
-section.panels > .panel:nth-child(4) .cuboid-container{
-	position: relative;
-		top: 50%;
-	transform: translateY(-50%)
-}
-
-section.panels > .panel:nth-child(4) .cuboid-flipper,
-section.panels > .panel:nth-child(4) .cuboid-flipper .front,
-section.panels > .panel:nth-child(4) .cuboid-flipper .side{
-	height: 13vmin;
-	width: 100%;
-}
-
-section.panels > .panel:nth-child(4) .front{
+	align-items: flex-start;
 	background: $alabaster;
 }
 
-section.panels > .panel:nth-child(4) .side{
+section.panels > .panel:nth-child(4):hover{
 	background: $carmine;
-	color: $alabaster;;
-	transform: rotateX(-90deg) translateY(6.5vmin) translateZ(6.5vmin);
 }
 
-section.panels > .panel:nth-child(4) .side:hover{
-	background: $porcelain;
-	color: $carmine;
-	transition: all 0.3s ease-in-out 0s;
+section.panels > .panel:nth-child(4):hover .front{
+	color: $porcelain;
+	transition: all 1s ease-in-out 0s;
 }
 
-section.panels > .panel:nth-child(4) p{
-	padding-left: 2.25rem;
+
+section.panels > .panel:nth-child(4) .front{
+	background: transparent;
+	padding: 0 6.341vw;
 	position: relative;
-		top: 50%;
-	transform: translateY(-50%);
+	cursor: pointer;
 }
+
+section.panels > .panel:nth-child(4) a,
+section.panels > .panel:nth-child(4) p{
+	cursor: pointer;
+}
+
 
 
 // interpretation panel
@@ -349,12 +354,39 @@ main.lateral-page-main .panel.text{
 	padding: 1vh 0.667rem 2.25rem;
 }
 
-main.lateral-page-main .panel.text > p{
+main.lateral-page-main .panel.text > p.panel-title{
 	font-size: 2.25em;
 	line-height: 4.7;
 }
 
 main.lateral-page-main .panel.text article{
+	font-family: $Source;
+	font-size: 1.125em;
+	text-align: justify;
+}
+
+// add translation panel 
+
+.panel-translations > *:last-child{
+	margin-top: 1rem;
+	font-size: 0.8em;
+}
+
+.panel-translations .form-section:first-child{
+	width: 33vw;
+}
+
+section.focal-page-main-section{
+	@include box-shadow-out;
+	width: 63vw;
+}
+
+section.focal-page-main-section > .panel{
+	align-items: flex-start;
+	padding: 1vh 0.667rem 2.25rem;
+}
+
+section.focal-page-main-section .panel.text article{
 	font-family: $Source;
 	font-size: 1.125em;
 	text-align: justify;

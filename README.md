@@ -19,3 +19,38 @@ There are two different versions of **local_settings.py**, one for development a
 **lab-book.md** files are used throughout this django project as a way to document my work in a protocol form and leave myself notes for future reference (similar to a science lab book, but a lot less strict on format). 
 
 _Update: All lab books were moved inside the housekeeping directory_
+
+**Ubuntu 16.04**
+`npm run test` throws ENOSPC and npm ELIFECYCLE errors because of a limited number of watchers on linux 
+https://github.com/facebook/jest/issues/3254
+https://stackoverflow.com/questions/22475849/node-js-error-enospc
+https://github.com/guard/listen/wiki/Increasing-the-amount-of-inotify-watchers#the-technical-details
+
+
+#### Styles:
+_Comments:_
+Use `#` for oneliners, and `'''...'''` for multiline comments in .py files 
+Use `//` for oneliners, and `/*...*/` for multiline comments in .js files  
+
+_React props:_
+Do some vetting of Prettier
+One prop can be on the same line 
+More than one prop should shift all props to next lines 
+
+_React state:_
+define state shape in the constructor 
+do not define state as a class property (ES class properties proposal) because babel will put it in the constructor anyway 
+https://hackernoon.com/the-constructor-is-dead-long-live-the-constructor-c10871bea599
+
+_Imports_
+Use alphabetical order  
+
+_Use of same variables on next lines_
+Indent them under each other 
+```js 
+const configured = configureStore();
+      configured.dispatch(requestPoems("FETCH_POEMS"));
+```
+
+_Everything else:_
+Use Black for .py and Prettier for .js to impose style 

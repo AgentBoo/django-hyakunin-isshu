@@ -26,7 +26,7 @@ Import local settings from local_settings (local_settings is never committed to 
 A specific local_settings is created for each dev and production environments.
 '''
 
-DEBUG = bool(os.getenv('DJANGO_DEBUG', False))
+DEBUG = bool(os.getenv('DJANGO_DEBUG', True))
 
 if DEBUG:
     try:
@@ -97,6 +97,7 @@ INSTALLED_APPS = [
     'django.contrib.staticfiles',
     'rest_framework',
     'corsheaders',
+    'django_extensions',
     'webpack_loader',
     'backend.karuta_api',
     'backend.karuta_app',

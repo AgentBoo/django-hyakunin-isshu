@@ -1,11 +1,13 @@
+// @flow
 // react
-import React from 'react';
-
+import React from "react";
+// components
+import FocalPage from "./../sections/FocalPage";
 
 const NotFound = () => (
-	<div className='focal-page not-found'>
-		<h4 className='focal-page-title'> Page Not Found </h4>
-	</div>
-)
+	<FocalPage>
+		<h4 className="focal-page-title"> Page Not Found </h4>
+	</FocalPage>
+);
 
 export default NotFound;

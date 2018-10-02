@@ -1,0 +1,34 @@
+[ignore]
+# ignoring all node_modules will raise 'Cannot resolve <package>' errors for a number 
+# of packages that are considered untyped by Flow 
+# or do not have flow compatible libdefs as determined by flow-typed  
+# specify such packages in [libs]
+
+.*/node_modules/.*
+.*/build/.*
+
+
+[include]
+
+
+[libs]
+# https://stephenmann.io/post/how-to-setup-flow-with-create-react-app-and-visual-studio-code/
+flow-typed 
+# run flow status with flow-typed installed and it will print out a list of libdefs
+cross-fetch
+react-scripts
+react-scroll
+react-app-rewired 
+redux-logger
+redux-thunk
+normalizr 
+webpack-bundle-tracker
+
+
+[lints]
+
+
+[options]
+
+
+[strict]

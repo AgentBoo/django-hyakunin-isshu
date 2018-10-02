@@ -3,28 +3,30 @@ from django.contrib.postgres.fields import ArrayField
 
 # Create your models here.
 
-class Author(models.Model):
-	jap = models.CharField(max_length=100, blank=True, default='Unknown')
-	rom = models.CharField(max_length=100, blank=True, default='Unknown')
-	eng = models.CharField(max_length=100, blank=True, default='Unknown')
-
-	def __str__(self):
-		return '[%s]  %s - %s - %s' % (self.id, self.jap, self.rom, self.eng) 
-
-
 class Poem(models.Model):
 	numeral = models.PositiveIntegerField(blank=True, null=True, unique=True)
-	jap = ArrayField(models.CharField(max_length=200, blank=True, default='No verse'), blank=True, null=True)
-	rom = ArrayField(models.CharField(max_length=200, blank=True, default='No verse'), blank=True, null=True)
-	eng = ArrayField(models.CharField(max_length=200, blank=True, default='No verse'), blank=True, null=True)
-
-	author = models.ForeignKey(Author, on_delete=models.CASCADE, related_name='poem')
+	preferred_translator = models.CharField(max_length=100, blank=True, default='Unknown')
+	jap = ArrayField(models.CharField(max_length=100, blank=True, default='No verse'), size=6, blank=True, null=True)
+	rom = ArrayField(models.CharField(max_length=100, blank=True, default='No verse'), size=6, blank=True, null=True)
 
 	class Meta:
+		db_table = 'poems'
 		ordering = ('numeral',)
 		
 	def __str__(self):
-		return '[%s]  %s - %s - %s' % (self.numeral, self.author.jap, self.author.rom, self.author.eng)
+		return '[%s]  %s - %s - %s' % (self.numeral, self.preferred_translator, self.jap, self.rom)
 
 
+class Translation(models.Model):
+	eng = ArrayField(models.CharField(max_length=100, blank=True, default='No verse'), size=6, blank=True, null=True)
+	poem = models.ForeignKey(Poem, on_delete=models.CASCADE, related_name='translations')
+	translator = models.CharField(max_length=100, blank=True, default='Unknown')
+
+	class Meta:
+		db_table = 'translations'
+		index_together=['eng','translator']
+		unique_together=('eng','poem','translator',)
+
+	def __str__(self):
+		return '[%s]  %s - %s' % (self.poem.numeral, self.translator, self.eng)
 
