@@ -55,6 +55,7 @@ const reduxRequest = method => (urlKey, item={}) => (dispatch, getState) => {
 	const success = status => dispatch(receiveSuccess(status))
 	const failure = status => dispatch(receiveFailure(error))
 
+	// not factoring a single return fetchData() out is deliberate (readability)
 	if(method === 'DELETE'){
 		const next = res => dispatch({
 			type: actionType[urlKey],
