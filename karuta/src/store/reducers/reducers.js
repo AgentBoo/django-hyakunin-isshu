@@ -1,11 +1,10 @@
 // redux
 import { combineReducers } from "redux";
+// utils 
+import { updateObject } from "./../../utils/housekeeping";
 
-// utilities
-const updateObject = (original, updated) =>
-	Object.assign({}, original, updated);
 
-/* SLICE REDUCERS */
+/* SECONDARY REDUCERS */
 
 export const isFetching = (state = false, action) => {
 	switch (action.type) {

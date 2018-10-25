@@ -1,9 +1,5 @@
 /* STATE SELECTORS */
 
-export const getIsFetching = state => state.isFetching;
-
-export const getFlashMessage = state => state.flashMessage;
-
 export const getPoems = (state, locale = "jap") => {
 	if (state.isFetching && !state.index.length) {
 		return [];
@@ -17,6 +13,7 @@ export const getPoems = (state, locale = "jap") => {
 		verses: poems[id][locale].slice(1, 6)
 	}));
 };
+
 
 export const getPoem = (state, id) => {
 	if (state.isFetching && !state.index.length) {
