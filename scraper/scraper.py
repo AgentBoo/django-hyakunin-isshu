@@ -1,56 +1,47 @@
-from bs4 import BeautifulSoup
-import requests
-import csv
+if __name__ == '__main__':
+	from bs4 import BeautifulSoup
+	import requests
+	import csv
+	import os 
 
-'''
-Save iframe contents to individual txt files locally. 
-This is important for two reasons: 
-1. I do not want to constantly send requests to the scraped site, while I am figuring out python
-   and constantly re-running my script in the guess-check-revise manner 
-   (I have only been using python for 3 weeks as of this moment) 
-2. Because the original html documents are not well formatted (I am using a very old site). 
-   Different available html parsers were not able to deal with the mistakes, so I chose to make 
-   changes to the content manually to get correct results using BeautifulSoup.
+	'''
+	Scrapes kyogi karuta poems from the UVA site 
+	and saves the html content into individual files.
+	'''
 
-Use chihayaenv environment.
-'''
+	BASE_DIR = os.path.dirname(os.path.abspath(__file__))
+	OUTPUT_DIR = os.path.join(BASE_DIR, 'frames')
 
+	MAIN_PAGE = 'http://jti.lib.virginia.edu/japanese/hyakunin/frames/hyakuframes.html'
 
-# extract iframes from this site
-main = 'http://jti.lib.virginia.edu/japanese/hyakunin/frames/hyakuframes.html'
+	'''
+	Use chihayaenv environment.
 
-page = requests.get(main)
-tree = BeautifulSoup(page.text,'lxml')
+	Poems are in individual iframes. 
+	Save iframe contents to individual html files locally. 
+	The iframe contents are not well formatted (it's a 
+	really old site). 
 
-frames = tree.find_all('frame')
+	I couldn't figure out how to make available html parsers 
+	deal with the formatting errors, so I chose to make 
+	changes to the content manually to get correct results. 
+	'''
 
-root = main.split('hyakuframes.html')[0]
-urls = []
+	rooturl = MAIN_PAGE.split('hyakuframes.html')[0]
 
-for index,frame in enumerate(frames):
-    url = root + frame.attrs['src']
-    content = requests.get(url).text
+	page = requests.get(MAIN_PAGE)
+	tree = BeautifulSoup(page.text,'lxml')
 
-    fname = 'frame_{num}.txt'.format(num = index + 1)
-    f = open(fname, 'w+')
-    f.write(content)
-    f.close()
+	# the first extracted iframe doesn't contain any poems 
+	iframes = tree.find_all('frame')[1:]
+	urls = { frame.attrs['name']: rooturl + frame.attrs['src'] for frame in iframes }
 
-    urls.append(url)
+	for name, url in urls.items():
+	    content = requests.get(url).text
+	    path = os.path.join(OUTPUT_DIR, f'{name}.html')
 
+	    with open(path, 'w') as file:
+	      file.write(content)
 
-# the first iframe does not contain any poems
-urls.pop(0)
-
-jap = urls[0]
-rom = urls[1]
-eng = urls[2]
-
-print(jap)          # frame_2.txt
-print(rom)          # frame_3.txt
-print(eng)          # frame_4.txt
-
-
-'''
-Additional comments for this module can be found in a lab-book-2.md
-'''
+ 
+ 

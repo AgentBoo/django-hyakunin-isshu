@@ -1,89 +1,73 @@
 import os 
-os.environ.setdefault('DJANGO_SETTINGS_MODULE', 'backend.settings')
+import csv
+import sys
+
+ROOT_DIR = os.path.dirname(os.path.abspath(__file__))
+SEED_DIR = os.path.join(ROOT_DIR, 'scraper', 'poems')
+JPFILE = os.path.join(SEED_DIR, 'euc.csv')
+
+def save_poem(model, source, row):
+	poem = model.objects.create(
+		numeral = row['ID'],
+		author = row['Author'],
+		verses = row['Verses'],
+		source = source,
+	)
+
+	print(poem)
+	return poem 
+
+def save_rom(model, poem, row): 
+	rom = model.objects.create(
+		poem = poem,
+		author = row['Author'],
+		verses = row['Verses']
+	)
+
+	print(rom)
+	return rom
+
+def save_eng(model, poem, row):
+	eng = model.objects.create(
+		poem = poem,
+		author = row['Author'],
+		verses = row['Verses'],
+		lang = 'en',
+		translator = 'Clay MacCauley')
+
+	print(eng)
+	return eng
 
 
-import django 
-django.setup()
+ 
+if __name__ == '__main__':
+	import os 
+	os.environ.setdefault('DJANGO_SETTINGS_MODULE', 'backend.settings')
 
+	import django 
+	django.setup()
 
-import csv 
-from backend.karuta_api.models import Poem
+	from backend.api.models import Poem
 
-root = os.path.dirname(os.path.abspath(__file__))
+	# seed files
+	files = [ file for file in os.listdir(SEED_DIR) if file.endswith(".csv") ]
+	print(f'Files found: {files}')
 
-def populate_poem(language,index,row):
-	try:
-		poem = Poem.objects.get(numeral=index + 1)
-
-		# setattr is an alternative to the 'conventional' setting of a field on an
-		# object i.e. poem.jap = 'Naniwa-zu ni, Sakuya konohana...' 
-		setattr(poem, language, row)
-		poem.save() 
-
-		print(poem)
+	# resource 
+	# source = Source.objects.create(
+	# 	title = 'Clay MacCauley',
+	# 	url = 'http://jti.lib.virginia.edu/japanese/hyakunin/frames/hyakuframes.html'
+	# ) 
 	
-	except Poem.DoesNotExist:
-		poem = Poem.objects.create(numeral=index + 1, preferred_translator='Clay MacCauley', **{language: row})
-
-		print(poem) 
-
-
-def populate_translation(language,index,row):
 	try:
-		poem = Poem.objects.get(numeral=index + 1)
-		# all of the initial translations were made by Clay MacCauley, hence preferred_translator	
-		translation = poem.translations.create(eng=row, translator=poem.preferred_translator)
-
-		print(translation)
-
-	except Poem.DoesNotExist:
-		# create an arbitrary poem if no poem has been created yet
-		poem = Poem.objects.create(numeral=index + 1, preferred_translator='Clay MacCauley')
-		translation = poem.translations.create(eng=row, translator=poem.preferred_translator)
-
-		print(translation)
-
-
-def csv_to_poems(language):
-	'''
-		For every language, open a language specific .csv file
-		If the language is english, update or create a Translation instance 
-		Otherwise, update or create a Poem instance for every row 
-	'''
-	# csv files are named jap.csv, rom.csv, eng.csv
-	filename = '{lang}.csv'.format(lang=language)
-	path = os.path.join(root, 'seeds', filename)
-
-	try:
-		with open(path, newline='') as csvfile:
-			reader = csv.reader(csvfile)
-
-			# skip headers 
-			next(reader, None)
-
-			if language == 'eng':
-				for index,row in enumerate(reader):
-					populate_translation(language, index, row)
-
-			else: 
-				for index,row in enumerate(reader):
-					populate_poem(language, index, row)
-
-			csvfile.close()
+		with open(JPFILE, 'r') as csvfile:
+			reader = csv.DictReader(csvfile)
+			print(next(reader))
 	
 	except IOError:
-		print('An error occurred trying to open and read file {file}'.format(file=filename))
+		print(f'Cannot open file {JPFILE}')
+
+ 
 
 
-def seed(*languages):
-	for language in languages:
-		csv_to_poems(language)
-
-
-# populate the database with data from language specific csv files 
-seed('rom', 'jap','eng')
-
-
-'''
-Additional comments for this module can be found in a lab-book-3.md
-'''
+ 
