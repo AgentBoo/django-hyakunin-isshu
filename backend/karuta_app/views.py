@@ -1,8 +1,0 @@
-from django.shortcuts import render
-from django.views.decorators.csrf import ensure_csrf_cookie
-
-# Create your views here.
-
-@ensure_csrf_cookie
-def reactKarutaApp(request):
-	return render(request, 'index.html')

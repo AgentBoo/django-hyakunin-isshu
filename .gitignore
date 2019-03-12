@@ -12,6 +12,9 @@
 /public
 /staticfiles
 /housekeeping
+local.py
+settings.py
+deploy.sh
 
 # sqlite 
 *.sqlite3

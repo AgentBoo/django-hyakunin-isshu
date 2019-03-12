@@ -18,6 +18,6 @@ from django.urls import path, include
 
 urlpatterns = [
     path('admin/', admin.site.urls),
-	path('api/', include('backend.karuta_api.urls')),
-    path('', include('backend.karuta_app.urls')),
+	path('api/', include('backend.api.urls')),
+    path('', include('backend.app.urls')),
 ]

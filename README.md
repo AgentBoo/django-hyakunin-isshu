@@ -78,6 +78,21 @@ list of sources + refs
 - Poem:Romaji are 1-to-1, every rom transcript belongs to a poem, and every poem has a rom transcript 
 - Poem:Translation are 1-to-N, every translation belongs to a poem, and every poem can have many translations
 
+'''
+GET /api/<str:source>/all/
+GET /api/<str:source>/all/jp/
+GET /api/<str:source>/all/rom/
+GET /api/<str:source>/all/en/
+
+GET /api/default/all/
+GET /api/default/all/jp/
+GET /api/default/all/rom/
+GET /api/default/all/en/
+
+GET /api/<str:source>/detail/<int:numeral>/
+GET /api/default/detail/<int:numeral>/
+'''
+
 <br>
 
 Card Schema 
@@ -142,3 +157,7 @@ Source Schema
 https://github.com/facebook/jest/issues/3254
 https://stackoverflow.com/questions/22475849/node-js-error-enospc
 https://github.com/guard/listen/wiki/Increasing-the-amount-of-inotify-watchers#the-technical-details
+
+**Deployment**
+
+use deploy.sh 
