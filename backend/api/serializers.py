@@ -1,27 +1,7 @@
 from rest_framework import serializers 
-from .models import Poem, Romanization, Translation
+from .models import Poem, Translation
 
 # Create your serializers here.
-
-class PoemSerializer(serializers.ModelSerializer):
-	jap = JapaneseSerializer(read_only=True)
-	rom = RomajiSerializer(read_only=True)
-	eng = TranslationSerializer(read_only=True)
-
-	class Meta:
-		model = Poem 
-		fields = ('numeral', 'jap', 'rom', 'eng')
-
-
-class PoemSetSerializer(serializers.ModelSerializer):
-	jap = JapaneseSerializer(read_only=True)
-	rom = RomajiSerializer(read_only=True)
-	translations = TranslationSerializer(many=True, read_only=True)
-
-	class Meta:
-		model = Poem 
-		fields = ('numeral', 'jap', 'rom', 'translations')
-
 
 class JapaneseSerializer(serializers.ModelSerializer):
 	class Meta:
@@ -36,10 +16,10 @@ class JapaneseExtSerializer(JapaneseSerializer):
 
 class RomajiSerializer(serializers.ModelSerializer):
 	author = serializers.CharField(source='romanized_author')
-	verses = serializers.ArrayField(source='romanized_verses')
+	verses = serializers.CharField(source='romanized_verses')
 	
 	class Meta:
-		model = Romanization
+		model = Poem
 		fields = ('author', 'verses')
 
 
@@ -55,4 +35,28 @@ class TranslationSerializer(serializers.ModelSerializer):
 	class Meta:
 		model = Translation 
 		fields = ('author', 'verses', 'translator')
+
+
+class PoemSerializer(serializers.ModelSerializer):
+	jap = JapaneseSerializer(Poem.objects.all(), read_only=True)
+	rom = RomajiSerializer(read_only=True)
+	eng = serializers.SerializerMethodField(read_only=True)
+
+	def get_eng(self, obj):
+		translation = obj.translations.get(default=True)
+		return TranslationSerializer(translation, read_only=True).data 
+
+	class Meta:
+		model = Poem 
+		fields = ('numeral', 'jap', 'rom', 'eng')
+
+
+class PoemSetSerializer(serializers.ModelSerializer):
+	jap = JapaneseSerializer(read_only=True)
+	rom = RomajiSerializer(read_only=True)
+	translations = TranslationSerializer(many=True, read_only=True)
+
+	class Meta:
+		model = Poem 
+		fields = ('numeral', 'jap', 'rom', 'translations')
 

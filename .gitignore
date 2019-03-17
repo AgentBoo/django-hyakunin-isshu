@@ -9,12 +9,19 @@
 
 # dev
 /build
-/public
 /staticfiles
 /housekeeping
-local.py
+settings.local.py
 settings.py
-deploy.sh
+
+# prod 
+/frontend
+/housekeeping
+README.md
+
+/frames
+poems2csv.py
+scraper.py
 
 # sqlite 
 *.sqlite3

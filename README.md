@@ -3,7 +3,7 @@
 <br>
 
 *Uses*
-`Django`, `DRF`, `React`, `React Helmet`, `MobX`, `react-magic-hat`, `react-beautiful-dnd`
+`Django`, `DRF`, `React`, `React Helmet`, `MobX`, `react-magic-hat`, `react-beautiful-dnd`, `flow` types
 
 <br>
 
@@ -47,104 +47,80 @@ Karuta versions of poems
 Different transcriptions of poems 
 Different translations
 Link to Add translation form 
-Link to API 
+Link to API  
+
+<br><br>
+
+##### Scraper 
+
+If scraping from the UVA site for poems:
 
 <br>
 
-_ohi REST API_  
-/<source:ref>/all
-list of all poems + authors in jp, rom, eng (specific source)
-/<source:ref>/defail/<poem:numeral>
-poem + author in jp, rom, eng (specific source)
-/<source:ref>/all/jp
-list of all poems + authors in jp (specific source => poem)
-/<source:ref>/all/rom
-list of all poems + authors in rom (specific source => poem)
-/<source:ref>/all/en
-list of all poems + authors in eng (specific source => poem => translation)
-
-/default/detail/<poem:numeral>
-poem + author in jp, rom, all translations, card (default source)
-
-/sources/
-list of sources + refs
+1. Run scraper.py
+2. Check outputs
+3. Fix formatting issues in the outputs
+4. Run poems2csv.py 
 
 <br>
 
-###### REST API 
-- scraped, karuta, and different transcriptions of poems use the same model (the primary unifier is the numeral field; the primary differentiator is the source field) 
-- karuta poems have an associated Card
-- Poem:Card are 1-to-1, every card belongs to a poem, but not every poem has a card
-- Poem:Romaji are 1-to-1, every rom transcript belongs to a poem, and every poem has a rom transcript 
-- Poem:Translation are 1-to-N, every translation belongs to a poem, and every poem can have many translations
+*Formatting issues:*
 
-'''
-GET /api/<str:source>/all/
-GET /api/<str:source>/all/jp/
-GET /api/<str:source>/all/rom/
-GET /api/<str:source>/all/en/
+n.27 and n.100 poems are problematic.
 
-GET /api/default/all/
-GET /api/default/all/jp/
-GET /api/default/all/rom/
-GET /api/default/all/en/
+Japanese transcript: everything seems correct.
+Romanized transcript: everything seems correct.
 
-GET /api/<str:source>/detail/<int:numeral>/
-GET /api/default/detail/<int:numeral>/
-'''
+English translation: A closing </lg> and opening <lg> tags are missing in eng.html, between Fujiwara no Kanesuke's (27) and Minamoto no Muneyuki's poems (28), making the parser think there is only one poem #27. (~ line 976).
 
+```html
+<!-- Correct -->
+<hr width=50% size=4> </lg><lg><a names="eng28"> </a>
+```
+
+English translation: The lxml parser made a work-break of <center> at #100 poem, preventing extraction of the #100 poem lines. (~ line 3556) 
+
+```html
+<!-- Correct -->
+<center><h3><a
+href="/japanese/hyakunin/images/onna100.jpg">100</a></h3></center>
+```
+
+Example block:
+```html
+<lg><a name="eng2"> </a>
+<center><h3><a
+href="/japanese/hyakunin/images/onna2.jpg">2</a></h3></center>
+
+ 
+
+<br><center>Empress Jito</center>
+
+
+<br>The spring has passed
+<br>And the summer come again;
+<br>For the silk-white robes,
 <br>
 
-Card Schema 
-```
-{ 
-    id: uuid, 
-    poem: fk,
-    kimariji: String,
-    unique_syllables: Number,
-}
-```
+<br>So they say, are spread to dry
+<br>On the "Mount of Heaven's Perfume."
+<br>
 
-Poem Schema 
-```
-{ 
-    id: uuid, 
-    numeral: Number,
-    author: String,
-    verses: Array[String],
-    source: fk,
-}
-```
+<center><hr width=30% size=4><a
+href="/etcbin/hyakuframe2www?act=queryform&specfile=/web/data/japanese/hyakunin/frames/index/hyaku1eng.o2w"><font color="000080">Search</font></a>
+<br><br>
+ | 
+<a href="/japanese/hyakunin/frames/index/hyaku2rom.html#rom2"
+target="rom"><- Romaji</a>
+ |
+<a href="/japanese/hyakunin/frames/index/hyaku3euc.html#euc2"
+target="euc">Japanese -></a>
+ |
+ </center>
 
-Romaji Schema
-```
-{ 
-    id: uuid, 
-    poem: fk,
-    author: String,
-    verses: Array[String],
-}
-```
 
-Translations
-```
-{
-    id: uuid,
-    poem: fk,
-    author: String,
-    verses: Array[String]
-    lang: String,
-    translator: String
-}
-```
 
-Source Schema
-```
-{
-    id: uuid4,
-    title: String,
-    url: URL or NULL
-}
+<hr width=50% size=4> </lg>
 ```
 
 <br><br>
@@ -154,10 +130,9 @@ Source Schema
 **Ubuntu 18**
 `npm run test` throws ENOSPC and npm ELIFECYCLE errors because of a limited number of watchers on linux
  
-https://github.com/facebook/jest/issues/3254
-https://stackoverflow.com/questions/22475849/node-js-error-enospc
-https://github.com/guard/listen/wiki/Increasing-the-amount-of-inotify-watchers#the-technical-details
+https://github.com/facebook/jest/issues/3254<br>
+https://stackoverflow.com/questions/22475849/node-js-error-enospc<br>
+https://github.com/guard/listen/wiki/Increasing-the-amount-of-inotify-watchers#the-technical-details<br>
 
 **Deployment**
-
-use deploy.sh 
+use `deploy.sh` 

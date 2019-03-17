@@ -1,5 +1,10 @@
 if __name__ == '__main__':
+    '''
+    Extracts text of the poems from scraped files
+    and writes them into a csv file.
+    '''
     from bs4 import BeautifulSoup
+    
     import csv
     import os 
     import re 
@@ -9,9 +14,6 @@ if __name__ == '__main__':
     OUTPUT_DIR = os.path.join(BASE_DIR, 'poems')
 
     '''
-    Extracts text of the poems from scraped files
-    and writes them into a csv file.
-
     #27 and #100 poems are problematic.
 
     Japanese transcript: everything seems correct.
@@ -63,19 +65,18 @@ if __name__ == '__main__':
             
             with open(input_path, 'r') as htmlfile:
                 with open(output_path, 'w', newline='') as csvfile:
-                    writer = csv.DictWriter(csvfile, fieldnames=['ID', 'Author', 'Verses'])
-                    writer.writeheader()
+                    writer = csv.writer(csvfile)
+
+                    # L1-L5 is used in reference to five-line tanka poems
+                    fieldnames = ['ID', 'Author', 'L1', 'L2', 'L3', 'L4', 'L5']
+                    writer.writerow(fieldnames)
                     
                     tree = BeautifulSoup(htmlfile, 'lxml')
 
-                    for counter, lg in enumerate(tree.find_all('lg')):
-                        poem = extract_poem(lg)
+                    for counter, poemblock in enumerate(tree.find_all('lg')):
+                        poem = extract_poem(poemblock)
                         
-                        writer.writerow({
-                            'ID': counter + 1, 
-                            'Author': poem[0],
-                            'Verses': poem[1:]
-                        })
+                        writer.writerow([counter + 1] + poem)
 
                         print(poem)
 

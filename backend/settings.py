@@ -28,61 +28,52 @@ A specific local_settings is created for each dev and production environments.
 
 DEBUG = bool(os.getenv('DJANGO_DEBUG', True))
 
-if DEBUG:
-    try:
-        from .local_settings import *
 
-        DATABASES = LOCAL_DATABASE
-
-        SECRET_KEY = DJANGO_SECRET_KEY
-
-        ALLOWED_HOSTS = LOCAL_HOSTS
-
-        CORS_ORIGIN_WHITELIST = LOCAL_WHITELIST
-
-        CSRF_TRUSTED_ORIGINS = LOCAL_TRUSTED_ORIGINS
-
-        DEBUG_PROPAGATE_EXCEPTIONS = True
-
-    except ImportError:
-        raise Exception('A local_settings.py file is required to run this project') 
-
-else:
-    import dj_database_url
-    # from dotenv import load_dotenv, find_dotenv
-    # load_dotenv(find_dotenv())
-
-    # SECURITY WARNING: keep the secret key used in production secret!
-    
-    DATABASES = {
-        'default': dj_database_url.config(conn_max_age=600)  
+DATABASES = {
+    'default': {
+        'ENGINE': 'django.db.backends.postgresql',
+        'NAME': 'poems',
+        'USER': 'poems',
+        'PASSWORD': 'poems',
+        'HOST': 'localhost',
+        'PORT': '5432',
     }
+}
 
-    SECRET_KEY = os.getenv('DJANGO_SECRET_KEY')
-   
-    ALLOWED_HOSTS = [ os.getenv('ALLOWED_HOSTS','*') ]
+'''
+import dj_database_url
+# from dotenv import load_dotenv, find_dotenv
+# load_dotenv(find_dotenv())
 
-    # CORS_ORIGIN_WHITELIST = [ os.getenv('API_ROOT') ] 
+# SECURITY WARNING: keep the secret key used in production secret!
+    
+DATABASES = {
+    'default': dj_database_url.config(conn_max_age=600)  
+}
+'''
+SECRET_KEY = 'xw9s+3ykue_)evq%4r=y=!h$7m^_(0%x0n7413xte=z56m)uiyhahaheeheehohorose2018'
 
-    CORS_ORIGIN_ALLOW_ALL = True
+ALLOWED_HOSTS = [ os.getenv('ALLOWED_HOSTS','*') ]
 
-    CSRF_TRUSTED_ORIGINS = [ os.getenv('API_ROOT') ]
+# CORS_ORIGIN_WHITELIST = [ os.getenv('API_ROOT') ] 
 
-    SECURE_PROXY_SSL_HEADER = ('HTTP_X_FORWARDED_PROTO', 'https')
+CORS_ORIGIN_ALLOW_ALL = True
 
-    SECURE_BROWSER_XSS_FILTER = True  
+CSRF_TRUSTED_ORIGINS = [ os.getenv('API_ROOT') ]
 
-    SECURE_CONTENT_TYPE_NOSNIFF = True  
+SECURE_PROXY_SSL_HEADER = ('HTTP_X_FORWARDED_PROTO', 'https')
 
-    SECURE_SSL_REDIRECT = False  
+SECURE_BROWSER_XSS_FILTER = True  
 
-    CSRF_COOKIE_SECURE = True  
+SECURE_CONTENT_TYPE_NOSNIFF = True  
 
-    SESSION_COOKIE_SECURE = True 
+SECURE_SSL_REDIRECT = False  
 
-    X_FRAME_OPTIONS = 'DENY'
+CSRF_COOKIE_SECURE = True   
 
-    DEBUG_PROPAGATE_EXCEPTIONS = True
+X_FRAME_OPTIONS = 'DENY'
+
+DEBUG_PROPAGATE_EXCEPTIONS = True
 
 
 # Application definition
@@ -99,8 +90,8 @@ INSTALLED_APPS = [
     'corsheaders',
     'django_extensions',
     'webpack_loader',
-    'backend.karuta_api',
-    'backend.karuta_app',
+    'backend.api',
+    'backend.app',
 ]
 
 MIDDLEWARE = [

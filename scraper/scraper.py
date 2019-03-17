@@ -1,13 +1,13 @@
 if __name__ == '__main__':
-	from bs4 import BeautifulSoup
-	import requests
-	import csv
-	import os 
-
 	'''
 	Scrapes kyogi karuta poems from the UVA site 
 	and saves the html content into individual files.
 	'''
+	from bs4 import BeautifulSoup
+	
+	import requests
+	import csv
+	import os 
 
 	BASE_DIR = os.path.dirname(os.path.abspath(__file__))
 	OUTPUT_DIR = os.path.join(BASE_DIR, 'frames')
@@ -17,7 +17,7 @@ if __name__ == '__main__':
 	'''
 	Use chihayaenv environment.
 
-	Poems are in individual iframes. 
+	Poems are contained within 3 iframes. 
 	Save iframe contents to individual html files locally. 
 	The iframe contents are not well formatted (it's a 
 	really old site). 
@@ -34,9 +34,9 @@ if __name__ == '__main__':
 
 	# the first extracted iframe doesn't contain any poems 
 	iframes = tree.find_all('frame')[1:]
-	urls = { frame.attrs['name']: rooturl + frame.attrs['src'] for frame in iframes }
+	urlmap = { frame.attrs['name']: rooturl + frame.attrs['src'] for frame in iframes }
 
-	for name, url in urls.items():
+	for name, url in urlmap.items():
 	    content = requests.get(url).text
 	    path = os.path.join(OUTPUT_DIR, f'{name}.html')
 
