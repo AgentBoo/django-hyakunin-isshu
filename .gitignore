@@ -5,9 +5,6 @@
 /coverage  
 
 # dev
-/settings/env
-/settings/paths
-/settings/secrets
 /staticfiles
 /build
 
