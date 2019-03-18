@@ -21,7 +21,7 @@
 > Mar 17 2019 
 - file structure refactor, settings.py refactor, gitignore refactor
 - admin interface
-
+- completed: N
 
 > Mar 18 2019 
 - serializers.py, views.py, and urls.py refactor 
