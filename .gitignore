@@ -5,13 +5,12 @@
 /coverage  
 
 # dev
-/settings
 /staticfiles
 /build
 
-env.py
-paths.py
-secrets.py
+env.py 
+paths.py 
+secrets.py 
 
 # sqlite 
 *.sqlite3
