@@ -23,10 +23,13 @@
 - admin interface
 - completed: N
 
-> Mar 18 2019 
-- serializers.py, views.py, and urls.py refactor 
+> Mar 18 2019
+- file structure refactor, settings.py refactor, gitignore refactor
+- admin interface 
+- completed: Y
 
 > Mar 19 2019 
+- serializers.py, views.py, and urls.py refactor 
 - React app setup and fetching from REST API
 
 > Mar 20 2019
