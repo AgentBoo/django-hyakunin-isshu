@@ -1,8 +1,6 @@
 from .paths import TEMPLATE_DIR
 
-# List of callables that know how to import templates 
-# from various sources.
-
+# List of callables that know how to import templates from various sources.
 TEMPLATE_LOADERS = (
     'django.template.loaders.filesystem.Loader',
     'django.template.loaders.app_directories.Loader',
@@ -27,5 +25,4 @@ TEMPLATES = [
 
 # Extra locations (absolute paths) of templates.
 # Example: "/home/html/django_templates" or "C:/www/django/templates"
-
 TEMPLATE_DIRS = ()

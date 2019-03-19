@@ -7,6 +7,9 @@ from .env import DEV_ENV, TEST_ENV, PROD_ENV
 SITE_ID = 1
 ROOT_URLCONF = 'backend.urls'
 
+# CSRF integration 
+# https://github.com/ottoyiu/django-cors-headers#csrf-integration
+
 if DEV_ENV:
 	ALLOWED_HOSTS = ['*'] 
 	CSRF_TRUSTED_ORIGINS = ALLOWED_HOSTS
