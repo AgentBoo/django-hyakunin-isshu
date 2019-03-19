@@ -1,24 +1,30 @@
-# Application settings
-# https://docs.djangoproject.com/en/2.1/ref/settings/
-
 from decouple import config, Csv
 from .env import DEV_ENV, TEST_ENV, PROD_ENV
 
-SITE_ID = 1
-ROOT_URLCONF = 'backend.urls'
+# Application settings
+# https://docs.djangoproject.com/en/2.1/ref/settings/
 
 # CSRF integration 
 # https://github.com/ottoyiu/django-cors-headers#csrf-integration
 
+SITE_ID = 1
+
+ROOT_URLCONF = 'backend.urls'
+
 if DEV_ENV:
 	DEBUG_PROPAGATE_EXCEPTIONS = True
+
 	ALLOWED_HOSTS = ['*']
+
 	CORS_ORIGIN_ALLOW_ALL = True 
+
 	CSRF_TRUSTED_ORIGINS = ALLOWED_HOSTS
    
 elif TEST_ENV:
-	ALLOWED_HOSTS = config('ALLOWED_HOSTS', cast=Csv())  
+	ALLOWED_HOSTS = config('ALLOWED_HOSTS', cast=Csv()) 
+
 	CORS_ORIGIN_WHITELIST = ALLOWED_HOSTS
+	
 	CSRF_TRUSTED_ORIGINS = ALLOWED_HOSTS
 
 elif PROD_ENV:
