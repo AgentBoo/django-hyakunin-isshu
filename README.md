@@ -3,7 +3,7 @@
 <br>
 
 *Uses*
-`Django`, `DRF`, `React`, `React Helmet`, `MobX`, `react-magic-hat`, `react-beautiful-dnd`, `flow` types
+`Django`, `DRF`, `React`, `React Helmet`, `Next.js`, `MobX`, `react-beautiful-dnd`, `flow` types
 
 <br>
 
@@ -16,26 +16,26 @@ ohi app is based on the *O*gura *H*yakunin *I*sshu anthology.
 <br>
 
 _Background_
-I started reading the Chihayafuru manga in 2017. Chihayafuru references the Ogura Hyakunin Isshu poems every chapter, and each time, translators seems to use a slightly different translation of the same poem, since the translations are made on demand. On top of that, the manga itself isn't too concerned with presenting each poem in its entirety, but only uses segments that are important for the gameplay or for the storytelling. Because of that, *I wanted to have a way to quickly find the corresponding poem when I see an interesting segment mentioned in the manga, and read its full (english) translation.*  
+I started reading the Chihayafuru manga in 2017. Chihayafuru references the Ogura Hyakunin Isshu poems every chapter, and each time, translators seems to use a slightly different translation of the same poem, since the translations are made on demand. On top of that, the manga itself isn't too concerned with presenting each poem in its entirety, but only uses segments that are important for the gameplay or for the storytelling. Because of that, _I wanted to have a way to quickly find the corresponding poem when I see an interesting segment mentioned in the manga, and read its full (english) translation._  
 
 <br>
 
 _Ogura Hyakuning Isshu_
-I want to scrape the available translations of Ogura Hyakunin Isshu (OHI) from the UVA website and save them to a database (I have checked the website several times in the past year, and virtually no updates have been made to the content, and probably never will). The OHI is transcribed in japanese, romanji, and has english translations. If you check Amazon or other bookselling sources, you will find that there is more than one official english translation of the OHI. As mentioned in the Background section, there are also many different translations created throughout the lifetime of the Chihayafuru manga. I want to expose the poems using a REST API, so they can be consumed by the public and primarily by my own app.
+I want to scrape the available translations of Ogura Hyakunin Isshu (OHI) from the UVA website and save them to a database (I have checked the website several times in the past year, and virtually no updates have been made to the content, and probably never will). The OHI is transcribed in japanese, romaji, and has english translations. If you check Amazon or other bookselling sources, you will find that there is more than one official english translation of the OHI. As mentioned in the Background section, there are also many different translations created throughout the lifetime of the Chihayafuru manga. I want to expose the poems using a REST API, so they can be consumed by the public and primarily by my own app.
 
 <br>
 
 _ohi app_
-Fetch default poems + authors in jp, rom, eng
+Fetch poems + authors in jp, rom, and default eng
 Navigate based on a language
+Show N poems at a time (pagination)
+Show batched poems
+Add poem to a batch 
+Drag and drop selected poems next to each other 
+Show detail with all _translations_ on click 
 Filter or find 100 poems
     *Filter on poem segments*
     Find a poem based on its numeral
-Show N poems at a time (pagination)
-Show batched poems
-Drag and drop selected poems next to each other 
-Add poem to a batch on click 
-Show detail with a *translation* that leads to more information on click 
 Not found page
 
 <br>
@@ -43,11 +43,7 @@ Not found page
 _ohi database_
 Scraped poems 
 Scraped translations
-Karuta versions of poems
-Different transcriptions of poems 
-Different translations
-Link to Add translation form 
-Link to API  
+Alternative translations
 
 <br><br>
 
@@ -128,11 +124,18 @@ target="euc">Japanese -></a>
 ##### Notes 
 
 **Ubuntu 18**
-`npm run test` throws ENOSPC and npm ELIFECYCLE errors because of a limited number of watchers on linux
+`npm run test` throws ENOSPC and npm ELIFECYCLE errors because of the limited number of watchers on linux
  
 https://github.com/facebook/jest/issues/3254<br>
 https://stackoverflow.com/questions/22475849/node-js-error-enospc<br>
 https://github.com/guard/listen/wiki/Increasing-the-amount-of-inotify-watchers#the-technical-details<br>
 
+
+**Django development server**
+The local development server runs a separate process for the auto-reloader.
+
+https://stackoverflow.com/a/28490054
+
+
 **Deployment**
-use `deploy.sh` 
+use `startdeploy.sh` 

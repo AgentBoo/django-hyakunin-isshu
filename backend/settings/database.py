@@ -7,9 +7,7 @@ if PROD_ENV:
 	import dj_database_url
     
     # dj_database_url will look for a DATABASE_URL environ variable
-	DATABASES = {
-	    'default': dj_database_url.config(conn_max_age=600)  
-	}
+	DATABASES['default'] = dj_database_url.config(conn_max_age=600)  
 
 else:
     from .secrets import DATABASE_NAME, DATABASE_USER, DATABASE_PASSWORD, DATABASE_HOST, DATABASE_PORT

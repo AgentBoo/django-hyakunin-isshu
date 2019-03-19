@@ -30,9 +30,10 @@
 
 > Mar 19 2019 
 - serializers.py, views.py, and urls.py refactor 
-- React app setup and fetching from REST API
 
 > Mar 20 2019
+- React app uses NextJS and MobX
+- React app setup and fetching from REST API
 - React app display all poems at once, and show wiz on click
 
 > Mar 21 2019

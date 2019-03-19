@@ -16,17 +16,19 @@ if __name__ == '__main__':
 
 
 	'''
-	Calling this script without additional args 
-	prints out all files in the SEED_DIR. 
-
-	Specific seed files should be flagged, e.g. -t eng.csv -r rom.csv -j euc.csv 
+	This script seeds the database with entries from the csv  
+	files produced by scraper scripts. Calling this script 
+	without additional args prints out all files in the SEED_DIR. 
 	'''
+
 	if len(sys.argv) == 1:
 		for file in seedfiles:
 			if file.endswith(".csv"):
 				print(file)
 
 	else:
+		# To work with a standalone Django instance, see 
+		# https://docs.djangoproject.com/en/2.1/topics/settings/#calling-django-setup-is-required-for-standalone-django-usage
 		os.environ.setdefault('DJANGO_SETTINGS_MODULE', 'backend.settings')
 
 		import django
@@ -40,10 +42,11 @@ if __name__ == '__main__':
 			flags = [JAP, ROM, ENG]
 			values = []
 
-			'''
-			If a regular flag is followed by an unmatching file, 
-			let downstream errors raise the issue. Do not handle here.
-			'''
+			# Specific seed files should be flagged
+			# Example: "python seeds.py -t eng.csv -r rom.csv -j euc.csv" 
+			
+			# If a regular flag is followed by an unmatching file, 
+			# let downstream errors raise the issue. Do not handle here.
 
 			if '-all' in sys.argv:
 				values = [(JAP, 'euc.csv'), (ROM, 'rom.csv'), (ENG, 'eng.csv')]
