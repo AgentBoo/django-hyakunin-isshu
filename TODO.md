@@ -30,11 +30,40 @@
 
 > Mar 19 2019 
 - serializers.py, views.py, and urls.py refactor 
+- completed: Y
 
 > Mar 20 2019
 - React app uses NextJS and MobX
 - React app setup and fetching from REST API
-- React app display all poems at once, and show wiz on click
+- React app display all poems at once, and show detail on click
 
 > Mar 21 2019
 - React app filter and paginate
+
+
+> Mar 22 2019
+- serializers.py, views.py, and urls.py refactor, so that:
+    - React sends request for /translations with preferred translator
+    - translations view sends back translations from preferred translator
+    - translations view sets cookie with a preferred translator 
+    - poem list view checks cookie for a preferred translator or uses original_source
+
+
+> Mar 23 2019
+- React transitions 
+
+
+> Mar 24 2019
+- React built-in sass support
+
+
+> Mar 25 2019
+- react app templates/index.html
+- Prettier
+- deploy to Heroku 
+
+
+> Mar 26 2019 
+- test backend api 
+- test frontend store, actions, and reactions
+- test utilities

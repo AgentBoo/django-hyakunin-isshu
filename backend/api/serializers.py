@@ -1,31 +1,41 @@
 from rest_framework import serializers 
-from .models import Poem, Translation
+from .models import Poem, Translation, Media
 
 # Create your serializers here.
 
-class JapaneseSerializer(serializers.ModelSerializer):
+ORIGINAL_SOURCE = 'Clay MacCauley'
+
+class PoemSerializer(serializers.ModelSerializer):
+	# Serializer method field 
+	# https://www.django-rest-framework.org/api-guide/fields/#serializermethodfield
+
+	jap = serializers.SerializerMethodField()
+	rom = serializers.SerializerMethodField()
+	eng = serializers.SerializerMethodField()
+
+	def get_jap(self, obj):
+		return {
+			'author': obj.author,
+			'verses': obj.verses
+		} 
+
+	def get_rom(self, obj):
+		return {
+			'author': obj.romanized_author,
+			'verses': obj.romanized_verses
+		} 
+
+	def get_eng(self, obj):
+		translation = obj.translations.get(translator=ORIGINAL_SOURCE)
+		return {
+			'author': translation.translated_author,
+			'verses': translation.translated_verses
+		} 
+
 	class Meta:
 		model = Poem 
-		fields = ('author', 'verses')
-
-
-class JapaneseExtSerializer(JapaneseSerializer):
-	class Meta(JapaneseSerializer.Meta):
-		fields = ('numeral', 'author', 'verses')
-
-
-class RomajiSerializer(serializers.ModelSerializer):
-	author = serializers.CharField(source='romanized_author')
-	verses = serializers.CharField(source='romanized_verses')
-	
-	class Meta:
-		model = Poem
-		fields = ('author', 'verses')
-
-
-class RomajiExtSerializer(JapaneseSerializer):
-	class Meta(RomajiSerializer.Meta):
-		fields = ('numeral', 'author', 'verses')
+		fields = ('id', 'jap', 'rom', 'eng')
+		read_only_fields = ('id', 'jap', 'rom', 'eng')
 
 
 class TranslationSerializer(serializers.ModelSerializer):
@@ -34,29 +44,26 @@ class TranslationSerializer(serializers.ModelSerializer):
 
 	class Meta:
 		model = Translation 
-		fields = ('author', 'verses', 'translator')
+		fields = ('translator', 'author', 'verses')
+		read_only_fields = ('translator', 'author', 'verses')
 
 
-class PoemSerializer(serializers.ModelSerializer):
-	jap = JapaneseSerializer(Poem.objects.all(), read_only=True)
-	rom = RomajiSerializer(read_only=True)
-	eng = serializers.SerializerMethodField(read_only=True)
-
-	def get_eng(self, obj):
-		translation = obj.translations.get(default=True)
-		return TranslationSerializer(translation, read_only=True).data 
-
+class MediaSerializer(serializers.ModelSerializer):
 	class Meta:
-		model = Poem 
-		fields = ('numeral', 'jap', 'rom', 'eng')
+		model = Media 
+		fields = ('category', 'title', 'poem')
+		read_only_fields = ('category', 'title', 'poem')
 
 
-class PoemSetSerializer(serializers.ModelSerializer):
-	jap = JapaneseSerializer(read_only=True)
-	rom = RomajiSerializer(read_only=True)
+class ComplementSerializer(serializers.ModelSerializer):
+	source = serializers.URLField(source='source.url')
 	translations = TranslationSerializer(many=True, read_only=True)
+	media = MediaSerializer(many=True, read_only=True)
 
 	class Meta:
 		model = Poem 
-		fields = ('numeral', 'jap', 'rom', 'translations')
+		fields = ('id', 'source', 'translations', 'media')
+		read_only_fields = ('id', 'source', 'translations', 'media')
+
+
 
