@@ -4,17 +4,6 @@ const local = "http://127.0.0.1:8000/api";
 
 const API_ROOT = process.env.NODE_ENV === "production" ? heroku : local;
 
-const langMap = new Map([
-	['jap', 'Japanese'],
-	['rom', 'Romaji'],
-	['eng', 'English']
-])
-
-export const languages = [...langMap]
-
-export const pages = new Array(Math.ceil(100/8))
-
-
 // ENDPOINTS
 // nomenclature: list, create, retrieve, update, destroy
 
