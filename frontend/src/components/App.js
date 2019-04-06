@@ -1,25 +1,21 @@
-import React, { Component } from "react";
+import React from "react";
+import Provider from "./Provider";
+// components
 import { BrowserRouter as Router, Route } from "react-router-dom";
-import { observer } from "mobx-react";
-import { AppStore } from "./../store/AppStore";
-import { Detail } from "./Detail";
-import { List } from "./List"
+import { Header } from "./Header";
+import { List } from "./List";
+//import { Detail } from "./Detail";
 
 import "./styles.css";
 
-export const store = new AppStore();
-
-class App extends Component {
-  render() {
-    return (
-      <Router>
-        <Route exact path="/" component={List} />
-        <Route exact path="/:index/" component={Detail} />
-      </Router>
-    );
-  }
-}
-
-App = observer(App);
+const App = () => (
+	<Provider>
+		<Header />
+		<Router>
+			<Route exact path="/" component={List} />
+			{/*<Route exact path="/:index/" component={Detail} />*/}
+		</Router>
+	</Provider>
+);
 
 export default App;

@@ -4,6 +4,14 @@ import { Link } from "react-router-dom";
 import { Poem } from "./Poem";
 import { store } from "./App";
 
+/* 
+Use context through Context.Consumer because using `static contextType`
+creates a circular dependency in the App's direct child, making this.context 
+always undefined (that is, if you insist on setting up the provider in the 
+App.js instead of index.js or anywhere else)
+https://github.com/facebook/react/issues/13969#issuecomment-474373021
+*/
+
 class Detail extends Component {
 	componentDidMount() {
 		this.selectPoem();

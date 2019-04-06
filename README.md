@@ -3,7 +3,10 @@
 <br>
 
 *Uses*
-`Django`, `DRF`, `React`, `React Helmet`, `Next.js`, `MobX`, `react-beautiful-dnd`, `flow` types
+`Django`, `DRF`, `React`, `React Helmet`, `React Router`, `MobX`, `react-beautiful-dnd`
+
+*Experiments with*
+`TypeScript`, `MobX`, `React Context`
 
 <br>
 
@@ -63,10 +66,10 @@ If scraping from the UVA site for poems:
 
 *Formatting issues:*
 
-n.27 and n.100 poems are problematic. <br>
+n.27 and n.100 poems are problematic.<br>
 
-Japanese transcript: everything seems correct. <br>
-Romanized transcript: everything seems correct. <br>
+Japanese transcript: everything seems correct.<br>
+Romanized transcript: everything seems correct.<br>
 
 English translation: A closing </lg> and opening <lg> tags are missing in eng.html, between Fujiwara no Kanesuke's (27) and Minamoto no Muneyuki's poems (28), making the parser think there is only one poem #27. (~ line 976).<br>
 
@@ -75,7 +78,7 @@ English translation: A closing </lg> and opening <lg> tags are missing in eng.ht
 <hr width=50% size=4> </lg><lg><a names="eng28"> </a>
 ```
 
-English translation: The lxml parser made a work-break of <center> at #100 poem, preventing extraction of the #100 poem lines. (~ line 3556) 
+English translation: The lxml parser made a word-break of <center> at #100 poem, preventing extraction of the #100 poem lines. (~ line 3556) 
 
 ```html
 <!-- Correct -->
@@ -126,7 +129,7 @@ target="euc">Japanese -></a>
 
 **Ubuntu 18**
 
-`npm run test` throws ENOSPC and npm ELIFECYCLE errors because of the limited number of watchers on linux
+`npm run test` throws `ENOSPC` and `ELIFECYCLE` errors because of the limited number of watchers on linux
  
 https://github.com/facebook/jest/issues/3254<br>
 https://stackoverflow.com/questions/22475849/node-js-error-enospc<br>
