@@ -12,7 +12,7 @@ const langMap = new Map([
 
 export const languages = [...langMap]
 
-export const pages = new Array(Math.ceil(100/8))
+export const pages = new Array(Math.ceil(100/8)).fill(0)
 
 
 // ENDPOINTS

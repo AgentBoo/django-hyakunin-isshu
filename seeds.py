@@ -161,9 +161,9 @@ if __name__ == '__main__':
 
 				source = create_source(ORIGINAL_SOURCE, ORIGINAL_URL)
 
-				for flag, callback in callbacks.items():
-					if 'all' or flag in sys.argv:
-						path = paths.get(flag, None)
+				for langflag, callback in callbacks.items():
+					if 'all' or langflag in sys.argv:
+						path = paths.get(langflag, None)
 
 						if path is not None:
 							with open(path, 'r') as csvfile:

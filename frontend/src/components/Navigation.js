@@ -2,18 +2,18 @@ import React from "react";
 import { observer } from "mobx-react";
 import { languages } from "./../config/constants";
 
-const Navigation = observer(({ store }) => (
+export const Navigation = observer(({ store }) => (
 	<section>
 		{languages.map(([abbr, language]) => (
 			<button
 				key={abbr}
 				type="button"
-				className={store.locale === abbr ? "button bold" : "button"}
-				onClick={() => store.setLocale(abbr)}>
+				className={
+					store.poems.locale === abbr ? "button bold" : "button"
+				}
+				onClick={() => store.poems.setLocale(abbr)}>
 				{language}
 			</button>
 		))}
 	</section>
 ));
-
-export default Navigation;
