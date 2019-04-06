@@ -8,6 +8,14 @@ import { List } from "./List";
 
 import "./styles.css";
 
+/* 
+Without a separate context provider component, class components should use context 
+through Context.Consumer because using `static contextType` creates a circular 
+dependency, making `this.context` always undefined in children (that is, if you 
+insist on setting up the provider in the App.js and router/routes at the same time)
+https://github.com/facebook/react/issues/13969#issuecomment-474373021
+*/
+
 const App = () => (
 	<Provider>
 		<Header />

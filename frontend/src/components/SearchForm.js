@@ -6,17 +6,20 @@ class SearchForm extends Component {
   static contextType = Context;
 
   handleChange = event => {
-    this.context.poems.setSearchPhrase(event.target.value);
+    this.setPhrase(event.target.value);
   };
 
   handleKeyDown = event => {
     if (event.key === "Enter") {
-      this.context.poems.setSearchPhrase("");
+      this.resetPhrase();
     }
   };
 
+  setPhrase = phrase => this.context.poems.setSearchPhrase(phrase)
+  resetPhrase = () => this.context.poems.setSearchPhrase("");
+
   render() {
-    const { searchPhrase } = this.context.poems
+    const { searchPhrase } = this.context.poems;
     return (
       <form>
         <input
@@ -25,6 +28,11 @@ class SearchForm extends Component {
           onChange={this.handleChange}
           onKeyDown={this.handleKeyDown}
         />
+        {searchPhrase && (
+          <button type="button" onClick={this.resetPhrase}>
+            Clear
+          </button>
+        )}
       </form>
     );
   }
