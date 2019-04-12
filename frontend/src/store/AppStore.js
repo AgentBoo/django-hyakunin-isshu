@@ -5,7 +5,7 @@ import { DetailStore } from "./DetailStore";
 export class AppStore {
 	constructor() {
 		this.data = new DataStore(this);
-		this.poem = new DetailStore(this);
-		this.poems = new ListStore(this);
+		this.list = new ListStore(this);
+		this.detail = new DetailStore(this);
 	}
 }

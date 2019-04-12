@@ -1,4 +1,5 @@
 import { configure, decorate, observable, computed, action } from "mobx";
+import { poemsPerPage } from "./../config/constants";
 
 // don't allow state modifications using anything but actions
 configure({ enforceActions: "observed" });
@@ -8,16 +9,18 @@ export class ListStore {
 		this.store = store;
 	}
 
-	// observable 
+	// observable
 
-	page = 0;
+	pageRange = [0, poemsPerPage];
 	locale = "jap";
 	searchPhrase = "";
 
 	// actions
 
-	setPage(page) {
-		this.page = page;
+	setPageRange(pageNumber) {
+		const pageStart = pageNumber * poemsPerPage;
+		const pageEnd = pageStart + poemsPerPage;
+		this.pageRange = [pageStart, pageEnd];
 	}
 
 	setLocale(locale) {
@@ -30,45 +33,33 @@ export class ListStore {
 
 	// computed
 
-	get pagination() {
-		const poems = this.store.data.collection;
-
-		if (poems.length) {
-			return new Array(Math.floor(poems.length)).fill(0);
+	get list() {
+		if (this.isSearchingPhrases) {
+			return this.searchResults;
 		} else {
-			return [];
+			return this.pageResults;
 		}
 	}
 
-	get list(){
-		if(this.isSearchingPhrases){
-			return this.searchResults
-		} else {
-			return this.pageResults
-		}
-	}
+	// helpers
 
-	// helpers 
-
-	get isSearchingPhrases(){
-		return this.searchPhrase.length
+	get isSearchingPhrases() {
+		return this.searchPhrase.length;
 	}
 
 	get pageResults() {
-		const poems = this.store.data.collection;
+		let poems = this.store.data.collection;
 
 		if (poems.length) {
-			return [poems[this.page][this.locale]];
+			const [pageStart, pageEnd] = this.pageRange;
+			poems = poems.slice(pageStart, pageEnd);
+			return poems.map(poem => poem[this.locale]);
 		} else {
 			return [];
 		}
 	}
 
 	get searchResults() {
-		if (!this.searchPhrase) {
-			return this.pageResults;
-		}
-
 		const poems = this.store.data.collection;
 
 		// don't use /g flag for the regex
@@ -79,28 +70,25 @@ export class ListStore {
 
 		for (let i = 0; i < poems.length; i++) {
 			const poem = poems[i][this.locale];
-			const result = regex.test(poem.verses);
+			/* prettier-ignore */
+			const testString = poem.verses.concat(poem.author, poem.numeral).join(" ");
+			const result = regex.test(testString);
 
 			if (result) {
 				results.push(poem);
 			}
 		}
 
-		if (results.length) {
-			return results;
-		} else {
-			return [];
-		}
+		return results;
 	}
 }
 
 decorate(ListStore, {
-	page: observable,
-	setPage: action,
+	pageRange: observable,
+	setPageRange: action,
 	locale: observable,
 	setLocale: action,
 	searchPhrase: observable,
 	setSearchPhrase: action,
-	pagination: computed,
-	list: computed,
+	list: computed
 });

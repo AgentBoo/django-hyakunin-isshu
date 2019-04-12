@@ -1,120 +1,112 @@
-import { configure, decorate, observable, computed, action, autorun, when } from "mobx";
+import fetch from "cross-fetch";
+import { configure, decorate, observable, action, when } from "mobx";
 import { fromPromise } from "mobx-utils";
-import { getURL, fetchData } from "./../utils/fetch";
+import { getURL } from "./../utils/fetch";
 
-// don't allow state modifications using anything but actions
-// configure({ enforceActions: "observed" })
+// only allow state modifications by using actions
+configure({ enforceActions: "observed" });
 
-const data = [
-	{
-		id: 1, 
-		jap: {
-			author: 'Jap 1',
-			verses: 'Jap 1' 
-		},
-		rom: {
-			author: 'Rom 1',
-			verses: 'Rom 1'
-		},
-		eng: {
-			author: 'Eng 1',
-			verses: 'Eng 1'
+export class DataStore {
+	constructor() {
+		when(
+			() => this.init && this.status == "success",
+			() => this.doneInit()
+		);
+	}
+
+	// observable
+
+	collection = [];
+	status = "initializing";
+	init = true;
+
+	// actions
+
+	setCollection(data) {
+		this.collection = data;
+	}
+
+	setStatus(status) {
+		this.status = status;
+	}
+
+	doneInit() {
+		this.init = false;
+	}
+
+	retrieve(urlKey, payload) {
+		return this.fetch(urlKey, payload).then(
+			response => {
+				this.setStatus("success");
+				return this.transformResponse(response);
+			},
+			rejection => {
+				this.setStatus("rejected");
+				return rejection.message || "Network response was not OK";
+			}
+		);
+	}
+
+	extendPoem(data, id) {
+		/* 
+		There are exactly 100 unique poems in the OHI anthology. 
+		Each poem is identified by its numeral (ordinal number). 
+		This is convenient because items in the data collection[] 
+		can now be accessed by their index and don't need to be looked up.
+		*/
+
+		const poemIndex = id - 1;
+		this.collection[poemIndex] = { ...this.collection[poemIndex], ...data };
+	}
+
+	// helpers
+
+	fetch(urlKey, payload) {
+		this.setStatus("pending");
+
+		const url = getURL(urlKey, payload);
+		const request = fromPromise(fetch(url));
+
+		return request;
+	}
+
+	transformResponse(response) {
+		/* 
+		Promises returned from fetch() are rejected on network 
+		or CORS errors. Promises won’t reject on HTTP error 
+		statuses. By default, fetch() won't send or receive any 
+		cookies from the server, see 
+		https://developer.mozilla.org/en-US/docs/Web/API/Fetch_API/Using_Fetch
+
+		See list of Django REST HTTP response statuses, here
+		http://www.django-responset-framework.org/api-guide/status-codes/ 
+	  	*/
+
+		// Django rest api returns a JSON response for 200 and 201 statuses
+		if (199 < response.status && response.status <= 201) {
+			return response.json();
 		}
-	},
-	{
-		id: 2, 
-		jap: {
-			author: 'Jap 2',
-			verses: 'Jap 2' 
-		},
-		rom: {
-			author: 'Rom 2',
-			verses: 'Rom 2'
-		},
-		eng: {
-			author: 'Eng 2',
-			verses: 'Eng 2'
+
+		// Django rest api returns no content for 201 - 299 statuses
+		if (201 < response.status && response.status <= 299) {
+			return Promise.resolve(null);
 		}
-	},
-	{
-		id: 3, 
-		jap: {
-			author: 'Jap 3',
-			verses: 'Jap 3' 
-		},
-		rom: {
-			author: 'Rom 3',
-			verses: 'Rom 3'
-		},
-		eng: {
-			author: 'Eng 3',
-			verses: 'Eng 3'
-		}
-	},
-	{
-		id: 4, 
-		jap: {
-			author: 'Jap 4',
-			verses: 'Jap 4' 
-		},
-		rom: {
-			author: 'Rom 4',
-			verses: 'Rom 4'
-		},
-		eng: {
-			author: 'Eng 4',
-			verses: 'Eng 4'
+
+		// Django rest api returns a JSON response for HTTP_400_BAD_REQUEST,
+		// but I don't really care for a 400
+		if (299 < response.status) {
+			throw new Error(`HTTP ${response.status}: ${response.statusText}`);
 		}
 	}
-]
-
-
-export class DataStore{
-	constructor(){
-		when(() => this.data.length, () => this.setData(this.collection))
-	}
-
-	data = []
-	fetched = 'pending'
-
-	// 
-	// https://github.com/mobxjs/mobx/issues/872
-
-	get collection(){
-		if(this.data.length){
-			return this.data
-		} else {
-			return this.fetch.case({
-				pending: () => this.data,
-				rejected: err => this.data,
-				fulfilled: data => {
-					this.setData(data)
-					return this.data
-				}
-			})
-		}
-	}
-
-	get fetch(){
-		return fromPromise(Promise.resolve(data))
-	}
-
-	setData(data){
-		this.data = data
-	}
-
-	/*
-	fetch(){
-		const url = getURL('poems')
-		const next = resjson => action(() => this.collection = resjson)() 
-		const success = success => action(() => this.isLoading = !success)()
-		const failure = error => action(() => this.isLoading = !error)()
-		return fetchData(url, {}, next, success, failure)
-	}
-	*/
 }
 
 decorate(DataStore, {
-	collection: computed,
-	fetch: computed,
+	collection: observable,
+	setCollection: action,
+	status: observable,
+	setStatus: action,
+	init: observable,
+	doneInit: action,
+	retrieve: action,
+	extendPoem: action
 });

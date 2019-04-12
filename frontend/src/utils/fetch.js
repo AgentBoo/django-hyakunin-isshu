@@ -26,35 +26,35 @@ function fetchData(url, options, next, success, failure) {
 
 	List of Django REST API HTTP response statuses can be found here: 
 	http://www.django-rest-framework.org/api-guide/status-codes/ 
-  */
+    */
 
 	const generic = "Something went wrong";
-	const rejection = "Network response was not ok";
+	const networkProblem = "Network response was not OK";
 
 	return fetch(url, options)
-		.then(response => response, reject => failure(reject.message || rejection))
-		.then(response => {
-			// Django REST API returns a JSON response for 200 and 201 statuses
-			if (199 < response.status && response.status <= 201) {
-				response.json().then(resjson => next(resjson, options.body));
-				return Promise.resolve(response.statusText);
-			}
+		.then(
+			response => {
+				// Django REST API returns a JSON response for 200 and 201 statuses
+				if (199 < response.status && response.status <= 201) {
+					return response.json()
+				}
 
-			// Django REST API returns no content for 201 - 299 statuses
-			if (201 < response.status && response.status <= 299) {
-				next(null, options.body);
-				return Promise.resolve(response.statusText);
-			}
+				// Django REST API returns no content for 201 - 299 statuses
+				if (201 < response.status && response.status <= 299) {
+					return null 
+				}
 
-			// Django REST API returns a JSON response for HTTP_400_BAD_REQUEST,
-			// but I don't really care for a 400
-			if (299 < response.status) {
-				failure(response.statusText);
-				throw new Error(`HTTP ${response.status}: ${response.statusText}`);
-			}
-		})
-		.then(status => success(status))
-		.catch(error => console.error(error.message || generic));
+				// Django REST API returns a JSON response for HTTP_400_BAD_REQUEST,
+				// but I don't really care for a 400
+				if (299 < response.status) {
+					throw new Error(`HTTP ${response.status}: ${response.statusText}`);
+				}
+			},
+			rejection => failure(rejection.message || networkProblem)
+		)
+		.then(result => next(result, options.body))
+		.then(result => success('success'))
+		.catch(error => failure(error.message || generic));
 }
 
 export { isValidURL, getURL, fetchData };

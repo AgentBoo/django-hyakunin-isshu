@@ -1,31 +1,44 @@
-import { configure, decorate, observable, computed, action, autorun } from "mobx";
+import { configure, decorate, observable, computed, action } from "mobx";
 
-// don't allow state modifications using anything but actions
-configure({ enforceActions: "observed" })
+// only allow state modifications by using actions
+configure({ enforceActions: "observed" });
 
-export class DetailStore{
-	constructor(store){
-		this.store = store 
+export class DetailStore {
+	constructor(store) {
+		this.store = store;
 	}
 
-	selected = 0
-	
-	setSelected(selectedPoemIndex){
-		this.selected = selectedPoemIndex
+	// observable
+
+	selected = null;
+
+	// actions
+
+	select(id) {
+		const poemIndex = id - 1;
+		this.selected = poemIndex;
 	}
 
-	get detail(){
-		return this.store.data.collection[this.selected]
+	// computed
+
+	get poemExists() {
+		return this.selected && this.store.data.collection.length;
 	}
 
-	get complement(){
-		return null
+	get poem() {
+		const poems = this.store.data.collection;
+
+		if (this.poemExists) {
+			return poems[this.selected];
+		} else {
+			return {};
+		}
 	}
 }
 
 decorate(DetailStore, {
 	selected: observable,
-	setSelected: action,
-	detail: computed,
-	complement: computed 
-})
+	select: action,
+	poemExists: computed,
+	poem: computed
+});

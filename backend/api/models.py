@@ -18,7 +18,7 @@ class Source(models.Model):
 
 class Poem(models.Model):
 	source = models.ForeignKey(Source, related_name='poems', blank=False, null=True, on_delete=models.SET_NULL)
-	numeral = models.IntegerField(blank=False, null=True)
+	numeral = models.IntegerField(blank=False, null=True) # numbering starts at 1 
 	author = models.CharField(max_length=64, blank=False, default='n/a')
 	verses = ArrayField(models.CharField(max_length=100, blank=True, default=''), size=5, null=True)
 	romanized_author = models.CharField(max_length=64, blank=False, default='n/a')

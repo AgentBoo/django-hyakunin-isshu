@@ -1,3 +1,4 @@
+from django.http import Http404
 from rest_framework import generics 
 from .models import Poem
 from .serializers import PoemSerializer, ComplementSerializer
@@ -18,3 +19,7 @@ class PoemList(generics.ListAPIView):
 class PoemDetail(generics.RetrieveAPIView):
 	queryset = Poem.objects.all()
 	serializer_class = ComplementSerializer
+	# both lookup_url_kwarg and lookup_field must be set 
+	# https://www.django-rest-framework.org/api-guide/generic-views/#attributes
+	lookup_url_kwarg = 'pk'
+	lookup_field = 'numeral'

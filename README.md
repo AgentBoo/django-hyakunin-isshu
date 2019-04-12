@@ -144,6 +144,19 @@ The local development server runs a separate process for the auto-reloader.
 https://stackoverflow.com/a/28490054
 
 <br>
+ 
+**React Context**
+
+Without a separate context provider component, class components should use context through Context.Consumer because using `static contextType` creates a circular dependency, making `this.context` always undefined in children (that is, if you insist on setting up the context provider and router/routes in the same file)
+
+https://github.com/facebook/react/issues/13969#issuecomment-474373021
+
+<br>
+
+**Async dependencies between values in mobx**
+// https://github.com/mobxjs/mobx/issues/872
+
+<br>
 
 **Deployment**
 
