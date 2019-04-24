@@ -18,7 +18,7 @@ export const SiteTitle = styled.h3`
 	}
 
 	& a:hover{
-		color: black;
+		color: ${styles.secondary};
 		transition: color ease-in-out 0.5s;
 	}
 `;
