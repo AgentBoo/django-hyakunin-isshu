@@ -8,24 +8,27 @@ const API_ROOT = process.env.NODE_ENV === "production" ? heroku : local;
 // ENDPOINTS
 
 export const endpoints = {
-	'poems'	: () => API_ROOT + "/poems/",
-	'poem' 	: ({id}) => API_ROOT + `/poems/${id}/`
+	poems: () => API_ROOT + "/poems/",
+	poem: ({ id }) => API_ROOT + `/poems/${id}/`
 };
 
-// LANGUAGES 
+// LANGUAGES
 
 const languageMap = new Map([
-	['jap', 'Japanese'],
-	['rom', 'Romaji'],
-	['eng', 'English']
-])
+	["jap", "Japanese"],
+	["rom", "Romaji"],
+	["eng", "English"]
+]);
 
-export const languages = [...languageMap]
+export const languages = [...languageMap];
 
-// PAGINATION 
+// PAGINATION
 
-export const poemsPerPage = 8 
+export const poemsPerPage = 10;
 
 // https://stackoverflow.com/a/33352604
-export const pagination = [...Array(Math.ceil(100/poemsPerPage)).keys()]
+export const pagination = [...Array(Math.ceil(100 / poemsPerPage)).keys()];
 
+// MESSAGES
+
+export const rejection = "Network response was not OK";
