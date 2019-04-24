@@ -1,26 +1,26 @@
 import { configure, decorate, observable, computed, action } from "mobx";
-import { poemsPerPage } from "./../config/constants";
+import { pagination, poemsPerPage } from "./../config/constants";
 
 // don't allow state modifications using anything but actions
 configure({ enforceActions: "observed" });
 
 export class ListStore {
 	constructor(store) {
-		this.store = store;
+		this.datastore = store.dataStore;
 	}
 
 	// observable
 
-	pageRange = [0, poemsPerPage];
+	page = 0
 	locale = "jap";
 	searchPhrase = "";
 
 	// actions
 
-	setPageRange(pageNumber) {
-		const pageStart = pageNumber * poemsPerPage;
-		const pageEnd = pageStart + poemsPerPage;
-		this.pageRange = [pageStart, pageEnd];
+	setPage(pageNumber) {
+		if(0 <= pageNumber && pageNumber < pagination.length){
+			this.page = pageNumber
+		}
 	}
 
 	setLocale(locale) {
@@ -32,6 +32,12 @@ export class ListStore {
 	}
 
 	// computed
+
+	get pageRange() {
+		const pageStart = this.page * poemsPerPage;
+		const pageEnd = pageStart + poemsPerPage;
+		return [pageStart, pageEnd];
+	}
 
 	get list() {
 		if (this.isSearchingPhrases) {
@@ -48,19 +54,17 @@ export class ListStore {
 	}
 
 	get pageResults() {
-		let poems = this.store.data.collection;
-
-		if (poems.length) {
-			const [pageStart, pageEnd] = this.pageRange;
-			poems = poems.slice(pageStart, pageEnd);
-			return poems.map(poem => poem[this.locale]);
+		if (this.datastore.isEmpty) {
+			return []
 		} else {
-			return [];
+			const [pageStart, pageEnd] = this.pageRange;
+			const poems = this.datastore.collection.slice(pageStart, pageEnd);
+			return poems.map(poem => poem[this.locale]);
 		}
 	}
 
 	get searchResults() {
-		const poems = this.store.data.collection;
+		const poems = this.datastore.collection;
 
 		// don't use /g flag for the regex
 		// https://stackoverflow.com/a/1520853
@@ -84,11 +88,12 @@ export class ListStore {
 }
 
 decorate(ListStore, {
-	pageRange: observable,
-	setPageRange: action,
+	page: observable,
+	setPage: action,
 	locale: observable,
 	setLocale: action,
 	searchPhrase: observable,
 	setSearchPhrase: action,
+	pageRange: computed,
 	list: computed
 });

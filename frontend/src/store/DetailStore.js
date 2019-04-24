@@ -5,7 +5,7 @@ configure({ enforceActions: "observed" });
 
 export class DetailStore {
 	constructor(store) {
-		this.store = store;
+		this.datastore = store.dataStore;
 	}
 
 	// observable
@@ -22,16 +22,16 @@ export class DetailStore {
 	// computed
 
 	get poemExists() {
-		return this.selected && this.store.data.collection.length;
+		return this.selected !== null && !this.datastore.isEmpty;
 	}
 
 	get poem() {
-		const poems = this.store.data.collection;
+		const poems = this.datastore.collection;
 
 		if (this.poemExists) {
 			return poems[this.selected];
 		} else {
-			return {};
+			return null;
 		}
 	}
 }
@@ -39,6 +39,5 @@ export class DetailStore {
 decorate(DetailStore, {
 	selected: observable,
 	select: action,
-	poemExists: computed,
 	poem: computed
 });

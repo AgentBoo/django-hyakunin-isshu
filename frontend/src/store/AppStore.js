@@ -4,8 +4,8 @@ import { DetailStore } from "./DetailStore";
 
 export class AppStore {
 	constructor() {
-		this.data = new DataStore(this);
-		this.list = new ListStore(this);
-		this.detail = new DetailStore(this);
+		this.dataStore = new DataStore(this);
+		this.listStore = new ListStore(this);
+		this.detailStore = new DetailStore(this);
 	}
 }

@@ -1,7 +1,8 @@
 import fetch from "cross-fetch";
-import { configure, decorate, observable, action, when } from "mobx";
+import { configure, decorate, observable, computed, action, when } from "mobx";
 import { fromPromise } from "mobx-utils";
 import { getURL } from "./../utils/fetch";
+import { rejection } from "./../config/constants";
 
 // only allow state modifications by using actions
 configure({ enforceActions: "observed" });
@@ -9,9 +10,14 @@ configure({ enforceActions: "observed" });
 export class DataStore {
 	constructor() {
 		when(
-			() => this.init && this.status == "success",
+			() => this.init && this.status === "success",
 			() => this.doneInit()
 		);
+
+		when(
+			() => this.init && this.status === "rejected",
+			() => this.doneInit()
+		)
 	}
 
 	// observable
@@ -35,16 +41,22 @@ export class DataStore {
 	}
 
 	retrieve(urlKey, payload) {
-		return this.fetch(urlKey, payload).then(
-			response => {
-				this.setStatus("success");
-				return this.transformResponse(response);
-			},
-			rejection => {
+		return this.fetch(urlKey, payload)
+			.then(
+				response => {
+					this.setStatus("success");
+					return this.transformResponse(response);
+				},
+				rejection => {
+					this.setStatus("rejected");
+					console.error(rejection.message || rejection);
+					return [];
+				}
+			)
+			.catch(error => {
 				this.setStatus("rejected");
-				return rejection.message || "Network response was not OK";
-			}
-		);
+				console.error(error || rejection);
+			});
 	}
 
 	extendPoem(data, id) {
@@ -57,6 +69,12 @@ export class DataStore {
 
 		const poemIndex = id - 1;
 		this.collection[poemIndex] = { ...this.collection[poemIndex], ...data };
+	}
+
+	// computed 
+
+	get isEmpty(){
+		return this.collection > 0
 	}
 
 	// helpers
@@ -108,5 +126,6 @@ decorate(DataStore, {
 	init: observable,
 	doneInit: action,
 	retrieve: action,
-	extendPoem: action
+	extendPoem: action,
+	isEmpty: computed
 });
