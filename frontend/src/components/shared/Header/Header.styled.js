@@ -12,12 +12,12 @@ export const SiteTitle = styled.h3`
 	font-size: 0.8em;
 	max-width: 50px;
 	text-transform: lowercase;
-	
-	& a{
+
+	& a {
 		color: inherit;
 	}
 
-	& a:hover{
+	& a:hover {
 		color: ${styles.secondary};
 		transition: color ease-in-out 0.5s;
 	}
@@ -30,8 +30,7 @@ export const Panel = styled.section`
 	justify-content: space-between;
 	width: 100%;
 
-	@media screen and (max-width: 769px){
-    justify-content: flex-end;
-  }
-`
- 
+	@media screen and (max-width: 769px) {
+		justify-content: flex-end;
+	}
+`;
