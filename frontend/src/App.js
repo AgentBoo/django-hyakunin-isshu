@@ -2,17 +2,16 @@ import React, { Component } from "react";
 import { Provider } from "mobx-react";
 import { AppStore } from "./store/AppStore";
 import { BrowserRouter as Router, Switch, Route } from "react-router-dom";
-import { Splash } from "./components/toolbox/Splash";
-import { List } from "./components/List";
-import { Detail } from "./components/Detail";
-import { NotFound } from "./components/NotFound";
+import { Splash } from "./components/shared";
+import { List, Detail, NotFound } from "./components/pages";
 
 export const store = new AppStore();
 
 class App extends Component {
 	componentDidMount() {
-		store.data.retrieve("poems").then(resjson => 
-			store.data.setCollection(resjson));
+		store.dataStore.retrieve("poems").then(resjson => 
+			store.dataStore.setCollection(resjson)
+		);
 	}
 
 	render() {
