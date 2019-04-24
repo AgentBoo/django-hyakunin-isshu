@@ -7,7 +7,7 @@ export const StyledHeader = styled.header`
 `;
 
 export const SiteTitle = styled.h3`
-	color: ${styles.primary};
+	color: ${styles.base.primary};
 	display: inline-block;
 	font-size: 0.8em;
 	max-width: 50px;
@@ -18,7 +18,7 @@ export const SiteTitle = styled.h3`
 	}
 
 	& a:hover {
-		color: ${styles.secondary};
+		color: ${styles.light.primary};
 		transition: color ease-in-out 0.5s;
 	}
 `;
