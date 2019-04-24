@@ -13,9 +13,11 @@ class MediaSerializer(serializers.ModelSerializer):
 
 
 class TranslationSerializer(serializers.ModelSerializer):
+	# Serialize lists using ListField 
+	# https://www.django-rest-framework.org/api-guide/fields/
 	numeral = serializers.IntegerField(source='poem.numeral')
 	author = serializers.CharField(source='translated_author')
-	verses = serializers.CharField(source='translated_verses')
+	verses = serializers.ListField(source='translated_verses', child=serializers.CharField())
 
 	class Meta:
 		model = Translation 
