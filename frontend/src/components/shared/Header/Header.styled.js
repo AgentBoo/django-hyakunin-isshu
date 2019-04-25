@@ -2,35 +2,34 @@ import styled from "styled-components";
 import styles from "./../../../config/styles";
 
 export const StyledHeader = styled.header`
-	display: block;
 	width: 100%;
 `;
 
 export const SiteTitle = styled.h3`
-	color: ${styles.base.primary};
+	color: ${styles.base.accent};
 	display: inline-block;
-	font-size: 0.8em;
+	font-size: ${styles.typo.sm}em;
 	max-width: 50px;
 	text-transform: lowercase;
 
 	& a {
 		color: inherit;
-	}
 
-	& a:hover {
-		color: ${styles.light.primary};
-		transition: color ease-in-out 0.5s;
+		&:hover {
+			color: ${styles.light.primary};
+		}
 	}
 `;
 
-export const Panel = styled.section`
+export const StyledPanel = styled.section`
 	display: flex;
 	align-items: baseline;
 	flex-flow: row wrap;
 	justify-content: space-between;
-	width: 100%;
 
-	@media screen and (max-width: 769px) {
-		justify-content: flex-end;
+	@media screen and (max-width: ${styles.breakpoint.sm}px) {
+		& > * {
+			width: 100%;
+		}
 	}
 `;
