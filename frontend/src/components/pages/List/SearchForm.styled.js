@@ -3,30 +3,37 @@ import styles from "./../../../config/styles";
 import { Button } from "./../../shared/Button.component";
 
 export const StyledForm = styled.form`
-	@media screen and (max-width: ${styles.breakpoint.sm}) {
+	@media screen and (max-width: ${styles.breakpoint.sm}px) {
 		order: 2;
-		width: 100%;
 	}
 `;
 
 export const Label = styled.p`
-	color: ${styles.light.tertiary};
+	color: ${styles.silver};
+
+	@media screen and (max-width: ${styles.breakpoint.xs}px) {
+		font-size: ${styles.typo.sm};
+	}
 `;
 
 export const Group = styled.div`
 	display: flex;
 	align-items: center;
-`
+`;
 
 export const ClearButton = styled(Button)`
-	background: ${styles.base.tertiary};
+	background: transparent;
 	border-radius: 50%;
-	font-size: 0.8em;
-	height: 3ch;
-	margin: 0 2em;
-	width: 3ch;
-
-	&:hover{
-		background: ${styles.light.tertiary};
+	color: inherit;
+	display: flex;
+	align-items: center;
+	justify-content: center;
+	height: 1.7em;
+	margin-left: 1em;
+	width: 1.7em;
+ 
+	&:hover {
+		background: ${styles.silver};
+		opacity: 0.8;
 	}
 `;
