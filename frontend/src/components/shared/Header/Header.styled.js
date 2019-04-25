@@ -8,7 +8,7 @@ export const StyledHeader = styled.header`
 export const SiteTitle = styled.h3`
 	color: ${styles.base.accent};
 	display: inline-block;
-	font-size: ${styles.typo.sm}em;
+	font-size: ${styles.typo.sm};
 	max-width: 50px;
 	text-transform: lowercase;
 
@@ -16,7 +16,7 @@ export const SiteTitle = styled.h3`
 		color: inherit;
 
 		&:hover {
-			color: ${styles.light.primary};
+			color: ${styles.light.accent};
 		}
 	}
 `;
