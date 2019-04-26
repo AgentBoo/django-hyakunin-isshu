@@ -7,13 +7,18 @@ export const SplashContainer = styled.div`
 	align-items: center;
 	flex-flow: column nowrap;
 	justify-content: center;
-	height: 100vh;
 	opacity: 0.9;
+	padding: 10vw;
 	position: fixed;
-	width: 100vw;
+	top: 0;
+	right: 0;
+	bottom: 0;
+	left: 0;
 `;
 
 export const SplashTitle = styled.h1`
+	font-family: 'Roboto', sans-serif;
+	margin: 2.4em 0;
 	z-index: 2000;
 `;
 
