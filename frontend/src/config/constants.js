@@ -8,8 +8,8 @@ const API_ROOT = process.env.NODE_ENV === "production" ? heroku : local;
 // ENDPOINTS
 
 export const endpoints = {
-	poems: () => API_ROOT + "/poems/",
-	poem: ({ id }) => API_ROOT + `/poems/${id}/`
+	poems	: () => API_ROOT + `/poems/`,
+	poem 	: ({ id }) => API_ROOT + `/poems/${id}/`
 };
 
 // LANGUAGES
