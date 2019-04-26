@@ -26,7 +26,7 @@ function fetchData(url, options, next, success, failure) {
 
 	List of Django REST API HTTP response statuses can be found here: 
 	http://www.django-rest-framework.org/api-guide/status-codes/ 
-    */
+  */
 
 	const generic = "Something went wrong";
 	const networkProblem = "Network response was not OK";
