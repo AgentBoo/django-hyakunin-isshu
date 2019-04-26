@@ -7,19 +7,19 @@
  * styled component with createGlobalStyle.
  */
  
-html{
-	padding: 1em 5vw;
-}
-
 html,
 body{
-	background: red;
+	background: #fcfcfc;
 	box-sizing: border-box;
 	font-family: "Noto Serif JP", serif;
 	font-weight: 300;
 	height: 100%;
 	min-width: 325px;
 	width: 100%;
+}
+
+body{
+	padding: 1em 5vw 5em;
 }
 
 a[href]:hover{

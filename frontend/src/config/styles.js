@@ -1,21 +1,21 @@
 const custom = {
 	light: {
-		primary: "grey",
-		secondary: "green",
+		primary: "#514f59",
+		secondary: "#7d7c7a",
 		accent: "#fb6b6e"
 	},
 	base: {
-		primary: "black",
-		secondary: "blue",
+		primary: "#2d2c31",
+		secondary: "#5b5b5b",
 		accent: "#fb4b4e"
 	},
 	typo: {
 		xs: '0.6em',
 		sm: '0.8em'
 	},
-	porcelain: "#fdfdfd",
-	silver: "#d6efff",
-	raisin: "#222",
+	porcelain: "#fcfcfc",
+	silver: "#8daa9d",
+	raisin: "#2d2c31",
 	breakpoint: {
 		xs: 600,
 		sm: 960,
