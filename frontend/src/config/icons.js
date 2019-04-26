@@ -4,7 +4,8 @@ import {
 	faLongArrowAltLeft,
 	faChevronRight,
 	faChevronLeft,
-	faTimes
+	faTimes,
+	faCircle
 } from "@fortawesome/free-solid-svg-icons";
 
 export function initIconLibrary() {
@@ -13,6 +14,7 @@ export function initIconLibrary() {
 		faLongArrowAltRight,
 		faChevronRight,
 		faChevronLeft,
-		faTimes
+		faTimes,
+		faCircle
 	);
 }
