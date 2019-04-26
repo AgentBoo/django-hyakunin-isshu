@@ -23,7 +23,7 @@ let ResultBar = ({ searchPhrase, pageRange, total }) => (
 				</HelpText>
 			)}
 		</div>
-		<Controls />
+		<Controls label="go"/>
 	</StyledSection>
 );
 

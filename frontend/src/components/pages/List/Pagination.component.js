@@ -6,13 +6,13 @@ import { StyledSection, Pages, PageButton } from "./Pagination.styled";
 let Pagination = () => (
 	<StyledSection>
 		<Controls>
-			{(currentPage, setPage) => (
+			{(currentPage, store) => (
 				<Pages>
 					{pagination.map(pageNum => (
 						<PageButton
 							key={`${pageNum}`}
 							active={pageNum === currentPage}
-							onClick={() => setPage(pageNum)}>
+							onClick={() => store.setPage(pageNum)}>
 							{pageNum}
 						</PageButton>
 					))}

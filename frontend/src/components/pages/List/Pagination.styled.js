@@ -18,14 +18,14 @@ export const Pages = styled.div`
 `;
 
 export const PageButton = styled(Button)`
-	border-bottom: solid 2px ${props => (props.active ? styles.base.primary : "transparent")};
-	color: ${styles.base.primary};
+	border-bottom: solid 2px ${props => (props.active ? styles.base.secondary : "transparent")};
+	color: ${styles.base.secondary};
 	font-size: inherit;
 	font-weight: bold;
 	padding: 2px;
 
 	&:hover {
-		border-color: ${props => (props.active ? styles.base.primary : styles.base.accent)};
+		border-color: ${props => (props.active ? styles.base.secondary : styles.base.accent)};
 		color: ${styles.base.accent};
 	}
 `;
