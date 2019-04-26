@@ -10,12 +10,12 @@ configure({ enforceActions: "observed" });
 export class DataStore {
 	constructor() {
 		when(
-			() => this.init && this.status === "success",
+			() => this.initializing && this.status === "success",
 			() => this.doneInit()
 		);
 
 		when(
-			() => this.init && this.status === "rejected",
+			() => this.initializing && this.status === "rejected",
 			() => this.doneInit()
 		)
 	}
@@ -24,7 +24,7 @@ export class DataStore {
 
 	collection = [];
 	status = "initializing";
-	init = true;
+	initializing = true;
 
 	// actions
 
@@ -37,7 +37,7 @@ export class DataStore {
 	}
 
 	doneInit() {
-		this.init = false;
+		this.initializing = false;
 	}
 
 	retrieve(urlKey, payload) {
@@ -74,7 +74,7 @@ export class DataStore {
 	// computed 
 
 	get isEmpty(){
-		return this.collection > 0
+		return this.collection.length < 1
 	}
 
 	// helpers
@@ -123,7 +123,7 @@ decorate(DataStore, {
 	setCollection: action,
 	status: observable,
 	setStatus: action,
-	init: observable,
+	initializing: observable,
 	doneInit: action,
 	retrieve: action,
 	extendPoem: action,

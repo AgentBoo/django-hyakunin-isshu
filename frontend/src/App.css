@@ -1,80 +1,66 @@
-/* GLOBAL */
-
-.bold{
-	font-weight: 800;
+/**
+ * Global directives and resets
+ *
+ * This app uses styled components instead of 
+ * traditional stylesheets, except for globals.
+ * I didn't see any benefit in creating a universal 
+ * styled component with createGlobalStyle.
+ */
+ 
+html{
+	padding: 1em 5vw;
 }
 
-.flex{
-	display: flex;
-	align-items: center;
-	flex-flow: row wrap;
-}
-
-.card {
-  font-size: calc(10px + 0.3vw);
-  width: 28ch;
-  height: 28ch;
-  background: grey;
-  box-shadow: 0px 10px 30px -5px rgba(0, 0, 0, 0.3);
-  transition: box-shadow 0.5s;
-  will-change: transform;
-  margin-right: 1em;
-}
-
-.card:hover {
-  box-shadow: 0px 30px 100px -10px rgba(0, 0, 0, 0.4);
-  z-index: 1000;
-}
-
+html,
 body{
-	display: flex;
-		align-items: center;
-		flex-flow: column wrap;
-		justify-content: center;
-	padding: 2vh 2vw;
-}
-
-.poems{
-	display: flex;
-	flex-flow: row wrap;
-}
-
-.poems:hover .card{
-	opacity: 0.5;
-	transition: opacity 0.3s;
-}
-
-.poems .card:hover{
-	opacity: 1;
-	transition: opacity 0.3s;
-}
-
-.splash{
-	position: absolute;
-	top: 0;
-	left: 0;
-	bottom: 0;
-	right: 0;
-	background: white;
+	background: red;
+	box-sizing: border-box;
+	font-family: "Noto Serif JP", serif;
+	font-weight: 300;
 	height: 100%;
+	min-width: 325px;
 	width: 100%;
-	color: black;
-	z-index: 1000;
 }
 
-.disabled{
-	color: black;
-	position: absolute;
-	top: 0;
-	left: 0;
-	bottom: 0;
-	right: 0;
-	background: white;
-	height: 100%;
-	width: 100%;
-	z-index: 1000;
+a[href]:hover{
+	transition: color ease-in-out 0.2s;
 }
 
-.original{
-	width: 50px;
+
+button::-moz-focus-inner,
+input::-moz-focus-inner {
+  border: 0;
+  padding: 0;
 }
+
+input{
+	outline: none;
+}
+
+[type="text"]{
+	font-family: "Noto Serif JP", serif;
+}
+
+[type="button"]{
+	cursor: pointer;
+	font-family: "Roboto", sans-serif;
+}
+
+[type="button"]:hover{
+	transition: opacity ease-in-out 0.2s;
+}
+
+p{
+	margin: 0;
+	padding: 0;
+}
+
+*{
+	background: none repeat scroll 0 0 transparent;
+	border: none;
+	border-spacing: 0;
+	margin: 0;
+	padding: 0;
+	text-decoration: none;
+}
+ 
