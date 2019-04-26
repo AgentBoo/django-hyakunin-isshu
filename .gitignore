@@ -12,8 +12,6 @@ env.py
 paths.py 
 secrets.py 
 
-LAB_BOOK.md
-
 # sqlite 
 *.sqlite3
 
