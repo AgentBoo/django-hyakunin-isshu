@@ -1,7 +1,7 @@
 import styled from "styled-components";
 import styles from "./../../../config/styles";
 
-const SplashContainer = styled.div`
+export const SplashContainer = styled.div`
 	background: ${props => props.fullSize ? styles.porcelain : 'transparent'};
 	display: ${props => props.fullSize ? 'flex' : 'none'};
 	align-items: center;
@@ -13,8 +13,8 @@ const SplashContainer = styled.div`
 	width: 100vw;
 `;
 
-const SplashTitle = styled.h1`
+export const SplashTitle = styled.h1`
 	z-index: 2000;
 `;
 
-export { SplashContainer, SplashTitle };
+ 

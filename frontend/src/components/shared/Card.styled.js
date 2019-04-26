@@ -1,8 +1,18 @@
 import styled from "styled-components";
 
-const Card = styled.div`
-	box-shadow: 0px 10px 30px -5px rgba(0, 0, 0, 0.3);
-	transition: box-shadow 0.5s;
+export const Card = styled.div`
+	background: transparent;
+	width: 100%;
 `;
 
-export { Card };
+export const CardHeader = styled.header`
+	background: inherit;
+	margin: 1em 0;
+	width: 100%;
+`
+
+export const CardFooter = styled.footer`
+	background: inherit;
+	margin: 1em 0;
+	width: 100%;
+`
