@@ -7,6 +7,7 @@ export const StyledSection = styled.section`
 	flex-flow: row wrap;
 	justify-content: space-between;
 	grid-column: main-start/main-end;
+	margin-top: 2em;
 	width: 100%;
 
 	@media screen and (max-width: ${styles.breakpoint.xs}px) {

@@ -21,8 +21,12 @@ export const StyledInput = styled.input`
 
   &:hover,
   &:focus{
-    border-color: ${styles.base.accent};
+    border-color: ${styles.base.secondary};
     transition: border ease-in-out 0.2s;
+  }
+
+  &::placeholder{
+    color: ${styles.base.secondary};
   }
 
   @media screen and (max-width: ${styles.breakpoint.sm}px){
