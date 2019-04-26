@@ -4,10 +4,12 @@ import { Card } from "./../../shared";
 
 export const StyledSection = styled.section`
 	display: grid;
-	grid-auto-flow: row;
-	grid-template-columns: repeat(4, 1fr);
+	align-items: stretch;
+	justify-items: stretch;
+	grid-auto-flow: row; 
+	grid-template-columns: repeat(4, minmax(20ch, 1fr));
 	grid-gap: calc(1em + 1vw);
-	grid-column: main-start/main-end;
+	grid-column: main-start/4;
 	position: relative;
 
 	&:hover ${Card}{
@@ -22,11 +24,12 @@ export const StyledSection = styled.section`
 	}
 	
 	@media screen and (max-width: ${styles.breakpoint.md}px){
-		grid-template-columns: repeat(3, 1fr);
+		grid-column: main-start/main-end;
+		grid-template-columns: repeat(3, minmax(20ch, 1fr));
 	}
 
 	@media screen and (max-width: ${styles.breakpoint.sm}px){
-		grid-template-columns: repeat(2, 1fr);
+		grid-template-columns: repeat(2, minmax(20ch, 1fr));
 	}
 
 	@media screen and (max-width: ${styles.breakpoint.xs}px){
@@ -34,3 +37,16 @@ export const StyledSection = styled.section`
 	}
 }
 `;
+ 
+export const Description = styled.section`
+	display: block;
+	color: ${styles.silver};
+
+	& a{
+		color: ${styles.silver};
+		font-family: 'Roboto', sans-serif;
+		font-size: ${styles.typo.sm};
+		text-transform: uppercase;
+	}
+`;
+
