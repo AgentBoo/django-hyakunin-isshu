@@ -6,4 +6,5 @@ export const Main = styled.main`
 	grid-gap: calc(1em + 1vw);
 	align-items: stretch;
 	justify-items: stretch;
+	margin-bottom: 5em;
 `;

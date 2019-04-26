@@ -19,7 +19,7 @@ export const LocaleButton = styled(Button)`
 	margin-left: calc(1em + 1vw);
 
 	&:hover {
-		color: ${styles.light.primary};
+		color: ${styles.light.secondary};
 	}
 
 	@media screen and (max-width: ${styles.breakpoint.xs}px) {
